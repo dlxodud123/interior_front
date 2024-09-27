@@ -1,0 +1,13 @@
+.login-signup_Btn{
+    width: 140px;
+    height: 35px;
+    background-color: white;
+    border-radius: 20px;
+    color: #3578FF;
+    font-size: 18px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center; /* 가로 중앙 배치 */
+    padding-top: 5px;   /* 패딩 */
+    cursor: pointer;
+}
