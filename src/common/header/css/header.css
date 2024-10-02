@@ -1,4 +1,43 @@
-.login-signup_Btn{
+.header_content{
+    width: 100%;
+    height: 150px;
+    background-color: #3578FF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.header_top{
+    display: flex;
+    padding-top: 10px;
+    height: 80px;
+}
+.header_setting{
+    width: 400px;
+}
+.header_setting_container{
+    width: 40px;
+    display: flex;
+    justify-content: flex-end;
+}
+.header_setting_content{
+    color: #D9E8FF;
+    font-size: 27px;
+    margin-top: 6px;
+}
+.header_title{
+    width: 480px;
+    text-align: center;
+    color: white;
+    margin-top: 6px;
+    font-size: 24px;
+    font-weight: bold;
+}
+.header_login-signup_content{
+    width: 400px;
+    display: flex;
+    justify-content: flex-end;
+}
+.login-signup_btn{
     width: 140px;
     height: 35px;
     background-color: white;
@@ -10,4 +49,131 @@
     justify-content: center; /* 가로 중앙 배치 */
     padding-top: 5px;   /* 패딩 */
     cursor: pointer;
+}
+.header_join_gap{
+    width: 20px;
+}
+.header_friend_gap{
+    width: 20px;
+}
+.header_friend_content{
+    width: 50px;
+}
+.header_friend{
+    color: #D9E8FF;
+    font-size: 27px;
+    margin-top: 6px;
+}
+
+.header_bottom{
+    display: flex;
+}
+.default-btn {
+    width: 620px;
+    border-radius: 20px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    padding-top: 2px;
+}
+.check-btn {
+    background-color: white;
+    color: #3578FF;
+}
+.none-check-btn {
+    background-color: #3578FF;
+    color: white;
+}
+
+
+@media screen and (max-width:600px) {
+    .header_content{
+        height: 90px;
+    } 
+    .header_top{
+        height: 40px;
+        width: 100%;
+    }
+    .header_setting{
+        width: 27%;
+    }
+
+    .header_setting_container{
+        width: 23px;
+    }
+    .header_setting_content{
+        font-size: 15px;
+        margin-top: 9px;
+    }
+    .header_title{
+        width: 56%;
+        font-size: 15px;
+    }
+    .header_login-signup_content{
+        width: 27%;
+    }
+    .login-signup_btn{
+        width: 40%;
+        height: 18px;
+        font-size: 9px;
+        padding-top: 4px;  
+        margin-top: 6px;
+    }
+    .header_join_gap{
+        width: 2%;
+    }
+    .header_friend_gap{
+        width: 2%;
+    }
+    .header_friend_content{
+        width: 16%;
+    }
+    .header_friend{
+        color: #D9E8FF;
+        font-size: 15px;
+        margin-top: 10px;
+    }
+
+    .header_bottom{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+    .default-btn {
+        width: 48%;
+        height: 20px;
+        margin: none;
+        font-size: 11px;
+    }
+}
+@media  screen and (max-width:510px){
+    .header_title{
+        margin-top: 7px;
+        font-size: 14px;
+    }
+}
+@media  screen and (max-width:440px){
+    .header_title{
+        font-size: 13px;
+    }
+}
+@media  screen and (max-width:400px){
+    .header_title{
+        margin-top: 8px;
+        font-size: 12px;
+    }
+}
+@media  screen and (max-width:370px){
+    .header_title{
+        margin-top: 9px;
+        font-size: 11px;
+    }
+}
+@media  screen and (max-width:350px){
+    .header_title{
+        margin-top: 9px;
+        font-size: 10px;
+    }
 }

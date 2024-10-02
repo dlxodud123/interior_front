@@ -5,6 +5,8 @@ import Main_form from './main/js/main_form';
 import Login_form from './login/js/login_form';
 import Signup_form from './signup/js/signup_form';
 
+import Test from './test/test';
+
 // Context 생성
 export const MyContext = createContext();
 
@@ -26,6 +28,8 @@ function App() {
           <Route path='/' element={<Main_form />}></Route>
           <Route path='/login' element={<Login_form />}></Route>
           <Route path='/signup' element={<Signup_form />}></Route>
+          
+          <Route path='/test' element={<Test></Test>}></Route>
         </Routes>
       </div>
     </MyProvider>

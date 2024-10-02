@@ -1,0 +1,206 @@
+.login_container{
+    width: 100%;
+    height: 720px;
+    background-color: #f4f4f4;
+}
+.login_content{
+    width: 1280px;
+    margin: auto;
+}
+.login-email_input-content{
+    width: 1200px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    margin-top: 30px;
+    padding-left: 12px;
+    font-weight: 400;
+}
+.login-password_input-content{
+    width: 1200px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    margin-top: 20px;
+    padding-left: 12px;
+    font-weight: 400;
+}
+.login-password_input-content::placeholder{
+    color: rgba(0,0,0,0.3);
+}
+.login-email_input-content::placeholder{
+    color: rgba(0,0,0,0.3);
+}
+.login_pwd-forget_container{
+    width: 1246px;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 13px;
+}
+.login_forget_content{
+    width: 150px;
+    text-align: right;
+    color: #91929F;
+    font-size: 14px;
+}
+.login-signup_btn_container{
+    margin-top: 50px ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.login_btn{
+    width: 1214px;
+    height: 40px;
+    text-align: center;
+    background-color: #3578FF;
+    border: none;
+    border-radius: 10px;
+    color: white;
+}
+.login-account_btn{
+    text-align: center;
+    margin-top: 13px;
+}
+.login_or_line_container{
+    margin-top: 250px;
+    height: 20px;
+}
+.login_or_line_content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.login_or_line{
+    width: 590px;
+    margin-top: 10px;
+    height: 1px;
+    background-color: rgba(0,0,0,0.2);
+}
+.login_or{
+    width: 33px;
+    margin-top: 6px;
+    text-align: center;
+    font-size: 13px;
+    color: rgba(0,0,0,0.4);
+}
+.login_google-kakao_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+.login_google_content{
+    width: 1213px;
+    height: 40px;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+}
+.login_google-kakao_img_content{
+    margin-top: 11px;
+    width: 25px;
+}
+.login_google_img{
+    width: 20px;
+}
+.login_google-kakao_text{
+    font-size: 13px;
+    color: rgba(0,0,0,0.7);
+    margin-top: 11px;
+}
+.login_kakao_content{
+    width: 1213px;
+    height: 40px;
+    background-color: #FFE500;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+}
+.login_kakao_img{
+    width: 22px;
+    background-color: #FFE500;
+}
+
+
+@media screen and (max-width:600px) {
+    .login_container{
+        height: 520px;
+    }
+    .login_content{
+        width: 100%;
+    }
+    .login-email_input-content{
+        width: 85%;
+        height: 30px;
+        padding: none;
+        font-size: 11px;
+    }
+    .login-password_input-content{
+        width: 85%;
+        height: 30px;
+        font-size: 11px;
+    }
+    .login_pwd-forget_container{
+        width: 100%;
+    }
+    .login_forget_content{
+        width: 60%;
+        font-size: 11px;
+    }
+    .login_pwd-forget_container_gap{
+        width: 6.5%;
+    }
+    .login-signup_btn_container{
+        margin-top: 40px;
+    }
+    .login_btn{
+        width: 87%;
+        height: 32px;
+    }
+    .login-account_btn{
+        font-size: 11px;
+    }
+    
+    .login_or_line_container{
+        margin-top: 150px;
+    }
+    .login_or_line_content{
+        width: 100%;
+    }
+    .login_or_line{
+        width: 42%;
+    }
+    .login_or{
+        width: 3%;
+        margin-top: 8px;
+        font-size: 8px;
+    }
+    .login_google-kakao_container{
+        width: 100%;
+        margin-top: 10px;
+    }
+    .login_google_content{
+        width: 87%;
+        height: 32px;
+    }
+    .login_google-kakao_img_content{
+        margin-top: 9px;
+        width: 20px;
+    }
+    .login_google_img{
+        width: 17px;
+    }
+    .login_google-kakao_text{
+        font-size: 11px;
+        margin-top: 9px;
+    }
+    .login_kakao_content{
+        width: 87%;
+        height: 32px;
+    }
+    .login_kakao_img{
+        width: 17px;
+    }
+}

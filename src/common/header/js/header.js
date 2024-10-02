@@ -25,39 +25,39 @@ const Header = () => {
     }, [loginBtn, signupBtn, mainBtn])
 
     return(
-        <header style={{width:"100%", height:"170px", backgroundColor:"#3578FF", display:"flex", flexDirection: "column", alignItems: "center"}}>
-            <div style={{display:"flex", paddingTop:"10px", height:"80px"}}>
-                <div style={{width:"400px"}}>
-                    <div style={{width:"40px", display:"flex", justifyContent:"flex-end"}}>
-                        <RiSettings4Fill style={{color:"#D9E8FF", fontSize:"27px", marginTop:"6px"}} />
+        <header className='header_content'>
+            <div className='header_top'>
+                <div className='header_setting'>
+                    <div className='header_setting_container'>
+                        <RiSettings4Fill className='header_setting_content'/>
                     </div>
                 </div>
-                <div onClick={() => setMainBtn(true)} style={{width:"480px", textAlign:"center", color:"white", marginTop:"6px", fontSize:"24px", fontWeight:"bold", cursor:"pointer"}}>
-                    RandomChat & RandomVideo
+                <div className='header_title'>
+                    <label onClick={() => setMainBtn(true)} style={{cursor:"pointer"}}>Random Chat & Random Video</label>
                 </div>
-                <div style={{width:"400px", display:"flex", justifyContent: "flex-end"}}>
-                    <div onClick={() => setLoginBtn(true)} className='login-signup_Btn' >
+                <div className='header_login-signup_content'>
+                    <div onClick={() => setLoginBtn(true)} className='login-signup_btn' >
                         Login
                     </div>
-                    <div style={{width:"20px"}}></div>
-                    <div onClick={() => setSignupBtn(true)} className='login-signup_Btn' >
+                    <div className='header_join_gap'></div>
+                    <div onClick={() => setSignupBtn(true)} className='login-signup_btn' >
                         SignUp
                     </div>
-                    <div style={{width:"20px"}}></div>
-                    <div style={{width:"50px"}}>
-                        <MdPeople style={{color:"#D9E8FF", fontSize:"27px", marginTop:"6px"}} />
+                    <div className='header_friend_gap'></div>
+                    <div className='header_friend_content'>
+                        <MdPeople className='header_friend'/>
                     </div>
                 </div>
             </div>
-            <div style={{display:"flex"}}>
+            <div className='header_bottom'>
                 <div onClick={() => setCategoryBtn("chat")} 
-                    style={{width:"620px", borderRadius:"20px", height:"30px", backgroundColor: categoryBtn === "chat" ? "white" : "#3578FF", color: categoryBtn === "chat" ? "#3578FF" : "white", marginLeft:"20px", display:"flex", justifyContent:"center", cursor:"pointer"}}>
-                        RandomChat
+                    className={`default-btn ${categoryBtn === "chat" ? "check-btn" : "none-check-btn"}`}>
+                        Random Chat
                 </div>
-                <div style={{width:"20px"}}></div>
+                <div className='header_random_gap'></div>
                 <div onClick={() => setCategoryBtn("video")} 
-                    style={{width:"620px", borderRadius:"20px", height:"30px", backgroundColor: categoryBtn === "video" ? "white" : "#3578FF", color: categoryBtn === "video" ? "#3578FF" : "white", marginRight:"20px", display:"flex", justifyContent:"center", cursor:"pointer"}}>
-                        RandomVideo
+                    className={`default-btn ${categoryBtn === "video" ? "check-btn" : "none-check-btn"}`}>
+                        Random Video
                 </div>
             </div>
         </header>

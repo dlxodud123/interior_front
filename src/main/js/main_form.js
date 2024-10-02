@@ -13,7 +13,7 @@ const Main_form = () => {
             <Header></Header>
             <div className="main_form-content">
                 <Main_video></Main_video>
-                메인 {api}
+                {/* 메인 {api} */}
             </div>
             <Footer className="main_form-footer"></Footer>    
         </div>

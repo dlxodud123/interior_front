@@ -1,0 +1,327 @@
+/* 회원가입 폼 */
+.signup_container{
+    width: 100%;
+    height: 650px;
+    background-color: #f4f4f4;
+}
+.signup_content{
+    width: 1280px;
+    margin: auto;
+}
+
+/* 이메일 입력 폼 */
+.signup_input-email_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.signup_input-email_hold_content{
+    width: 510px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    margin-top: 30px;
+    padding-left: 12px;
+    font-weight: 400;
+}
+.signup_input_verification_code_content{
+    width: 505px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    padding-left: 12px;
+    font-weight: 400;
+    margin: 30px 0 0 10px;
+}
+.signup_verification_code_btn{
+    width: 150px;
+    height: 42px;
+    border-radius: 10px;
+    border: none;
+    background-color: #3578FF;
+    color: white;
+    cursor: pointer;
+    margin-left: 10px;
+}
+.signup_verification_code_none_btn{
+    width: 150px;
+    height: 42px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgba(0,0,0,0.2);
+    color: white;
+    margin-left: 10px;
+}
+.signup_input-email_content{
+    width: 1040px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    margin-top: 30px;
+    padding-left: 12px;
+    font-weight: 400;
+}
+.signup_email_authentication_btn{
+    width: 150px;
+    height: 42px;
+    border-radius: 10px;
+    border: none;
+    background-color: #3578FF;
+    color: white;
+    cursor: pointer;
+    margin-left: 10px;
+}
+.signup_email_authentication_none_btn{
+    width: 150px;
+    height: 42px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgba(0,0,0,0.2);
+    color: white;
+    margin-left: 10px;
+}
+
+/* 유저네임 입력 폼 */
+.signup_input-username_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.signup_input-username_content{
+    width: 1040px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    margin-top: 20px;
+    padding-left: 12px;
+    font-weight: 400;
+}
+.signup_username_duplication_btn{
+    width: 150px;
+    height: 42px;
+    border-radius: 10px;
+    border: none;
+    background-color: #3578FF;
+    color: white;
+    cursor: pointer;
+    margin-left: 10px;
+}
+.signup_username_duplication_none_btn{
+    width: 150px;
+    height: 42px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgba(0,0,0,0.2);
+    color: white;
+    margin-left: 10px;
+}
+
+/* 비밀번호 입력 폼 */
+.signup_input-password_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.signup_input-password_content{
+    width: 1200px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    margin-top: 20px;
+    padding-left: 12px;
+    font-weight: 400;
+}
+
+/* 회원가입 버튼 폼 */
+.signup_btn_container{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.signup_btn{
+    width: 1214px;
+    height: 40px;
+    background-color: #3578FF;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+}
+.signup_none_btn{
+    width: 1214px;
+    height: 40px;
+    background-color: rgba(0,0,0,0.2);
+    border: none;
+    border-radius: 10px;
+    color: white;
+}
+
+/* placeholder */
+.signup_input-email_content::placeholder{
+    color: rgba(0,0,0,0.3);
+}
+.signup_input-username_content::placeholder{
+    color: rgba(0,0,0,0.3);
+}
+.signup_input-password_content::placeholder{
+    color: rgba(0,0,0,0.3);
+}
+.signup_input-email_hold_content::placeholder{
+    color: rgba(0,0,0,0.3);
+}
+.signup_input_verification_code_content::placeholder{
+    color: rgba(0,0,0,0.3);
+}
+
+/* 미디어쿼리 */
+@media screen and (max-width:600px) {
+    /* 회원가입 폼 */
+    .signup_container{
+        height: 440px;
+    }
+    .signup_content{
+        width: 100%;
+    }
+
+    /* 이메일 입력 폼 */
+    .signup_input-email_container{
+        width: 100%;
+    }
+    .signup_input-email_hold_content{
+        width: 33%;
+        height: 30px;
+        font-size: 11px;
+    }
+    /* 미디어 클래스 추가 */
+    .signup_input_verification_code_content{
+        width: 38%; 
+        height: 30px;
+        border: none;
+        border-radius: 10px;
+        padding-left: 12px;
+        font-weight: 400;
+        margin: 30px 0 0 0;
+        font-size: 11px;
+    }
+    .signup_verification_code_btn{
+        width: 15%;
+        height: 32px;
+        margin: 30px 0 0 0;
+        font-size: 9px;
+    }
+    .signup_verification_code_none_btn{
+        width: 15%;
+        height: 32px;
+        margin: 30px 0 0 0;
+        font-size: 9px;
+    }
+    /* 미디어 클래스 추가 */
+    .media_signup_input_email_container{
+        display: flex;
+        justify-content: center;
+        align-items: center;    
+        width: 100%;
+        gap: 2%;
+    }
+    .signup_input-email_content{
+        width: 75%;
+        height: 30px;  
+        font-size: 11px;
+    }
+    .signup_email_authentication_btn{
+        width: 15%;
+        height: 32px;
+        margin: 30px 0 0 0;
+        font-size: 9px;
+    }
+    .signup_email_authentication_none_btn{
+        width: 15%;
+        height: 32px;
+        margin: 30px 0 0 0;
+        font-size: 9px;
+    }
+
+    /* 유저네임 입력 폼 */
+    .signup_input-username_container{
+        width: 100%;
+    }
+    /* 미디어 클래스 추가 */
+    .media_signup_input-username_container{
+        display: flex;
+        justify-content: center;
+        align-items: center;    
+        width: 100%;
+        gap: 2%;
+    }
+    .signup_input-username_content{
+        width: 75%;
+        height: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 11px;
+    }
+    .signup_username_duplication_btn{
+        width: 15%;
+        height: 32px;
+        margin: 20px 0 0 0;
+        font-size: 9px;
+    }
+    .signup_username_duplication_none_btn{
+        width: 15%;
+        height: 32px;
+        margin: 20px 0 0 0;
+        font-size: 9px;
+    }
+
+    /* 비밀번호 입력 폼 */
+    .signup_input-password_container{
+        width: 100%;
+    }
+    .signup_input-password_content{
+        width: 92%;
+        height: 30px;
+        font-size: 11px;
+    }
+
+    /* 회원가입 버튼 폼 */
+    .signup_btn_container{
+        width: 100%;
+        margin-top: 40px;
+    }
+    .signup_btn{
+        width: 94%;
+        height: 32px;
+        font-size: 11px;
+    }
+    .signup_none_btn{
+        width: 94%;
+        height: 32px;
+        font-size: 11px;
+    }
+}
+
+@media screen and (max-width:440px) {
+    /* 이메일 입력 폼 */
+    .signup_email_authentication_btn{
+        font-size: 7px;
+    }
+    .signup_email_authentication_none_btn{
+        font-size: 7px;
+    }
+    .signup_verification_code_btn{
+        font-size: 7px;
+    }
+    .signup_verification_code_none_btn{
+        font-size: 7px;
+    }
+    
+    /* 유저네임 입력 폼 */
+    .signup_username_duplication_btn{
+        font-size: 7px;
+    }
+    .signup_username_duplication_none_btn{
+        font-size: 7px;
+    }
+}
