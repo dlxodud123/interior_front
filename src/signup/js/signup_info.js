@@ -1,8 +1,12 @@
 import './../css/signup_info.css';
+import React, { useContext } from 'react';
+import { MyContext } from '../../App';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Signup_info = () => {
+    const { api } = useContext(MyContext);
+
     const navigate = useNavigate();
 
     let [emailAuthenticationBtn, setEmailAuthenticationBtn] = useState(false);

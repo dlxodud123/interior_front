@@ -97,6 +97,7 @@
     border-radius: 10px;
     display: flex;
     justify-content: center;
+    cursor: pointer;
 }
 .login_google-kakao_img_content{
     margin-top: 11px;
@@ -117,6 +118,7 @@
     border-radius: 10px;
     display: flex;
     justify-content: center;
+    cursor: pointer;
 }
 .login_kakao_img{
     width: 22px;

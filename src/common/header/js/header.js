@@ -1,11 +1,14 @@
 import './../css/header.css';
+import React, { useContext } from 'react';
+import { MyContext } from '../../../App';
 import { RiSettings4Fill } from "react-icons/ri";
 import { MdPeople } from "react-icons/md";
 import { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
 const Header = () => {
-    
+    const { api, googleLogin, setGoogleLogin, kakaoLogin, setKakaoLogin } = useContext(MyContext);
+
     let [categoryBtn, setCategoryBtn] = useState("chat");
     let [loginBtn, setLoginBtn] = useState(false);
     let [signupBtn, setSignupBtn] = useState(false);
