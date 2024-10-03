@@ -6,8 +6,8 @@ import Main_video from "./main_video";
 import Footer from "../../common/footer/js/footer";
 
 const Main_form = () => {
-    const { api, googleLogin, setGoogleLogin, kakaoLogin, setKakaoLogin  } = useContext(MyContext);
-    console.log(googleLogin)
+    const { api } = useContext(MyContext);
+
     return(
         <div className="main_form-container">
             <Header></Header>

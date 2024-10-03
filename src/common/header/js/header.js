@@ -14,6 +14,21 @@ const Header = () => {
     let [signupBtn, setSignupBtn] = useState(false);
     let [mainBtn, setMainBtn] = useState(false);
 
+    useEffect(() => {
+        console.log("구글 로그인 확인용: ", googleLogin);
+        console.log("카카오톡 로그인 확인용: ", kakaoLogin);
+    }, [googleLogin, kakaoLogin])
+
+    const handelLogout = () => {
+        if (googleLogin) {
+            setGoogleLogin(false);
+            navigate('/');
+        }else if (kakaoLogin) {
+            setKakaoLogin(false);
+            navigate('/');
+        }
+    }
+
     const navigate = useNavigate();
     useEffect(() => {
         if(loginBtn) {
@@ -39,9 +54,19 @@ const Header = () => {
                     <label onClick={() => setMainBtn(true)} style={{cursor:"pointer"}}>Random Chat & Random Video</label>
                 </div>
                 <div className='header_login-signup_content'>
-                    <div onClick={() => setLoginBtn(true)} className='login-signup_btn' >
+                    {
+                        googleLogin || kakaoLogin ? 
+                        <div onClick={() => handelLogout()} className='login-signup_btn' >
+                            Logout
+                        </div>
+                        :
+                        <div onClick={() => setLoginBtn(true)} className='login-signup_btn' >
+                            Login
+                        </div>
+                    }
+                    {/* <div onClick={() => setLoginBtn(true)} className='login-signup_btn' >
                         Login
-                    </div>
+                    </div> */}
                     <div className='header_join_gap'></div>
                     <div onClick={() => setSignupBtn(true)} className='login-signup_btn' >
                         SignUp

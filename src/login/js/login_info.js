@@ -5,7 +5,7 @@ import { Children, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Login_info = () => {
-    const { api, googleLogin, setGoogleLogin, kakaoLogin, setKakaoLogin } = useContext(MyContext);
+    const { api, setKakaoLogin } = useContext(MyContext);
 
     let [signupBtn, setSignupBtn] = useState(false);
     
@@ -18,7 +18,7 @@ const Login_info = () => {
         window.location.href = googleAuthUrl; // Google 로그인 페이지로 리다이렉트
     };
     
-    //   카카오톡 로그인
+    // 카카오톡 로그인
     useEffect(() => {
         if (!window.Kakao.isInitialized()) {
           window.Kakao.init('b2e7ab243f5aa2e4ed242b580bb2a646');  // 발급받은 JavaScript 키
@@ -38,8 +38,9 @@ const Login_info = () => {
 
             // 이메일 정보 확인 및 콘솔 출력
             if (kakaoAccount.has_email) {
-                console.log('사용자 이메일: ', kakaoAccount.email);
-                console.log('사용자 이름: ', kakaoAccount.profile.nickname)
+                console.log('사용자 이메일: ', kakaoAccount.email); 
+                console.log('사용자 이름: ', kakaoAccount.profile.nickname);
+                setKakaoLogin(true); // 카카오톡 로그인 확인
                 navigate("/")
             } else {
                 console.log('이메일 제공에 동의하지 않음');

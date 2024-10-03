@@ -6,7 +6,7 @@ import Signup_info from './signup_info';
 import Footer from '../../common/footer/js/footer';
 
 const Signup_form = () => {
-    const { api, setApi } = useContext(MyContext);
+    const { api } = useContext(MyContext);
 
     return(
         <div className="signup_form-container">

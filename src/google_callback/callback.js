@@ -4,7 +4,7 @@ import { MyContext } from '../App';
 import { useNavigate } from 'react-router-dom';
 
 const Callback = () => {
-    const { api, googleLogin, setGoogleLogin, kakaoLogin, setKakaoLogin } = useContext(MyContext);
+    const { api, setGoogleLogin} = useContext(MyContext);
 
     const navigate = useNavigate();
 
@@ -39,7 +39,7 @@ const Callback = () => {
         console.error('사용자 정보 요청 실패:', error);
         });
 
-        setGoogleLogin(true);
+        setGoogleLogin(true); // 구글 로그인 확인
 
         navigate('/'); // 토큰 처리 후 원하는 페이지로 이동
         }

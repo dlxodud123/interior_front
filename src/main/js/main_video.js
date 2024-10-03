@@ -1,6 +1,10 @@
 import './../css/main_video.css';
+import React, { useContext } from 'react';
+import { MyContext } from './../../App'; // Context 가져오기
 
 const Main_video = () => {
+    const { api } = useContext(MyContext);
+    
     return(
         <>
         </>
