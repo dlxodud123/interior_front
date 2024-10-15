@@ -7,6 +7,11 @@
     width: 1280px;
     margin: auto;
 }
+.login_input_content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .login-email_input-content{
     width: 1200px;
     height: 40px;
@@ -38,7 +43,7 @@
     margin-top: 13px;
 }
 .login_forget_content{
-    width: 150px;
+    width: 200px;
     text-align: right;
     color: #91929F;
     font-size: 14px;

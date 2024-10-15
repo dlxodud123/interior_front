@@ -88,7 +88,7 @@
     align-items: center;
 }
 .signup_input-username_content{
-    width: 1040px;
+    width: 1200px;
     height: 40px;
     border: none;
     border-radius: 10px;
@@ -96,7 +96,7 @@
     padding-left: 12px;
     font-weight: 400;
 }
-.signup_username_duplication_btn{
+/* .signup_username_duplication_btn{
     width: 150px;
     height: 42px;
     border-radius: 10px;
@@ -114,7 +114,7 @@
     background-color: rgba(0,0,0,0.2);
     color: white;
     margin-left: 10px;
-}
+} */
 
 /* 비밀번호 입력 폼 */
 .signup_input-password_container{
@@ -255,14 +255,14 @@
         gap: 2%;
     }
     .signup_input-username_content{
-        width: 75%;
+        width: 92%;
         height: 30px;
         display: flex;
         flex-direction: column;
         align-items: center;
         font-size: 11px;
     }
-    .signup_username_duplication_btn{
+    /* .signup_username_duplication_btn{
         width: 15%;
         height: 32px;
         margin: 20px 0 0 0;
@@ -273,7 +273,7 @@
         height: 32px;
         margin: 20px 0 0 0;
         font-size: 9px;
-    }
+    } */
 
     /* 비밀번호 입력 폼 */
     .signup_input-password_container{

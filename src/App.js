@@ -4,6 +4,8 @@ import React, { createContext, useState } from 'react';
 import Main_form from './main/js/main_form';
 import Login_form from './login/js/login_form';
 import Signup_form from './signup/js/signup_form';
+import My_form from './my/my/js/my_form';
+import My_profile_form from './my/profile/js/my_profile_form';
 import Callback from './google_callback/callback';
 
 import Test from './test/test';
@@ -31,6 +33,9 @@ function App() {
           <Route path='/' element={<Main_form />}></Route>
           <Route path='/login' element={<Login_form />}></Route>
           <Route path='/signup' element={<Signup_form />}></Route>
+          <Route path='/my' element={<My_form />}></Route>
+          <Route path='/my/profile' element={<My_profile_form />}></Route>
+          {/* <Route path='/my/friend' element={}></Route> */}
           <Route path='/callback' element={<Callback></Callback>}></Route>
           
           <Route path='/test' element={<Test></Test>}></Route>

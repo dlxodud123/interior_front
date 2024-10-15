@@ -67,15 +67,14 @@ const Login_info = () => {
     return(
         <body className='login_container'>
             <div className='login_content'>
-                <div style={{display:"flex", flexDirection:"column", alignItems:"center"}}>
+                <div className='login_input_content'>
                     <input className='login-email_input-content' placeholder='Email'></input>
-                    <input className='login-password_input-content' placeholder='Password'></input>
+                    <input type='password' className='login-password_input-content' placeholder='Password'></input>
                 </div>  
                 <div className='login_pwd-forget_container'>
                     <div className='login_forget_content'>
                         Forgot password
                     </div>
-                    <div className='login_pwd-forget_container_gap'></div>
                 </div>
                 <div className='login-signup_btn_container'>
                     <button className='login_btn'>

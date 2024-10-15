@@ -38,7 +38,7 @@ const Signup_info = () => {
     };
 
     let [finalEmailBtn, setFinalEmailBtn] = useState(false);
-    let [finalUsernamBtn, setFinalUsernameBtn] = useState(false);
+    // let [finalUsernamBtn, setFinalUsernameBtn] = useState(false);
     let [finalPassword, setFinalPassword] = useState(false);
     let [finalSignupBtn, setFinalSignupBtn] = useState(false);
 
@@ -53,12 +53,12 @@ const Signup_info = () => {
 
     /* 최종 회원가입 */
     useEffect(() => {
-        if(finalEmailBtn && finalPassword && finalUsernamBtn){
+        if(finalEmailBtn && finalPassword ){
             setFinalSignupBtn(true);
         }else{
             setFinalSignupBtn(false);
         }
-    }, [finalEmailBtn, finalPassword, finalUsernamBtn, finalSignupBtn])
+    }, [finalEmailBtn, finalPassword, finalSignupBtn])
 
     /* 테스트용 */
     useEffect(() => {
@@ -102,12 +102,12 @@ const Signup_info = () => {
 
                 <div className='signup_input-username_container'>
                     <div className='media_signup_input-username_container'>
-                        <input className='signup_input-username_content' placeholder='Username (min 3 characters)' value={usernameContent} onChange={handleUsernameChange}></input>
-                        {usernameContentLength >= 3 ? 
+                        <input className='signup_input-username_content' maxLength={8} placeholder='Username (min 3 characters & max 8 characters)' value={usernameContent} onChange={handleUsernameChange}></input>
+                        {/* {usernameContentLength >= 3 ? 
                             <button onClick={() => setFinalUsernameBtn(true)} className='signup_username_duplication_btn'>Duplication Check</button>
                             :
                             <button className='signup_username_duplication_none_btn'>Duplication Check</button>
-                        }
+                        } */}
                     </div>
                 </div>  
 
