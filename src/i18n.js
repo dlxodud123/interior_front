@@ -4,7 +4,7 @@ import Backend from 'i18next-http-backend'; // 리소스 파일을 불러오기 
 import LanguageDetector from 'i18next-browser-languagedetector'; // 브라우저 언어 감지
 
 i18n
-  // .use(Backend) // 백엔드를 통해 번역 파일 로드
+  .use(Backend) // 백엔드를 통해 번역 파일 로드
   .use(LanguageDetector) // 브라우저 언어 감지 기능
   .use(initReactI18next)
   .init({
@@ -13,10 +13,10 @@ i18n
     interpolation: {
       escapeValue: false, // React는 자동으로 XSS 보호를 함
     },
-    // backend: {
-    //   loadPath: '/locales/{{lng}}/translation.json', // 번역 파일의 경로
-    //   // loadPath: '/locales/ko/translation.json',
-    // },
+    backend: {
+      loadPath: '/locales/{{lng}}/translation.json', // 번역 파일의 경로
+      // loadPath: '/locales/ko/translation.json',
+    },
   });
 
 export default i18n;

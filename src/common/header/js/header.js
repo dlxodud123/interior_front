@@ -90,19 +90,19 @@ const Header = () => {
                                 </div>
                                 <div className={`${isOpen ? 'friendModalOpen' : 'friendModalClose'}`}>
                                     <div className='friendModalTop'>
-                                        <FaXmark size={22} color='white' className='friendModalTopCancel' onClick={() => {setIsOpen(false)}}/>
+                                        <FaXmark className='friendModalTopCancel' onClick={() => {setIsOpen(false)}}/>
                                     </div>
                                     {
                                         numbers.map((number) => (
                                             <div className='friendModalContent'>
-                                                <div className='friendModalperson'>
-                                                    <IoMdPerson size={20} color='#3578FF'/>
+                                                <div className='friendModalPersonContent'>
+                                                    <IoMdPerson className='friendModalPerson'/>
                                                 </div>
-                                                <div className='friendModalName'>
-                                                    <label>이태영</label>
+                                                <div className='friendModalNameContent'>
+                                                    <label className='friendModalName'>이태영</label>
                                                 </div>
-                                                <div className='friendModalChat'>
-                                                    <BsChatDotsFill size={20} color='#3578FF'/>
+                                                <div className='friendModalChatContent'>
+                                                    <BsChatDotsFill className='friendModalChat'/>
                                                 </div>
                                             </div>
                                         ))
