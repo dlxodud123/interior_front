@@ -1,6 +1,6 @@
 .my_profile_info-container{
     width: 1280px;
-    height: 800px;
+    /* height: 1200px; */
     margin: auto;
 }
 .my_profile_info_title_content{
@@ -20,6 +20,12 @@
     display: flex;
     align-items: center;
     border-bottom: 1px solid rgba(0,0,0,0.3);
+}
+.my_profile_info_profile_default_img{
+    width: 150px;
+    height: 150px;
+    object-fit: "cover";
+    color: #3578FF;
 }
 .my_profile_info_profile_img{
     width: 150px;
@@ -156,4 +162,56 @@
     width: 780px;
     height: 20px;
     border-bottom: 1px solid rgba(0,0,0,0.3);
+}
+
+/* 공개범위 부분 */
+.my_profile_info_detail_range_container{
+    height: 200px;  
+    width: 1280px;
+    margin-top: 60px;
+}
+.my_profile_info_detail_range_title_content{
+    height: 60px;
+}
+.my_profile_info_detail_range_title{
+    font-size: 22px;
+    font-weight: bold;
+}
+.my_profile_info_detail_range_name_container{
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+.my_profile_info_detail_range_name_content{
+    width: 700px;
+}
+.my_profile_info_detail_range_name{
+    font-size: 22px;
+}
+
+/* 공개범위 버튼 */
+.range-switch {
+    width: 80px;
+    height: 50px;
+    background-color: #e4e4e4;
+    border-radius: 30px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(.4, 0, .2, 1);
+}
+.range-switch.private {
+    background-color: black;
+}
+.range-circle {
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    transition: all 0.3s cubic-bezier(.4, 0, .2, 1);
+}
+.range-switch.private .range-circle {
+    left: 31px;
 }
