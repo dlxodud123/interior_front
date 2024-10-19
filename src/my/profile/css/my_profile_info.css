@@ -122,6 +122,68 @@
     border-bottom: 1px solid rgba(0,0,0,0.3);
 }
 
+/* username 수정 부분 */
+.my_profile_info_detail_username_modify_title{
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+}
+.my_profile_info_detail_username_modify_text_container{
+    width: 780px;
+    height: 50px;
+    border: none;
+    background-color: #f4f4f4;
+    border-bottom: 1px solid rgba(0,0,0,0.3);
+    outline: none;
+    font-size: 22px;
+}
+.my_profile_info_detail_username_modify_text_container:focus{
+    border: none;
+    border-bottom: 3px solid rgba(0,0,0,1);
+}
+.my_profile_info_detail_username_modify_container{
+    width: 780px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+}
+.my_profile_info_detail_username_modify_cancel_content{
+    width: 145px;
+    height: 60px;
+    border: 1px solid rgba(0,0,0,0.5);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-top: 20px;
+}
+.my_profile_info_detail_username_modify_cancel{
+    font-size: 20px;
+    cursor: pointer;
+}
+.my_profile_info_detail_username_modify_blank{
+    width: 15px;
+}
+.my_profile_info_detail_username_modify_save_content{
+    width: 145px;
+    height: 60px;
+    border: 1px solid rgba(0,0,0,1);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    cursor: pointer;
+    margin-top: 20px;
+}
+.my_profile_info_detail_username_modify_save{
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
 /* introude 부분 */
 .my_profile_info_detail_introuduce_title_content{
     padding-top: 30px;
@@ -163,6 +225,9 @@
     height: 20px;
     border-bottom: 1px solid rgba(0,0,0,0.3);
 }
+
+/* introudce 수정 부분 */
+
 
 /* 공개범위 부분 */
 .my_profile_info_detail_range_container{

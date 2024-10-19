@@ -1,13 +1,31 @@
 import './../css/my_profile_info.css';
-import React, { useContext, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { MyContext } from '../../../App';
 import { IoMdPerson } from "react-icons/io";
 
 const My_profile_info = () => {
     const { api } = useContext(MyContext);
 
-    let [usernameChangBtn, setUsernameChangeBtn] = useState(false);
-    let [introduceChangBtn, setIntroduceChangeBtn] = useState(false);
+    let [usernameChangeBtn, setUsernameChangeBtn] = useState(false);
+    let [introduceChangeBtn, setIntroduceChangeBtn] = useState(false);
+
+    let [defaultUsernameInputValue, setDefaultUsernameInputValue] = useState('이태영')
+    let [usernameInputValue, setUsernameInputValue] = useState(defaultUsernameInputValue);
+    let [finalUsernameInputValue, setFinalUsernameInputValue] = useState('');
+
+
+    const handleUsernameChange = (event) => {
+        setUsernameInputValue(event.target.value);
+        console.log("username : ", usernameInputValue);
+    }
+
+    const handleFinalUsernameBtn = () => {
+        setFinalUsernameInputValue(usernameInputValue);
+    }
+
+    useEffect(() => {
+        console.log("최종 저장 username : ", finalUsernameInputValue);
+    }, [finalUsernameInputValue]);
 
     let [isOn, setIsOn] = useState('public');
 
@@ -69,7 +87,7 @@ const My_profile_info = () => {
                 {/* <img className='my_profile_info_profile_img' src={`${process.env.PUBLIC_URL}/img/아이유.jpeg`}></img> */}
                 <div className='my_profile_info_img_change_container'>
                     <div>
-                        <label className='my_profile_info_username'>이태영</label>
+                        <label className='my_profile_info_username'>{defaultUsernameInputValue}</label>
                     </div>
                     <div className='my_profile_info_img_change-delete_container' style={{marginTop:"10px"}}>
                         <div onClick={handleImgChangeBtnClick} className='my_profile_info_img_change_content'>
@@ -92,32 +110,74 @@ const My_profile_info = () => {
                 <div className='my_profile_info_detail_title_content'>
                     <label className='my_profile_info_detail_title'>Profile Information</label>
                 </div>
-                <div>
-                    <label className='my_profile_info_detail_username_title'>Username </label>
-                </div>
-                <div className='my_profile_info_detail_username_container'>
-                    <div className='my_profile_info_detail_username_content'>
-                        <label className='my_profile_info_detail_username'>이태영</label>
-                    </div>
-                    <div onClick={() => setUsernameChangeBtn(true)} className='my_profile_info_detail_username_change_content'>
-                        <label className='my_profile_info_detail_username_change'>Change</label>
-                    </div>
-                </div>
-                <div className='my_profile_info_detail_username_underline'></div>
-            
-
-                <div className='my_profile_info_detail_introuduce_title_content'>
-                    <label className='my_profile_info_detail_introduce_title'>Introduce</label>
-                </div>
-                <div className='my_profile_info_detail_introduce_container'>
-                    <div className='my_profile_info_detail_introduce_content'>
-                        <label className='my_profile_info_detail_introduce'>Introduce Yourself</label>
-                    </div>
-                    <div onClick={() => setIntroduceChangeBtn(true)} className='my_profile_info_detail_introduce_change_content'>
-                        <label className='my_profile_info_detail_introduce_change'>Change</label>
-                    </div>
-                </div>
-                <div className='my_profile_info_detail_introduce_underline'></div>
+                {
+                    usernameChangeBtn ? 
+                    <>
+                        <div>
+                            <label className='my_profile_info_detail_username_modify_title'>Username </label>
+                        </div>
+                        <div className='my_profile_info_detail_username_container'>
+                            <input value={usernameInputValue} onChange={handleUsernameChange} type='text' className='my_profile_info_detail_username_modify_text_container'>
+                            </input>
+                        </div>
+                        <div className='my_profile_info_detail_username_modify_container'>
+                            <div onClick={() => {setUsernameChangeBtn(false); setUsernameInputValue(defaultUsernameInputValue)}} className='my_profile_info_detail_username_modify_cancel_content'>
+                                <label className='my_profile_info_detail_username_modify_cancel'>Cancel</label>
+                            </div>
+                            <div className='my_profile_info_detail_username_modify_blank' />
+                            <div onClick={() => {setUsernameChangeBtn(false); handleFinalUsernameBtn();}} className='my_profile_info_detail_username_modify_save_content'>
+                                <label  className='my_profile_info_detail_username_modify_save'>Save</label>
+                            </div>
+                        </div>
+                    </>
+                    :
+                    <>
+                        <div>
+                            <label className='my_profile_info_detail_username_title'>Username </label>
+                        </div>
+                        <div className='my_profile_info_detail_username_container'>
+                            <div className='my_profile_info_detail_username_content'>
+                                <label className='my_profile_info_detail_username'>{defaultUsernameInputValue}</label>
+                            </div>
+                            <div onClick={() => setUsernameChangeBtn(true)} className='my_profile_info_detail_username_change_content'>
+                                <label className='my_profile_info_detail_username_change'>Change</label>
+                            </div>
+                        </div>
+                        <div className='my_profile_info_detail_username_underline'></div>
+                    </>
+                }
+                {
+                    introduceChangeBtn ? 
+                    <>
+                        <div className='my_profile_info_detail_introuduce_title_content'>
+                            <label className='my_profile_info_detail_introduce_title'>Introduce</label>
+                        </div>
+                        <div className='my_profile_info_detail_introduce_container'>
+                            <div className='my_profile_info_detail_introduce_content'>
+                                <label className='my_profile_info_detail_introduce'>Introduce Yourself</label>
+                            </div>
+                            <div onClick={() => setIntroduceChangeBtn(true)} className='my_profile_info_detail_introduce_change_content'>
+                                <label className='my_profile_info_detail_introduce_change'>Change</label>
+                            </div>
+                        </div>
+                        <div className='my_profile_info_detail_introduce_underline'></div>
+                    </>
+                    :
+                    <>
+                        <div className='my_profile_info_detail_introuduce_title_content'>
+                            <label className='my_profile_info_detail_introduce_title'>Introduce</label>
+                        </div>
+                        <div className='my_profile_info_detail_introduce_container'>
+                            <div className='my_profile_info_detail_introduce_content'>
+                                <label className='my_profile_info_detail_introduce'>Introduce Yourself</label>
+                            </div>
+                            <div onClick={() => setIntroduceChangeBtn(true)} className='my_profile_info_detail_introduce_change_content'>
+                                <label className='my_profile_info_detail_introduce_change'>Change</label>
+                            </div>
+                        </div>
+                        <div className='my_profile_info_detail_introduce_underline'></div>
+                    </>
+                }
             </div>
             <div className='my_profile_info_detail_range_container'>
                 <div className='my_profile_info_detail_range_title_content'>
