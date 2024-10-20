@@ -9,17 +9,17 @@ const My_profile_info = () => {
     let [usernameChangeBtn, setUsernameChangeBtn] = useState(false);
     let [introduceChangeBtn, setIntroduceChangeBtn] = useState(false);
 
+    // username 부분
     let [defaultUsernameInputValue, setDefaultUsernameInputValue] = useState('이태영')
     let [usernameInputValue, setUsernameInputValue] = useState(defaultUsernameInputValue);
     let [finalUsernameInputValue, setFinalUsernameInputValue] = useState('');
-
 
     const handleUsernameChange = (event) => {
         setUsernameInputValue(event.target.value);
         console.log("username : ", usernameInputValue);
     }
 
-    const handleFinalUsernameBtn = () => {
+    const handleFinalUsernameSaveBtn = () => {
         setFinalUsernameInputValue(usernameInputValue);
     }
 
@@ -27,6 +27,25 @@ const My_profile_info = () => {
         console.log("최종 저장 username : ", finalUsernameInputValue);
     }, [finalUsernameInputValue]);
 
+    // introduce 부분
+    let [defaultIntroduceInputValue, setDefaultIntroduceInputValue] = useState('Introduce Yourself')
+    let [introduceInputValue, setIntroduceInputValue] = useState(defaultIntroduceInputValue);
+    let [finalIntroduceInputValue, setFinalIntroduceInputValue] = useState('');
+
+    const handleIntroduceChange = (event) => {
+        setIntroduceInputValue(event.target.value);
+        console.log("introduce : ", introduceInputValue);
+    }
+
+    const handleFinalIntroduceSaveBtn = () => {
+        setFinalIntroduceInputValue(introduceInputValue);
+    }
+
+    useEffect(() => {
+        console.log("최종 저장 introduce : ", finalIntroduceInputValue);
+    }, [finalIntroduceInputValue]);
+
+    // 공개범위 부분
     let [isOn, setIsOn] = useState('public');
 
     const rangeSwitch = () => {
@@ -38,6 +57,11 @@ const My_profile_info = () => {
         }
     };
 
+    useEffect(() => {
+        console.log("공개범위 : ", isOn)
+    }, [isOn])
+
+    // 프로필 사진 부분
     const fileInputRef = useRef(null);
     let [imgURL, setImgURL] = useState(null);
 
@@ -84,7 +108,6 @@ const My_profile_info = () => {
                         <img src={imgURL} className='my_profile_info_profile_img' />
                     )
                 }
-                {/* <img className='my_profile_info_profile_img' src={`${process.env.PUBLIC_URL}/img/아이유.jpeg`}></img> */}
                 <div className='my_profile_info_img_change_container'>
                     <div>
                         <label className='my_profile_info_username'>{defaultUsernameInputValue}</label>
@@ -125,7 +148,7 @@ const My_profile_info = () => {
                                 <label className='my_profile_info_detail_username_modify_cancel'>Cancel</label>
                             </div>
                             <div className='my_profile_info_detail_username_modify_blank' />
-                            <div onClick={() => {setUsernameChangeBtn(false); handleFinalUsernameBtn();}} className='my_profile_info_detail_username_modify_save_content'>
+                            <div onClick={() => {setUsernameChangeBtn(false); handleFinalUsernameSaveBtn();}} className='my_profile_info_detail_username_modify_save_content'>
                                 <label  className='my_profile_info_detail_username_modify_save'>Save</label>
                             </div>
                         </div>
@@ -150,17 +173,25 @@ const My_profile_info = () => {
                     introduceChangeBtn ? 
                     <>
                         <div className='my_profile_info_detail_introuduce_title_content'>
-                            <label className='my_profile_info_detail_introduce_title'>Introduce</label>
+                            <label className='my_profile_info_detail_introduce_modify_title'>Introduce</label>
                         </div>
                         <div className='my_profile_info_detail_introduce_container'>
-                            <div className='my_profile_info_detail_introduce_content'>
+                            <input placeholder={introduceInputValue} onChange={handleIntroduceChange} type='text' className='my_profile_info_detail_introduce_modify_text_container'>
+                            </input>
+                            {/* <div className='my_profile_info_detail_introduce_content'>
                                 <label className='my_profile_info_detail_introduce'>Introduce Yourself</label>
+                            </div> */}
+                        </div>
+
+                        <div className='my_profile_info_detail_introduce_modify_container'>
+                            <div onClick={() => {setIntroduceChangeBtn(false); setIntroduceInputValue(defaultIntroduceInputValue)}} className='my_profile_info_detail_introduce_modify_cancel_content'>
+                                <label className='my_profile_info_detail_introduce_modify_cancel'>Cancel</label>
                             </div>
-                            <div onClick={() => setIntroduceChangeBtn(true)} className='my_profile_info_detail_introduce_change_content'>
-                                <label className='my_profile_info_detail_introduce_change'>Change</label>
+                            <div className='my_profile_info_detail_introduce_modify_blank' />
+                            <div onClick={() => {setIntroduceChangeBtn(false); handleFinalIntroduceSaveBtn();}} className='my_profile_info_detail_introduce_modify_save_content'>
+                                <label  className='my_profile_info_detail_introduce_modify_save'>Save</label>
                             </div>
                         </div>
-                        <div className='my_profile_info_detail_introduce_underline'></div>
                     </>
                     :
                     <>
@@ -179,6 +210,7 @@ const My_profile_info = () => {
                     </>
                 }
             </div>
+
             <div className='my_profile_info_detail_range_container'>
                 <div className='my_profile_info_detail_range_title_content'>
                     <label className='my_profile_info_detail_range_title'>Profile Range</label>
@@ -192,13 +224,10 @@ const My_profile_info = () => {
                             <label className='my_profile_info_detail_range_name'>Private Profile</label>
                     
                         }
-                        {/* <label className='my_profile_info_detail_range_name'>Public Profile</label> */}
                     </div>
-
                     <div className={`range-switch ${isOn === 'private' ? 'private' : 'public'}`} onClick={rangeSwitch}>
                         <div className="range-circle"></div>
                     </div>
-
                 </div>
             </div>
         </body>
