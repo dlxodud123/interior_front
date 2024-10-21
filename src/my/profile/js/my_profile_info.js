@@ -59,7 +59,25 @@ const My_profile_info = () => {
 
     useEffect(() => {
         console.log("공개범위 : ", isOn)
-    }, [isOn])
+    }, [isOn]);
+
+    // 성별 부분
+    let male = 'male'; let female = 'female'; let unseleted = 'unseleted';
+    let [defaultGender , setDefaultGender] = useState(unseleted);
+    let [genderValue, setGenderValue] = useState(defaultGender);
+    let [finalGender, setFinalGender] = useState('');
+
+    const handleGenderChange = (e) => {
+        setGenderValue(e.target.value);
+    };
+
+    const handleGenderSaveBtn = () => {
+        setFinalGender(genderValue);
+    };
+
+    useEffect(() => {
+        console.log("최종 성별 : ", finalGender);
+    }, [finalGender]);
 
     // 프로필 사진 부분
     const fileInputRef = useRef(null);
@@ -103,7 +121,15 @@ const My_profile_info = () => {
             <div className='my_profile_info_img_content'>
                 {
                     imgURL === null ? (
-                        <IoMdPerson className='my_profile_info_profile_default_img'/>
+                        finalGender === male ? (
+                            <IoMdPerson className='my_profile_info_profile_default_male_img'/>
+                        ) : (
+                            finalGender === female ? (
+                                <IoMdPerson className='my_profile_info_profile_default_female_img'/>
+                            ) : (
+                                <IoMdPerson className='my_profile_info_profile_default_unselected_img'/>
+                            )
+                        )
                     ) : (
                         <img src={imgURL} className='my_profile_info_profile_img' />
                     )
@@ -169,6 +195,7 @@ const My_profile_info = () => {
                         <div className='my_profile_info_detail_username_underline'></div>
                     </>
                 }
+
                 {
                     introduceChangeBtn ? 
                     <>
@@ -178,9 +205,6 @@ const My_profile_info = () => {
                         <div className='my_profile_info_detail_introduce_container'>
                             <input placeholder={introduceInputValue} onChange={handleIntroduceChange} type='text' className='my_profile_info_detail_introduce_modify_text_container'>
                             </input>
-                            {/* <div className='my_profile_info_detail_introduce_content'>
-                                <label className='my_profile_info_detail_introduce'>Introduce Yourself</label>
-                            </div> */}
                         </div>
 
                         <div className='my_profile_info_detail_introduce_modify_container'>
@@ -209,6 +233,51 @@ const My_profile_info = () => {
                         <div className='my_profile_info_detail_introduce_underline'></div>
                     </>
                 }
+
+                <div className='my_profile_info_detail_gender_title_content'>
+                    <label className='my_profile_info_detail_gender_title'>Gender</label>
+                </div>
+                <div className='my_profile_info_detail_gender_container'>
+                    <div className='my_profile_info_detail_gender_content'>
+                        <label className={`my_profile_info_detail_gender_label ${genderValue === "male" ? "maleSelected" : ""}`}>
+                            <input
+                                type="radio"
+                                name="gender"
+                                value="male"
+                                onChange={handleGenderChange}
+                                checked={genderValue === male}
+                            />
+                            Male
+                        </label>
+                        <div className='my_profile_info_detail_gender_label_blank'></div>
+                        <label className={`my_profile_info_detail_gender_label ${genderValue === "female" ? "femaleSelected" : ""}`}>
+                            <input
+                                type="radio"
+                                name="gender"
+                                value="female"
+                                onChange={handleGenderChange}
+                                checked={genderValue === female}
+                            />
+                            Female
+                        </label>
+                        <div className='my_profile_info_detail_gender_label_blank'></div>
+                        <label className={`my_profile_info_detail_gender_label ${genderValue === "unseleted" ? "unseletedSelected" : ""}`}>
+                            <input
+                                type="radio"
+                                name="gender"
+                                value="unseleted"
+                                onChange={handleGenderChange}
+                                checked={genderValue === unseleted}
+                            />
+                            Unseleted
+                        </label>
+                    </div>
+                    <div onClick={() => handleGenderSaveBtn()} className='my_profile_info_detail_gender_save_content'>
+                        <label className='my_profile_info_detail_gender_save'>Save</label>
+                    </div>
+                </div>
+                <div className='my_profile_info_detail_gender_underline'></div>
+
                 <div className='my_profile_info_detail_range_container'>
                     <div className='my_profile_info_detail_range_title_content'>
                         <label className='my_profile_info_detail_range_title'>Profile Range</label>
@@ -220,7 +289,6 @@ const My_profile_info = () => {
                                 <label className='my_profile_info_detail_range_name'>Public Profile</label>
                                 : 
                                 <label className='my_profile_info_detail_range_name'>Private Profile</label>
-                        
                             }
                         </div>
                         <div className={`range-switch ${isOn === 'private' ? 'private' : 'public'}`} onClick={rangeSwitch}>

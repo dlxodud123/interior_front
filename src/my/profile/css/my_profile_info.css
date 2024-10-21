@@ -19,11 +19,23 @@
     align-items: center;
     border-bottom: 1px solid rgba(0,0,0,0.3);
 }
-.my_profile_info_profile_default_img{
+.my_profile_info_profile_default_male_img{
     width: 150px;
     height: 150px;
     object-fit: "cover";
     color: #3578FF;
+}
+.my_profile_info_profile_default_female_img{
+    width: 150px;
+    height: 150px;
+    object-fit: "cover";
+    color: #FF69B4 ;
+}
+.my_profile_info_profile_default_unselected_img{
+    width: 150px;
+    height: 150px;
+    object-fit: "cover";
+    color: #808080;
 }
 .my_profile_info_profile_img{
     width: 150px;
@@ -287,6 +299,72 @@
     cursor: pointer;
 }
 
+/* gender 부분 */
+.my_profile_info_detail_gender_title_content{
+    width: 1280px;
+    padding-top: 30px;
+}
+.my_profile_info_detail_gender_title{
+    font-size: 20px;
+    color: rgba(34, 34, 34, 0.5);
+}
+.my_profile_info_detail_gender_container{
+    width: 1280px;
+    height: 50px;
+    display: flex;
+}
+.my_profile_info_detail_gender_content{
+    display: flex;
+    width: 700px;
+}
+.my_profile_info_detail_gender_label {
+    cursor: pointer;
+    font-size: 22px;
+    display: flex; /* Flexbox로 변경 */
+    align-items: center;
+    gap: 10px;
+}
+.my_profile_info_detail_gender_label::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgba(0,0,0,0.5);
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+.my_profile_info_detail_gender_label.maleSelected::before {
+    background-color: #3578FF;
+}
+.my_profile_info_detail_gender_label.femaleSelected::before {
+    background-color: #FF69B4 ;
+}
+.my_profile_info_detail_gender_label.unseletedSelected::before {
+    background-color: #808080 ;
+}
+.my_profile_info_detail_gender_label_blank{
+    width: 20px;
+}
+.my_profile_info_detail_gender_save_content{
+    width: 80px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(0,0,0,0.4);
+    border-radius: 15px;
+    cursor: pointer;
+}
+.my_profile_info_detail_gender_save{
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+}
+.my_profile_info_detail_gender_underline{
+    width: 780px;
+    height: 20px;
+    border-bottom: 1px solid rgba(0,0,0,0.3);
+}
 
 /* 공개범위 부분 */
 .my_profile_info_detail_range_container{
@@ -319,6 +397,7 @@
     height: 50px;
     background-color: #e4e4e4;
     border-radius: 30px;
+    /* relative때문에 z-index가 안먹힘 */
     position: relative;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(.4, 0, .2, 1);
@@ -362,7 +441,15 @@
         border-bottom: 1px solid rgba(0,0,0,0.1);
         margin-left: 3%;
     }
-    .my_profile_info_profile_default_img{
+    .my_profile_info_profile_default_male_img{
+        width: 85px;
+        height: 85px;
+    }
+    .my_profile_info_profile_default_female_img{
+        width: 85px;
+        height: 85px;
+    }
+    .my_profile_info_profile_default_unselected_img{
         width: 85px;
         height: 85px;
     }
@@ -544,6 +631,49 @@
         font-size: 12px;
     }
 
+    /* gender 부분 */
+    .my_profile_info_detail_gender_title_content{
+        width: 100%;
+        padding-top: 10px;
+    }
+    .my_profile_info_detail_gender_title{
+        font-size: 12px;
+    }
+    .my_profile_info_detail_gender_container{
+        width: 100%;
+        height: 27px;
+    }
+    .my_profile_info_detail_gender_content{
+        width: 51%;
+        height: 25px;
+    }
+    .my_profile_info_detail_gender_label {
+        font-size: 12px;
+        gap: 4px;
+        height: 25px;
+    }
+    .my_profile_info_detail_gender_label::before {
+        width: 10px;
+        height: 10px;
+    }
+    .my_profile_info_detail_gender_label_blank{
+        width: 8px;
+    }
+    .my_profile_info_detail_gender_save_content{
+        width: 9%;
+        height: 25px;
+        border: 1px solid rgba(0,0,0,0.3);
+        border-radius: 10px;
+    }
+    .my_profile_info_detail_gender_save{
+        font-size: 10px;
+    }
+    .my_profile_info_detail_gender_underline{
+        width: 60%;
+        height: 10px;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+
     /* 공개범위 부분 */
     .my_profile_info_detail_range_container{
         width: 100%;
@@ -593,12 +723,21 @@
     }
     
     /* introuduce 부분 */
-    .my_profile_info_detail_introduce_change{
-        font-size: 9px;
-    }
     .my_profile_info_detail_introduce_change_content{
         height: 24px;
         border-radius: 9px;
+    }
+    .my_profile_info_detail_introduce_change{
+        font-size: 9px;
+    }
+
+    /* gender 부분 */
+    .my_profile_info_detail_gender_save_content{
+        height: 24px;
+        border-radius: 9px;
+    }
+    .my_profile_info_detail_gender_save{
+        font-size: 9px;
     }
 
     /* 범위 부분 */
@@ -633,11 +772,11 @@
     }
 
     /* introuduce 부분 */
-    .my_profile_info_detail_introduce_change{
-        font-size: 8px;
-    }
     .my_profile_info_detail_introduce_change_content{
         height: 23px;
+    }
+    .my_profile_info_detail_introduce_change{
+        font-size: 8px;
     }
 
     /* introduce 수정 부분 */
@@ -656,6 +795,31 @@
         font-size: 10px;
     }
 
+    /* gender 부분 */
+    .my_profile_info_detail_gender_content{
+        width: 51%;
+        height: 25px;
+    }
+    .my_profile_info_detail_gender_label {
+        font-size: 10px;
+        gap: 4px;
+        height: 25px;
+    }
+    .my_profile_info_detail_gender_label::before {
+        width: 8px;
+        height: 8px;
+    }
+    .my_profile_info_detail_gender_label_blank{
+        width: 7px;
+    }
+    .my_profile_info_detail_gender_save_content{
+        height: 23px;
+    }
+    .my_profile_info_detail_gender_save{
+        font-size: 8px;
+    }
+
+
     /* 범위 부분 */
     .range-switch {
         height: 80%;
@@ -672,11 +836,19 @@
     }
 
     /* introuduce 부분 */
+    .my_profile_info_detail_introduce_change_content{
+        height: 21px;
+    }
     .my_profile_info_detail_introduce_change{
         font-size: 7px;
     }
-    .my_profile_info_detail_introduce_change_content{
+
+    /* gender 부분 */
+     .my_profile_info_detail_gender_save_content{
         height: 21px;
+    }
+    .my_profile_info_detail_gender_save{
+        font-size: 7px;
     }
 
     /* 범위 부분 */
@@ -686,8 +858,12 @@
 }
 
 
-/* input 기본 padding값 삭제 */
+/* input(text) 기본 padding값 삭제 */
 input[type="text" i] {
     padding-block: 0;
     padding-inline: 0;
+}
+/* input(radio) 기본 diplay 삭제 */
+input[type="radio" i] {
+    display: none;
 }
