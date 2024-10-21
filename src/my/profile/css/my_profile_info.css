@@ -1,11 +1,9 @@
 .my_profile_info-container{
     width: 1280px;
-    /* height: 1200px; */
     margin: auto;
 }
 .my_profile_info_title_content{
     width: 1280px;
-    /* height: 100px; */
     margin-top: 40px;
     padding-bottom: 15px;
     border-bottom: 4px solid black;
@@ -42,6 +40,7 @@
 }   
 .my_profile_info_img_change-delete_container{
     display: flex;
+    margin-top: 10px;
 }
 .my_profile_info_img_change_content{
     width: 120px;
@@ -86,7 +85,7 @@
 /* username 부분 */
 .my_profile_info_detail_username_title{
     font-size: 20px;
-    color: rgba(34, 34, 34, 0.5);;
+    color: rgba(34, 34, 34, 0.5);
 }
 .my_profile_info_detail_username_container{
     display: flex;
@@ -108,7 +107,7 @@
     justify-content: center;
     align-items: center;
     border: 1px solid rgba(0,0,0,0.4);
-    border-radius: 10px;
+    border-radius: 15px;
     cursor: pointer;
 }
 .my_profile_info_detail_username_change{
@@ -212,7 +211,7 @@
     justify-content: center;
     align-items: center;
     border: 1px solid rgba(0,0,0,0.4);
-    border-radius: 10px;
+    border-radius: 15px;
     cursor: pointer;
 }
 .my_profile_info_detail_introduce_change{
@@ -339,4 +338,356 @@
 }
 .range-switch.private .range-circle {
     left: 31px;
+}
+
+
+@media  screen and (max-width:600px){
+    .my_profile_info-container{
+        width: 100%;
+        
+    }
+    .my_profile_info_title_content{
+        width: 90%;
+        margin-top: 18px;
+        margin-left: 3%;
+        padding-bottom: 8px;
+        border-bottom: 2px solid black;
+    }
+    .my_profile_info_title{
+        font-size: 15px;
+    }
+    .my_profile_info_img_content{
+        height: 120px;
+        width: 90%;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+        margin-left: 3%;
+    }
+    .my_profile_info_profile_default_img{
+        width: 85px;
+        height: 85px;
+    }
+    .my_profile_info_profile_img{
+        width: 85px;
+        height: 85px;
+    }
+    .my_profile_info_img_change_container{
+        margin-left: 15px;
+    }
+    .my_profile_info_username{
+        font-size: 15px;
+    }   
+    .my_profile_info_img_change-delete_container{
+        margin-top: 4px;
+    }
+    .my_profile_info_img_change_content{
+        width: 80px;
+        height: 25px;
+        border: 1px solid rgba(34, 34, 34, 0.3);
+        border-radius: 10px;
+    }
+    .my_profile_info_img_change{
+        font-size: 10px;
+    }
+    .my_profile_info_img_delete_content{
+        width: 45px;
+        height: 25px;
+        border: 1px solid rgba(34, 34, 34, 0.3);
+        border-radius: 10px;
+        margin-left: 5px;
+    }
+    .my_profile_info_img_delete{
+        font-size: 10px;
+    }
+    .my_profile_info_detail_container{
+        margin-top: 28px;
+        margin-left: 3%;
+    }
+    .my_profile_info_detail_title_content{
+        height: 28px;
+    }
+    .my_profile_info_detail_title{
+        font-size: 12px;
+    }
+
+    /* username 부분 */
+    .my_profile_info_detail_username_title{
+        font-size: 12px;
+    }
+    .my_profile_info_detail_username_content{
+        height: 25px;
+        width: 51%;
+    }
+    .my_profile_info_detail_username{
+        font-size: 12px;
+    }
+    .my_profile_info_detail_username_change_content{
+        height: 25px;
+        width: 9%;
+        border: 1px solid rgba(0,0,0,0.3);
+        border-radius: 10px;
+    }
+    .my_profile_info_detail_username_change{
+        font-size: 10px;
+    }
+    .my_profile_info_detail_username_underline{
+        width: 60%;
+        height: 10px;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+
+    /* username 수정 부분 */
+    .my_profile_info_detail_username_modify_title{
+        font-size: 12px;
+    }
+    .my_profile_info_detail_username_modify_text_container{
+        width: 60%;
+        height: 25px;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+        font-size: 12px;
+    }
+    .my_profile_info_detail_username_modify_text_container:focus{
+        border-bottom: 1.5px solid rgba(0,0,0,1);
+    }
+    .my_profile_info_detail_username_modify_container{
+        width: 60%;
+        height: 45px;
+    }
+    .my_profile_info_detail_username_modify_cancel_content{
+        width: 20%;
+        height: 30px;
+        border: 1px solid rgba(0,0,0,0.3);
+        border-radius: 10px;
+        margin-top: 10px;
+    }
+    .my_profile_info_detail_username_modify_cancel{
+        font-size: 12px;
+    }
+    .my_profile_info_detail_username_modify_blank{
+        width: 2%;
+    }
+    .my_profile_info_detail_username_modify_save_content{
+        width: 20%;
+        height: 30px;
+        border-radius: 10px;
+        margin-top: 10px;
+    }
+    .my_profile_info_detail_username_modify_save{
+        font-size: 12px;
+    }
+
+    /* introude 부분 */
+    .my_profile_info_detail_introuduce_title_content{
+        padding-top: 10px;
+    }
+    .my_profile_info_detail_introduce_title{
+        font-size: 12px;
+    }
+    .my_profile_info_detail_introduce_content{
+        height: 25px;
+        width: 51%;
+    }
+    .my_profile_info_detail_introduce{
+        font-size: 12px;
+    }
+    .my_profile_info_detail_introduce_change_content{
+        height: 25px;
+        width: 9%;
+        border: 1px solid rgba(0,0,0,0.3);
+        border-radius: 10px;
+    }
+    .my_profile_info_detail_introduce_change{
+        font-size: 10px;
+    }
+    .my_profile_info_detail_introduce_underline{
+        width: 60%;
+        height: 10px;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+
+    /* introudce 수정 부분 */
+    .my_profile_info_detail_introduce_modify_title{
+        font-size: 12px;
+    }
+    .my_profile_info_detail_introduce_modify_text_container{
+        width: 60%;
+        height: 25px;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+        font-size: 12px;
+    }
+    .my_profile_info_detail_introduce_modify_text_container:focus{
+        border-bottom: 1.5px solid rgba(0,0,0,1);
+    }
+    .my_profile_info_detail_introduce_modify_container{
+        width: 60%;
+        height: 45px;
+    }
+    .my_profile_info_detail_introduce_modify_cancel_content{
+        width: 20%;
+        height: 30px;
+        border: 1px solid rgba(0,0,0,0.3);
+        border-radius: 10px;
+        margin-top: 10px;
+    }
+    .my_profile_info_detail_introduce_modify_cancel{
+        font-size: 12px;
+    }
+    .my_profile_info_detail_introduce_modify_blank{
+        width: 2%;
+    }
+    .my_profile_info_detail_introduce_modify_save_content{
+        width: 20%;
+        height: 30px;
+        border-radius: 10px;
+        margin-top: 10px;
+    }
+    .my_profile_info_detail_introduce_modify_save{
+        font-size: 12px;
+    }
+
+    /* 공개범위 부분 */
+    .my_profile_info_detail_range_container{
+        width: 100%;
+        height: 90px;  
+        margin-top: 20px;
+    }
+    .my_profile_info_detail_range_title_content{
+        width: 100%;
+        height: 27px;
+    }
+    .my_profile_info_detail_range_title{
+        font-size: 12px;
+    }
+    .my_profile_info_detail_range_name_container{
+        height: 27px;
+    }
+    .my_profile_info_detail_range_name_content{
+        width: 51%;
+    }
+    .my_profile_info_detail_range_name{
+        font-size: 12px;
+    }
+
+    /* 공개범위 버튼 */
+    .range-switch {
+        width: 9%;
+        height: 100%;
+        border-radius: 20px;
+    }
+    .range-circle {
+        width: 50%;
+        height: 100%;
+    }
+    .range-switch.private .range-circle {
+        left: 51%;
+    }
+}
+
+@media  screen and (max-width:510px){
+    /* username 부분 */
+    .my_profile_info_detail_username_change_content{
+        height: 24px;
+        border-radius: 9px;
+    }
+    .my_profile_info_detail_username_change{
+        font-size: 9px;
+    }
+    
+    /* introuduce 부분 */
+    .my_profile_info_detail_introduce_change{
+        font-size: 9px;
+    }
+    .my_profile_info_detail_introduce_change_content{
+        height: 24px;
+        border-radius: 9px;
+    }
+
+    /* 범위 부분 */
+    .range-switch {
+        height: 90%;
+    }
+}
+
+@media  screen and (max-width:440px){
+    /* username 부분 */
+    .my_profile_info_detail_username_change_content{
+        height: 23px;
+    }
+    .my_profile_info_detail_username_change{
+        font-size: 8px;
+    }
+
+    /* username 수정 부분 */
+    .my_profile_info_detail_username_modify_cancel_content{
+        height: 25px;
+        border-radius: 8px;
+    }
+    .my_profile_info_detail_username_modify_cancel{
+        font-size: 10px;
+    }
+    .my_profile_info_detail_username_modify_save_content{
+        height: 25px;
+        border-radius: 8px;
+    }
+    .my_profile_info_detail_username_modify_save{
+        font-size: 10px;
+    }
+
+    /* introuduce 부분 */
+    .my_profile_info_detail_introduce_change{
+        font-size: 8px;
+    }
+    .my_profile_info_detail_introduce_change_content{
+        height: 23px;
+    }
+
+    /* introduce 수정 부분 */
+    .my_profile_info_detail_introduce_modify_cancel_content{
+        height: 25px;
+        border-radius: 8px;
+    }
+    .my_profile_info_detail_introduce_modify_cancel{
+        font-size: 10px;
+    }
+    .my_profile_info_detail_introduce_modify_save_content{
+        height: 25px;
+        border-radius: 8px;
+    }
+    .my_profile_info_detail_introduce_modify_save{
+        font-size: 10px;
+    }
+
+    /* 범위 부분 */
+    .range-switch {
+        height: 80%;
+    }
+}
+
+@media  screen and (max-width:350px){
+    /* username 부분 */
+    .my_profile_info_detail_username_change_content{
+        height: 21px;
+    }
+    .my_profile_info_detail_username_change{
+        font-size: 7px;
+    }
+
+    /* introuduce 부분 */
+    .my_profile_info_detail_introduce_change{
+        font-size: 7px;
+    }
+    .my_profile_info_detail_introduce_change_content{
+        height: 21px;
+    }
+
+    /* 범위 부분 */
+    .range-switch {
+        height: 70%;
+    }
+}
+
+
+/* input 기본 padding값 삭제 */
+input[type="text" i] {
+    padding-block: 0;
+    padding-inline: 0;
 }

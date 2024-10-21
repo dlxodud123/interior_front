@@ -112,7 +112,7 @@ const My_profile_info = () => {
                     <div>
                         <label className='my_profile_info_username'>{defaultUsernameInputValue}</label>
                     </div>
-                    <div className='my_profile_info_img_change-delete_container' style={{marginTop:"10px"}}>
+                    <div className='my_profile_info_img_change-delete_container'>
                         <div onClick={handleImgChangeBtnClick} className='my_profile_info_img_change_content'>
                             <label className='my_profile_info_img_change'>Image Change</label>
                             <input
@@ -209,24 +209,23 @@ const My_profile_info = () => {
                         <div className='my_profile_info_detail_introduce_underline'></div>
                     </>
                 }
-            </div>
-
-            <div className='my_profile_info_detail_range_container'>
-                <div className='my_profile_info_detail_range_title_content'>
-                    <label className='my_profile_info_detail_range_title'>Profile Range</label>
-                </div>
-                <div className='my_profile_info_detail_range_name_container'>
-                    <div className='my_profile_info_detail_range_name_content'>
-                        {
-                            isOn === 'public' ? 
-                            <label className='my_profile_info_detail_range_name'>Public Profile</label>
-                            : 
-                            <label className='my_profile_info_detail_range_name'>Private Profile</label>
-                    
-                        }
+                <div className='my_profile_info_detail_range_container'>
+                    <div className='my_profile_info_detail_range_title_content'>
+                        <label className='my_profile_info_detail_range_title'>Profile Range</label>
                     </div>
-                    <div className={`range-switch ${isOn === 'private' ? 'private' : 'public'}`} onClick={rangeSwitch}>
-                        <div className="range-circle"></div>
+                    <div className='my_profile_info_detail_range_name_container'>
+                        <div className='my_profile_info_detail_range_name_content'>
+                            {
+                                isOn === 'public' ? 
+                                <label className='my_profile_info_detail_range_name'>Public Profile</label>
+                                : 
+                                <label className='my_profile_info_detail_range_name'>Private Profile</label>
+                        
+                            }
+                        </div>
+                        <div className={`range-switch ${isOn === 'private' ? 'private' : 'public'}`} onClick={rangeSwitch}>
+                            <div className="range-circle"></div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -56,7 +56,7 @@ const My_info = () => {
                 </div>
                 <div className='my_info_friend_management_container'>
                     <div onClick={() => setFriendSettingBtn(true)} className='my_info_friend_management_content'>
-                        <label className='my_info_friend_management'>friend Manage</label>
+                        <label className='my_info_friend_management'>Friend Manage</label>
                     </div>
                 </div>
             </div>

@@ -6,6 +6,7 @@ import Login_form from './login/js/login_form';
 import Signup_form from './signup/js/signup_form';
 import My_form from './my/my/js/my_form';
 import My_profile_form from './my/profile/js/my_profile_form';
+import My_friend_form from './my/friend/js/my_friend_form';
 import Callback from './google_callback/callback';
 
 import Test from './test/test';
@@ -35,7 +36,7 @@ function App() {
           <Route path='/signup' element={<Signup_form />}></Route>
           <Route path='/my' element={<My_form />}></Route>
           <Route path='/my/profile' element={<My_profile_form />}></Route>
-          {/* <Route path='/my/friend' element={}></Route> */}
+          <Route path='/my/friend' element={<My_friend_form></My_friend_form>}></Route>
           <Route path='/callback' element={<Callback></Callback>}></Route>
           
           <Route path='/test' element={<Test></Test>}></Route>
