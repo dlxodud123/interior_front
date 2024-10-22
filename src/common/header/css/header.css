@@ -128,59 +128,16 @@
         width: 2%;
     }
     .header_chat_gap{
-        width: 2%;
+        width: 2.5%;
     }
     .header_chat_content{
-        width: 16%;
+        width: 20%;
         margin-top: 6px;
     }
     .header_chat{
         color: #D9E8FF;
         font-size: 15px;
     }
-
-    /* 친구 modal창
-    .friendModalOpen {
-        width: 77px;
-        height: 260px;
-        border: 0.5px solid #3578FF;
-        transform: translateX(-62px) translateY(5px);
-        border-radius: 5px;
-    }
-    .friendModalClose {
-        transform: translateX(-62px) translateY(5px);
-    }
-    .friendModalTop{
-        height: 16px;
-    }
-    .friendModalTopCancel{
-        margin-right: 2px;
-        margin-top: 0px;
-        margin-bottom: 5px;
-        font-size: 10px;
-    }
-    .friendModalPersonContent{
-        width: 15px;
-        height: 20px;
-    }
-    .friendModalPerson{
-        font-size: 10px;
-    }
-    .friendModalNameContent{
-        width: 51px;
-        height: 20px;
-    }
-    .friendModalName{
-        font-size: 6px;
-    }
-    .friendModalChatContent{
-        width: 10px;
-        height: 20px;
-    }
-    .friendModalChat{
-        font-size: 8px;
-    } */
-
     .header_bottom{
         display: flex;
         width: 100%;
@@ -199,85 +156,24 @@
         margin-top: 7px;
         font-size: 14px;
     }
-    /* 친구 modal창
-    .friendModalOpen {
-        width: 68px;
-        transform: translateX(-53px) translateY(5px);
-    }
-    .friendModalClose {
-        transform: translateX(-53px) translateY(5px);
-    }
-    .friendModalTop{
-        height: 14px;
-    }
-    .friendModalTopCancel{
-        margin-right: 1px;
-        margin-top: 0px;
-        margin-bottom: 6px;
-        font-size: 9px;
-    }
-    .friendModalPersonContent{
-        height: 16px;
-    }
-    .friendModalPerson{
-        font-size: 9px;
-    }
-    .friendModalNameContent{
-        width: 42px;
-        height: 16px;
-    }
-    .friendModalName{
-        font-size: 5px;
-    }
-    .friendModalChatContent{
-        height: 16px;
-    }
-    .friendModalChat{
-        font-size: 7px;
-    } */
 }
 @media  screen and (max-width:440px){
+    .header_my_content{
+        font-size: 14px;
+        margin-top: 10px;
+    }
     .header_title{
         font-size: 13px;
     }
-    /* 친구 modal창
-    .friendModalOpen {
-        width: 58px;
-        transform: translateX(-46px) translateY(5px);
-    }
-    .friendModalClose {
-        transform: translateX(-46px) translateY(5px);
-    }
-    .friendModalTop{
-        height: 12px;
-    }
-    .friendModalTopCancel{
-        margin-right: 1px;
-        margin-top: 0px;
-        margin-bottom: 7.5px;
-        font-size: 7px;
-    }
-    .friendModalPersonContent{
-        width: 14px;
-        height: 14px;
-    }
-    .friendModalPerson{
+    .login-signup_btn{
+        width: 37%;
+        height: 15px;
         font-size: 8px;
+        margin-top: 8px;
     }
-    .friendModalNameContent{
-        width: 40px;
-        height: 14px;
+    .header_chat{
+        font-size: 13px;
     }
-    .friendModalName{
-        font-size: 4.5px;
-    }
-    .friendModalChatContent{
-        width: 10px;
-        height: 14px;
-    }
-    .friendModalChat{
-        font-size: 6px;
-    } */
 }
 @media  screen and (max-width:400px){
     .header_title{
@@ -290,44 +186,6 @@
         margin-top: 9px;
         font-size: 11px;
     }
-    /* 친구 modal창
-    .friendModalOpen {
-        width: 50px;
-        transform: translateX(-39px) translateY(5px);
-    }
-    .friendModalClose {
-        transform: translateX(-39px) translateY(5px);
-    }
-    .friendModalTop{
-        height: 10px;
-    }
-    .friendModalTopCancel{
-        margin-right: 0.5px;
-        margin-top: 0px;
-        margin-bottom: 9px;
-        font-size: 6px;
-    }
-    .friendModalPersonContent{
-        width: 14px;
-        height: 12px;
-    }
-    .friendModalPerson{
-        font-size: 7px;
-    }
-    .friendModalNameContent{
-        width: 44px;
-        height: 12px;
-    }
-    .friendModalName{
-        font-size: 4px;
-    }
-    .friendModalChatContent{
-        width: 10px;
-        height: 12px;
-    }
-    .friendModalChat{
-        font-size: 5px;
-    } */
 }
 @media  screen and (max-width:350px){
     .header_title{

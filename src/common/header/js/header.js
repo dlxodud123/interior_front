@@ -18,8 +18,7 @@ const Header = () => {
     let [mainBtn, setMainBtn] = useState(false);
     let [loginBtn, setLoginBtn] = useState(false);
     let [signupBtn, setSignupBtn] = useState(false);
-
-    let [isOpen, setIsOpen] = useState(false);
+    let [chatBtn, setChatBtn] = useState(false);
 
     useEffect(() => {
         setCategoryBtn("default");
@@ -41,6 +40,10 @@ const Header = () => {
 
     const navigate = useNavigate();
     useEffect(() => {
+        if(myBtn){
+            navigate("/my");
+            setMyBtn(false);
+        }
         if(loginBtn) {
             navigate("/login");
             setLoginBtn(false);
@@ -53,11 +56,11 @@ const Header = () => {
             navigate("/");
             setMainBtn(false);
         }
-        if(myBtn){
-            navigate("/my");
-            setMyBtn(false);
+        if(chatBtn) {
+            navigate("/test");
+            setChatBtn(false)
         }
-    }, [loginBtn, signupBtn, mainBtn, myBtn, navigate])
+    }, [myBtn, loginBtn, signupBtn, mainBtn, chatBtn, navigate])
 
     return(
         <header className='header_content'>
@@ -79,7 +82,7 @@ const Header = () => {
                             </div>
                             <div className='header_chat_gap'></div>
                             <div className='header_chat_content'>
-                                <BsChatDotsFill className='header_chat'/>
+                                <BsChatDotsFill onClick={() => setChatBtn(true)} className='header_chat'/>
                             </div>
                         </>
                         :
@@ -92,9 +95,7 @@ const Header = () => {
                                 SignUp
                             </div>
                             <div className='header_chat_gap'></div>
-                            <div className='header_chat_content'>
-                                {/* <BsChatDotsFill className='header_chat'/> */}
-                            </div>
+                            <div className='header_chat_content'></div>
                         </>
                     }
                 </div>
