@@ -39,10 +39,6 @@ const Header = () => {
         navigate('/');
     }
 
-    const togglePanel = () => {
-        setIsOpen(!isOpen);
-    };
-
     const navigate = useNavigate();
     useEffect(() => {
         if(loginBtn) {
@@ -63,8 +59,6 @@ const Header = () => {
         }
     }, [loginBtn, signupBtn, mainBtn, myBtn, navigate])
 
-    const numbers = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
-
     return(
         <header className='header_content'>
             <div className='header_top'>
@@ -83,31 +77,9 @@ const Header = () => {
                             <div onClick={() => handelLogout()} className='login-signup_btn' >
                                 Logout
                             </div>
-                            <div className='header_friend_gap'></div>
-                            <div className='header_friend_content'>
-                                <MdPeople onClick={togglePanel} className='header_friend'/>
-                                <div className={`${isOpen ? 'friendModalOpenBackground' : 'friendModalCloseBackground'}`}>
-                                </div>
-                                <div className={`${isOpen ? 'friendModalOpen' : 'friendModalClose'}`}>
-                                    <div className='friendModalTop'>
-                                        <FaXmark className='friendModalTopCancel' onClick={() => {setIsOpen(false)}}/>
-                                    </div>
-                                    {
-                                        numbers.map((number) => (
-                                            <div className='friendModalContent'>
-                                                <div className='friendModalPersonContent'>
-                                                    <IoMdPerson className='friendModalPerson'/>
-                                                </div>
-                                                <div className='friendModalNameContent'>
-                                                    <label className='friendModalName'>이태영</label>
-                                                </div>
-                                                <div className='friendModalChatContent'>
-                                                    <BsChatDotsFill className='friendModalChat'/>
-                                                </div>
-                                            </div>
-                                        ))
-                                    }
-                                </div>
+                            <div className='header_chat_gap'></div>
+                            <div className='header_chat_content'>
+                                <BsChatDotsFill className='header_chat'/>
                             </div>
                         </>
                         :
@@ -119,9 +91,9 @@ const Header = () => {
                             <div onClick={() => setSignupBtn(true)} className='login-signup_btn' >
                                 SignUp
                             </div>
-                            <div className='header_friend_gap'></div>
-                            <div className='header_friend_content'>
-                                {/* <MdPeople className='header_friend'/> */}
+                            <div className='header_chat_gap'></div>
+                            <div className='header_chat_content'>
+                                {/* <BsChatDotsFill className='header_chat'/> */}
                             </div>
                         </>
                     }

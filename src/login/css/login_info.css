@@ -150,14 +150,11 @@
         font-size: 11px;
     }
     .login_pwd-forget_container{
-        width: 100%;
+        width: 93.5%;
     }
     .login_forget_content{
         width: 60%;
         font-size: 11px;
-    }
-    .login_pwd-forget_container_gap{
-        width: 6.5%;
     }
     .login-signup_btn_container{
         margin-top: 40px;
