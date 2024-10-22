@@ -108,6 +108,7 @@ const Login_info = () => {
                     <div onClick={handleKakaoLogin} className='login_kakao_content'>
                         <div className='login_google-kakao_img_content'>
                             <img src={`${process.env.PUBLIC_URL}/img/카톡.png`} className='login_kakao_img'></img> 
+                            
                         </div>
                         <div className='login_google-kakao_text'>
                             Login with Kakao
