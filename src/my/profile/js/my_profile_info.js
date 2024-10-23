@@ -45,22 +45,6 @@ const My_profile_info = () => {
         console.log("최종 저장 introduce : ", finalIntroduceInputValue);
     }, [finalIntroduceInputValue]);
 
-    // 공개범위 부분
-    let [isOn, setIsOn] = useState('public');
-
-    const rangeSwitch = () => {
-        if (isOn === 'public') {
-            setIsOn('private');
-        }
-        if (isOn === 'private') {
-            setIsOn('public')
-        }
-    };
-
-    useEffect(() => {
-        console.log("공개범위 : ", isOn)
-    }, [isOn]);
-
     // 성별 부분
     let male = 'male'; let female = 'female'; let unseleted = 'unseleted';
     let [defaultGender , setDefaultGender] = useState(unseleted);
@@ -78,6 +62,42 @@ const My_profile_info = () => {
     useEffect(() => {
         console.log("최종 성별 : ", finalGender);
     }, [finalGender]);
+
+    // 나이 부분
+    let teenager = 'teenager'; let twenties = 'twenties'; 
+    let thirties = 'thirties'; let overforty = 'overforty'; 
+    let [defaultAge, setDefaultAge] = useState(unseleted);
+    let [ageValue, setAgeValue] = useState(defaultAge);
+    let [finalAge, setFinalAge] = useState('');
+
+    const handleAgeChange = (e) => {
+        setAgeValue(e.target.value);
+    }
+
+    const handleAgeSaveBtn = () => {
+        setFinalAge(ageValue);
+    }
+
+    useEffect(() => {
+        console.log("최종 나이 : ", finalAge);
+    }, [finalAge]);
+
+    // 공개범위 부분
+    let [isOn, setIsOn] = useState('public');
+
+    const rangeSwitch = () => {
+        if (isOn === 'public') {
+            setIsOn('private');
+        }
+        if (isOn === 'private') {
+            setIsOn('public')
+        }
+    };
+
+    useEffect(() => {
+        console.log("공개범위 : ", isOn)
+    }, [isOn]);
+
 
     // 프로필 사진 부분
     const fileInputRef = useRef(null);
@@ -277,6 +297,72 @@ const My_profile_info = () => {
                     </div>
                 </div>
                 <div className='my_profile_info_detail_gender_underline'></div>
+
+                <div className='my_profile_info_detail_age_title_content'>
+                    <label className='my_profile_info_detail_age_title'>Age</label>
+                </div>
+                <div className='my_profile_info_detail_age_container'>
+                    <div className='my_profile_info_detail_age_content'>
+                        <label className={`my_profile_info_detail_age_label ${ageValue === "teenager" ? "selected" : ""}`}>
+                            <input
+                                type="radio"
+                                name="age"
+                                value="teenager"
+                                onChange={handleAgeChange}
+                                checked={ageValue === teenager}
+                            />
+                            Teenager
+                        </label>
+                        <div className='my_profile_info_detail_age_label_blank'></div>
+                        <label className={`my_profile_info_detail_age_label ${ageValue === "twenties" ? "selected" : ""}`}>
+                            <input
+                                type="radio"
+                                name="age"
+                                value="twenties"
+                                onChange={handleAgeChange}
+                                checked={ageValue === twenties}
+                            />
+                            Twenties
+                        </label>
+                        <div className='my_profile_info_detail_age_label_blank'></div>
+                        <label className={`my_profile_info_detail_age_label ${ageValue === "thirties" ? "selected" : ""}`}>
+                            <input
+                                type="radio"
+                                name="age"
+                                value="thirties"
+                                onChange={handleAgeChange}
+                                checked={ageValue === thirties}
+                            />
+                            Thirties
+                        </label>
+                        <div className='my_profile_info_detail_age_label_blank'></div>
+                        <label className={`my_profile_info_detail_age_label ${ageValue === "overforty" ? "selected" : ""}`}>
+                            <input
+                                type="radio"
+                                name="age"
+                                value="overforty"
+                                onChange={handleAgeChange}
+                                checked={ageValue === overforty}
+                            />
+                            Over forty
+                        </label>
+                        <div className='my_profile_info_detail_age_label_blank'></div>
+                        <label className={`my_profile_info_detail_age_label ${ageValue === "unseleted" ? "selected" : ""}`}>
+                            <input
+                                type="radio"
+                                name="age"
+                                value="unseleted"
+                                onChange={handleAgeChange}
+                                checked={ageValue === unseleted}
+                            />
+                            Unseleted
+                        </label>
+                    </div>
+                    <div onClick={() => handleAgeSaveBtn()} className='my_profile_info_detail_age_save_content'>
+                        <label className='my_profile_info_detail_age_save'>Save</label>
+                    </div>
+                </div>
+                <div className='my_profile_info_detail_age_underline'></div>
 
                 <div className='my_profile_info_detail_range_container'>
                     <div className='my_profile_info_detail_range_title_content'>
