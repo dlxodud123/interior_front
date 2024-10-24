@@ -43,7 +43,7 @@ const My_friend_info = () => {
 
     useEffect(() => {
         console.log("페이지 수 : ", friendPage);
-        console.log("test : ", test[0].name);
+        console.log("test : ", test[1].name);
     });
 
     return(
@@ -106,10 +106,10 @@ const My_friend_info = () => {
                         </div>
                     </div>
                 ))}
-                <div className='pagination'>
+                <div className='pagination_content'>
                     {Array.from({ length: friendPage }, (_, index) => (
-                        <button key={index} onClick={() => handlePageChange(index + 1)}>
-                            {index + 1}
+                        <button key={index} onClick={() => handlePageChange(index + 1)} className='pagination_btn'>
+                            <label className='pagination'>{index + 1}</label>
                         </button>
                     ))}
                 </div>
