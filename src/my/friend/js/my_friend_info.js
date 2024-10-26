@@ -13,8 +13,8 @@ const My_friend_info = () => {
     let [friendGender, setFriendGender] = useState('male');
     let [friendAge, setFriendAge] = useState('twenties');
     let [test, setTest] = useState([
-        { name: '이태영', age: '20' },
-        { name: '지효준', age: '30' },
+        { image : '', username: '이태영', age: '20', gender : 'male', age : 'twenties' },
+        { username: '지효준', age: '30' },
     ]);
     // let [friendIntroduce, setFriendIntroduce] = useState('안녕하세요');
     
@@ -108,7 +108,7 @@ const My_friend_info = () => {
                 ))}
                 <div className='pagination_content'>
                     {Array.from({ length: friendPage }, (_, index) => (
-                        <button key={index} onClick={() => handlePageChange(index + 1)} className='pagination_btn'>
+                        <button key={index} onClick={() => handlePageChange(index + 1)} className={`pagination_btn ${currentPage === (index + 1) ? 'active' : ''}`}>
                             <label className='pagination'>{index + 1}</label>
                         </button>
                     ))}

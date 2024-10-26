@@ -46,8 +46,8 @@ const My_profile_info = () => {
     }, [finalIntroduceInputValue]);
 
     // 성별 부분
-    let male = 'male'; let female = 'female'; let unseleted = 'unseleted';
-    let [defaultGender , setDefaultGender] = useState(unseleted);
+    let male = 'male'; let female = 'female'; let unselected = 'unselected';
+    let [defaultGender , setDefaultGender] = useState(unselected);
     let [genderValue, setGenderValue] = useState(defaultGender);
     let [finalGender, setFinalGender] = useState('');
 
@@ -66,7 +66,7 @@ const My_profile_info = () => {
     // 나이 부분
     let teenager = 'teenager'; let twenties = 'twenties'; 
     let thirties = 'thirties'; let overforty = 'overforty'; 
-    let [defaultAge, setDefaultAge] = useState(unseleted);
+    let [defaultAge, setDefaultAge] = useState(unselected);
     let [ageValue, setAgeValue] = useState(defaultAge);
     let [finalAge, setFinalAge] = useState('');
 
@@ -281,15 +281,15 @@ const My_profile_info = () => {
                             Female
                         </label>
                         <div className='my_profile_info_detail_gender_label_blank'></div>
-                        <label className={`my_profile_info_detail_gender_label ${genderValue === "unseleted" ? "unseletedSelected" : ""}`}>
+                        <label className={`my_profile_info_detail_gender_label ${genderValue === "unselected" ? "unselectedSelected" : ""}`}>
                             <input
                                 type="radio"
                                 name="gender"
-                                value="unseleted"
+                                value="unselected"
                                 onChange={handleGenderChange}
-                                checked={genderValue === unseleted}
+                                checked={genderValue === unselected}
                             />
-                            Unseleted
+                            unselected
                         </label>
                     </div>
                     <div onClick={() => handleGenderSaveBtn()} className='my_profile_info_detail_gender_save_content'>
@@ -347,15 +347,15 @@ const My_profile_info = () => {
                             Over forty
                         </label>
                         <div className='my_profile_info_detail_age_label_blank'></div>
-                        <label className={`my_profile_info_detail_age_label ${ageValue === "unseleted" ? "selected" : ""}`}>
+                        <label className={`my_profile_info_detail_age_label ${ageValue === "unselected" ? "selected" : ""}`}>
                             <input
                                 type="radio"
                                 name="age"
-                                value="unseleted"
+                                value="unselected"
                                 onChange={handleAgeChange}
-                                checked={ageValue === unseleted}
+                                checked={ageValue === unselected}
                             />
-                            Unseleted
+                            unselected
                         </label>
                     </div>
                     <div onClick={() => handleAgeSaveBtn()} className='my_profile_info_detail_age_save_content'>
