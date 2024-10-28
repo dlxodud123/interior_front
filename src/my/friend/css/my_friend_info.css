@@ -48,7 +48,7 @@
 
 .my_friend_info_detail_container{
     width: 1280px;
-    height: 1000px;
+    height: 850px;
     margin-top: 30px;
 }
 /* 친구 title 부분 */
@@ -58,27 +58,32 @@
     border-bottom: 1px solid black;
 }
 .my_friend_info_detail_img_title_container{
+    width: 200px;
     display: flex;
     align-items: center;
-    width: 250px;
 }
 .my_friend_info_detail_username_title_container{
-    width: 300px;
+    width: 260px;
     display: flex;
     align-items: center;
 }   
 .my_friend_info_detail_gender_title_container{
-    width: 300px;
+    width: 260px;
     display: flex;
     align-items: center;
 }   
 .my_friend_info_detail_age_title_container{
-    width: 300px;
+    width: 260px;
     display: flex;
     align-items: center;
 }   
+.my_friend_info_detail_chat_title_container{
+    width: 180px;
+    display: flex;
+    align-items: center;
+}
 .my_friend_info_detail_delete_title_container{
-    width: 130px;
+    width: 120px;
     display: flex;
     align-items: center;
 }
@@ -87,7 +92,7 @@
     font-size: 22px;
 }
 
-/* 친구 정보 부분 */
+
 .my_friend_info_detail_content{
     width: 1280px;
     height: 150px;
@@ -95,8 +100,34 @@
     align-items: center;
     border-bottom: 1px solid rgba(0,0,0,0.2);
 }
+/* 친구 정보 부분 (private) */
+.my_friend_info_detail_private_content{
+    width: 1160px;
+    display: flex;
+    justify-content: center;
+}
+.my_friend_info_detail_private_lock_content{
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+.my_friend_info_detail_private_lock{
+    font-size: 40px;
+}
+.my_friend_info_detail_private_text_content{
+    height: 50px;
+    display: flex;
+    align-items: center;
+    margin-left: 3px;
+}
+.my_friend_info_detail_private_text{
+    font-weight: bold;
+    font-size: 22px;
+}
+
+/* 친구 정보 부분 (public) */
 .my_friend_info_detail_img_content{
-    width: 250px;
+    width: 200px;
 }
 .my_friend_info_detail_img{
     width: 120px;
@@ -104,12 +135,23 @@
     border-radius: 50%;
     object-fit: "cover";
 }
-.my_friend_info_detail_default_img{
+.my_friend_info_detail_default_male_img{
     width: 120px;
     height: 120px;
+    color: #3578FF;
+}
+.my_friend_info_detail_default_female_img{
+    width: 120px;
+    height: 120px;
+    color: #FF69B4;
+}
+.my_friend_info_detail_default_unselected_img{
+    width: 120px;
+    height: 120px;
+    color: #808080;
 }
 .my_friend_info_detail_info_username_content{
-    width: 300px;
+    width: 260px;
     display: flex;
     align-items: center;
 }
@@ -117,7 +159,7 @@
     font-size: 22px;
 }
 .my_friend_info_detail_info_gender_content{
-    width: 300px;
+    width: 260px;
     display: flex;
     align-items: center;
 }
@@ -125,15 +167,23 @@
     font-size: 22px;
 }
 .my_friend_info_detail_info_age_content{
-    width: 300px;
+    width: 260px;
     display: flex;
     align-items: center;
 }
 .my_friend_info_detail_info_age{
     font-size: 22px;
 }
+.my_friend_info_detail_chat_container{
+    width: 180px;
+}
+.my_friend_info_detail_chat{
+    font-size: 35px;
+    /* color: #3578FF; */
+    cursor: pointer;
+}
 .my_friend_info_detail_delete_container{
-    width: 130px;
+    width: 120px;
     display: flex;
 }
 .my_friend_info_detail_delete_content{
@@ -151,8 +201,10 @@
     color: rgba(0,0,0,0.5);
     cursor: pointer;
 }
+
+/* pagination */
 .pagination_content{
-    margin-top: 20px;
+    height: 120px;
 }
 .pagination_btn{
     width: 50px;
@@ -170,14 +222,6 @@
     font-size: 18px;
     cursor: pointer;
 }
-/* .my_friend_info_detail_info_introduce_content{
-    display: flex;
-    align-items: center;
-}
-.my_friend_info_detail_info_introduce{
-    font-size: 20px;
-} */
-
 
 
 input[type="text" i] {

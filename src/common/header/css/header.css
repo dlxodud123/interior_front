@@ -56,9 +56,9 @@
     width: 20px;
 }
 .header_chat_gap{
-    width: 20px;
+    width: 25px;
 }
-.header_chat_content{
+/* .header_chat_content{
     width: 50px;
     margin-top: 12px;
 }
@@ -66,7 +66,7 @@
     color: #D9E8FF;
     font-size: 27px;
     cursor: pointer;
-}
+} */
 
 /* 종류 선택 */
 .header_bottom{
@@ -128,16 +128,16 @@
         width: 2%;
     }
     .header_chat_gap{
-        width: 2.5%;
+        width: 5.5%;
     }
-    .header_chat_content{
+    /* .header_chat_content{
         width: 20%;
         margin-top: 6px;
     }
     .header_chat{
         color: #D9E8FF;
         font-size: 15px;
-    }
+    } */
     .header_bottom{
         display: flex;
         width: 100%;
@@ -171,9 +171,9 @@
         font-size: 8px;
         margin-top: 8px;
     }
-    .header_chat{
+    /* .header_chat{
         font-size: 13px;
-    }
+    } */
 }
 @media  screen and (max-width:400px){
     .header_title{

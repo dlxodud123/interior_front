@@ -339,7 +339,7 @@
 .my_profile_info_detail_gender_label.femaleSelected::before {
     background-color: #FF69B4 ;
 }
-.my_profile_info_detail_gender_label.unseletedSelected::before {
+.my_profile_info_detail_gender_label.unselectedSelected::before {
     background-color: #808080 ;
 }
 .my_profile_info_detail_gender_label_blank{

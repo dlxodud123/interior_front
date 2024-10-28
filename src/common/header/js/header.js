@@ -66,9 +66,15 @@ const Header = () => {
         <header className='header_content'>
             <div className='header_top'>
                 <div className='header_my'>
-                    <div className='header_my_container'>
-                        <FaUserCircle onClick={() => setMyBtn(true)} className='header_my_content'/>
-                    </div>
+                    {
+                        googleLogin || kakaoLogin ? 
+                        <div className='header_my_container'>
+                            <FaUserCircle onClick={() => setMyBtn(true)} className='header_my_content'/>
+                        </div>
+                        :
+                        <>
+                        </>
+                    }
                 </div>
                 <div className='header_title'>
                     <label onClick={() => setMainBtn(true)} style={{cursor:"pointer"}}>Random Chat & Random Video</label>
@@ -81,9 +87,8 @@ const Header = () => {
                                 Logout
                             </div>
                             <div className='header_chat_gap'></div>
-                            <div className='header_chat_content'>
-                                <BsChatDotsFill onClick={() => setChatBtn(true)} className='header_chat'/>
-                            </div>
+                            {/* <div className='header_chat_content'></div> */}
+                            {/* <BsChatDotsFill onClick={() => setChatBtn(true)} className='header_chat'/> */}
                         </>
                         :
                         <>
@@ -95,7 +100,7 @@ const Header = () => {
                                 SignUp
                             </div>
                             <div className='header_chat_gap'></div>
-                            <div className='header_chat_content'></div>
+                            {/* <div className='header_chat_content'></div> */}
                         </>
                     }
                 </div>
