@@ -289,7 +289,7 @@ const My_profile_info = () => {
                                 onChange={handleGenderChange}
                                 checked={genderValue === unselected}
                             />
-                            unselected
+                            Unselected
                         </label>
                     </div>
                     <div onClick={() => handleGenderSaveBtn()} className='my_profile_info_detail_gender_save_content'>
@@ -355,7 +355,7 @@ const My_profile_info = () => {
                                 onChange={handleAgeChange}
                                 checked={ageValue === unselected}
                             />
-                            unselected
+                            Unselected
                         </label>
                     </div>
                     <div onClick={() => handleAgeSaveBtn()} className='my_profile_info_detail_age_save_content'>

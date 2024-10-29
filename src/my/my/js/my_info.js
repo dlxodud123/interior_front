@@ -1,4 +1,6 @@
 import './../css/my_info.css';
+import My_info_detail from './my_info_detail';
+import My_info_friend from './my_info_friend';
 import React, { useContext, useEffect, useState } from 'react';
 import { MyContext } from '../../../App';
 import { IoMdPerson } from "react-icons/io";
@@ -10,6 +12,13 @@ const My_info = () => {
     let [imgAvailable, setImgAvailable] = useState(true);
     let [profileSettingBtn, setProfileSettingBtn] = useState(false);
     let [friendSettingBtn, setFriendSettingBtn] = useState(false);
+    let [myInfo, setMyInfo] = useState(
+        { unique: '1', image: '사진', email: 'xodud5080@naver.com', introduce:'안녕하세요', username: '이태영', gender: 'male', age: 'twenties', range: 'public' },
+    );
+
+    useEffect(() => {
+        console.log("이메일 : ", myInfo.email);
+    })
 
     function securityEmail(email) {
         const [localPart, domain] = email.split('@');
@@ -41,11 +50,11 @@ const My_info = () => {
                 </div>
                 <div className='my_info_profile_info_content'>
                     <div className='my_info_profile_info_username_content'>
-                        <label className='my_info_profile_info_username'>이태영</label>
+                        <label className='my_info_profile_info_username'>{myInfo.username}</label>
                     </div>
                     <div className='my_infoprofile_info_email_content'>
                         <label className='my_info_profile_info_email'>
-                            {securityEmail('xodud5080@naver.com')}
+                            {securityEmail(myInfo.email)}
                         </label>
                     </div>
                 </div>
@@ -59,6 +68,43 @@ const My_info = () => {
                         <label className='my_info_friend_management'>Friend Manage</label>
                     </div>
                 </div>
+            </div>
+            <div style={{display:"flex"}}>
+                <My_info_detail></My_info_detail>
+                <My_info_friend></My_info_friend>
+                <div className='my_info_gap'></div>
+                
+                <div className='my_info_content'>
+                    <div className='my_info_introduce_content'>
+                        <div className='my_info_title_content'>
+                            <label className='my_info_title'>Introduce</label>
+                        </div>
+                        <label className='my_info_colon'>:</label>
+                        <label className='my_info_text'>{myInfo.introduce}</label>
+                    </div>
+                    <div className='my_info_gender_content'>
+                        <div className='my_info_title_content'>
+                            <label className='my_info_title'>Gender</label>
+                        </div>
+                        <label className='my_info_colon'>:</label>
+                        <label className='my_info_text'>{myInfo.gender}</label>
+                    </div>
+                    <div className='my_info_age_content'>
+                        <div className='my_info_title_content'>
+                            <label className='my_info_title'>Age</label>
+                        </div>
+                        <label className='my_info_colon'>:</label>
+                        <label className='my_info_text'>{myInfo.age}</label>
+                    </div>
+                    <div className='my_info_range_content'>
+                        <div className='my_info_title_content'>
+                            <label className='my_info_title'>Range</label>
+                        </div>
+                        <label className='my_info_colon'>:</label>
+                        <label className='my_info_text'>{myInfo.range}</label>
+                    </div>
+                </div>
+
             </div>
         </body>
     )

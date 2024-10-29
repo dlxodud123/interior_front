@@ -3,6 +3,8 @@
     height: 800px;
     margin: auto;
 }
+
+/* 프로필 부분 */
 .my_info_profile_container{
     width: 1280px;
     height: 180px;
@@ -84,4 +86,8 @@
 .my_info_friend_management{
     color: rgba(34, 34, 34, 0.7);
     cursor: pointer;
+}
+
+.my_info_gap{
+    width: 40px;
 }
