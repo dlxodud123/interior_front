@@ -5,6 +5,7 @@ import { FiSearch } from "react-icons/fi";
 import { IoMdPerson } from "react-icons/io";
 import { CiLock } from "react-icons/ci";
 import { BsChatDotsFill } from "react-icons/bs";
+import { IoMdPersonAdd } from "react-icons/io";
 
 const My_friend_info = () => {
     const { api } = useContext(MyContext);
@@ -27,7 +28,6 @@ const My_friend_info = () => {
     const [searchTerm, setSearchTerm] = useState("");
     const [currentPage, setCurrentPage] = useState(1); // 현재 페이지
     const friendsPerPage = 5; // 페이지당 친구 수
-
     
     // 검색된 친구 목록 필터링
     const filteredFriends = friendsInfo.filter(friend =>
@@ -97,62 +97,75 @@ const My_friend_info = () => {
                         <label className='my_friend_info_detail_title'>Delete</label>
                     </div>
                 </div>
-                {currentFriends.map((friend, index) => (
-                    <div className='my_friend_info_detail_content'>
-                        {
-                            friend.range === 'private' ? 
-                            <>
-                                <div className='my_friend_info_detail_private_content'>
-                                    <div className='my_friend_info_detail_private_lock_content'>
-                                        <CiLock className='my_friend_info_detail_private_lock' />
-                                    </div>
-                                    <div className='my_friend_info_detail_private_text_content'>
-                                        <label className='my_friend_info_detail_private_text'>It's a private profile</label>
-                                    </div>
-                                </div>
-                                <div className='my_friend_info_detail_delete_container'>
-                                    <div className='my_friend_info_detail_delete_content'>
-                                        <label className='my_friend_info_detail_delete'>Delete</label>
-                                    </div>
-                                </div>
-                            </>
-                            :
-                            <>
-                                <div className='my_friend_info_detail_img_content'>
+                {
+                    friendsInfo.length === 0 ? (
+                        <div className='my_friend_info_detail_none_friend_content'>
+                            <IoMdPersonAdd className='my_friend_info_detail_none_friend' />
+                            <div className='my_friend_info_detail_none_friend_gap'></div>
+                            <label className='my_friend_info_detail_none_friend_text'>You have no friends. Add some friends.</label>
+                        </div>
+                    ) : (
+                        <>
+                            {currentFriends.map((friend, index) => (
+                                <div className='my_friend_info_detail_content'>
                                     {
-                                        friend.image === 'default' ? 
-                                            friend.gender === 'male' ? 
-                                            <IoMdPerson className='my_friend_info_detail_default_male_img' />
-                                            :
-                                            friend.gender === 'female' ?
-                                            <IoMdPerson className='my_friend_info_detail_default_female_img' />
-                                            : 
-                                            <IoMdPerson className='my_friend_info_detail_default_unselected_img' />
+                                        friend.range === 'private' ? 
+                                        <>
+                                            <div className='my_friend_info_detail_private_content'>
+                                                <div className='my_friend_info_detail_private_lock_content'>
+                                                    <CiLock className='my_friend_info_detail_private_lock' />
+                                                </div>
+                                                <div className='my_friend_info_detail_private_text_content'>
+                                                    <label className='my_friend_info_detail_private_text'>It's a private profile</label>
+                                                </div>
+                                            </div>
+                                            <div className='my_friend_info_detail_delete_container'>
+                                                <div className='my_friend_info_detail_delete_content'>
+                                                    <label className='my_friend_info_detail_delete'>Delete</label>
+                                                </div>
+                                            </div>
+                                        </>
                                         :
-                                        <img src={`${process.env.PUBLIC_URL}/img/아이유.jpeg`} className='my_friend_info_detail_img'></img>
+                                        <>
+                                            <div className='my_friend_info_detail_img_content'>
+                                                {
+                                                    friend.image === 'default' ? 
+                                                        friend.gender === 'male' ? 
+                                                        <IoMdPerson className='my_friend_info_detail_default_male_img' />
+                                                        :
+                                                        friend.gender === 'female' ?
+                                                        <IoMdPerson className='my_friend_info_detail_default_female_img' />
+                                                        : 
+                                                        <IoMdPerson className='my_friend_info_detail_default_unselected_img' />
+                                                    :
+                                                    <img src={`${process.env.PUBLIC_URL}/img/아이유.jpeg`} className='my_friend_info_detail_img'></img>
+                                                }
+                                            </div>
+                                            <div className='my_friend_info_detail_info_username_content'>
+                                                <label className='my_friend_info_detail_info_username'>{friend.username}</label>
+                                            </div>
+                                            <div className='my_friend_info_detail_info_gender_content'>
+                                                <label className='my_friend_info_detail_info_gender'>{friend.gender}</label>
+                                            </div>
+                                            <div className='my_friend_info_detail_info_age_content'>
+                                                <label className='my_friend_info_detail_info_age'>{friend.age}</label>
+                                            </div>
+                                            <div className='my_friend_info_detail_chat_container'>
+                                                <BsChatDotsFill className='my_friend_info_detail_chat' />
+                                            </div>
+                                            <div className='my_friend_info_detail_delete_container'>
+                                                <div className='my_friend_info_detail_delete_content'>
+                                                    <label className='my_friend_info_detail_delete'>Delete</label>
+                                                </div>
+                                            </div>
+                                        </>
                                     }
                                 </div>
-                                <div className='my_friend_info_detail_info_username_content'>
-                                    <label className='my_friend_info_detail_info_username'>{friend.username}</label>
-                                </div>
-                                <div className='my_friend_info_detail_info_gender_content'>
-                                    <label className='my_friend_info_detail_info_gender'>{friend.gender}</label>
-                                </div>
-                                <div className='my_friend_info_detail_info_age_content'>
-                                    <label className='my_friend_info_detail_info_age'>{friend.age}</label>
-                                </div>
-                                <div className='my_friend_info_detail_chat_container'>
-                                    <BsChatDotsFill className='my_friend_info_detail_chat' />
-                                </div>
-                                <div className='my_friend_info_detail_delete_container'>
-                                    <div className='my_friend_info_detail_delete_content'>
-                                        <label className='my_friend_info_detail_delete'>Delete</label>
-                                    </div>
-                                </div>
-                            </>
-                        }
-                    </div>
-                ))}
+                            ))}
+                        </>
+
+                    )
+                }
             </div>
             <div className='pagination_content'>
                 {filteredFriends.length > 0 && (

@@ -1,6 +1,6 @@
 .my_friend_info-container{
-    margin: auto;
     width: 1280px;
+    margin: auto;
 }
 .my_friend_info_title_container{
     border-bottom: 4px solid black;
@@ -35,10 +35,9 @@
 }
 .my_friend_info_search_content{
     width: 60px;
-    height: 60px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    padding-top: 20px;
     cursor: pointer;
 }
 .my_friend_info_search{
@@ -92,6 +91,24 @@
     font-size: 22px;
 }
 
+/* 친구 정보 부분 (none) */
+.my_friend_info_detail_none_friend_content{
+    width: 1280px;
+    height: 780px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.my_friend_info_detail_none_friend{
+    font-size: 45px;
+}
+.my_friend_info_detail_none_friend_gap{
+    width: 15px;
+}
+.my_friend_info_detail_none_friend_text{
+    font-size: 25px;
+    font-weight: bold;
+}
 
 .my_friend_info_detail_content{
     width: 1280px;
@@ -100,31 +117,6 @@
     align-items: center;
     border-bottom: 1px solid rgba(0,0,0,0.2);
 }
-/* 친구 정보 부분 (private) */
-.my_friend_info_detail_private_content{
-    width: 1160px;
-    display: flex;
-    justify-content: center;
-}
-.my_friend_info_detail_private_lock_content{
-    height: 50px;
-    display: flex;
-    align-items: center;
-}
-.my_friend_info_detail_private_lock{
-    font-size: 40px;
-}
-.my_friend_info_detail_private_text_content{
-    height: 50px;
-    display: flex;
-    align-items: center;
-    margin-left: 3px;
-}
-.my_friend_info_detail_private_text{
-    font-weight: bold;
-    font-size: 22px;
-}
-
 /* 친구 정보 부분 (public) */
 .my_friend_info_detail_img_content{
     width: 200px;
@@ -179,7 +171,6 @@
 }
 .my_friend_info_detail_chat{
     font-size: 35px;
-    /* color: #3578FF; */
     cursor: pointer;
 }
 .my_friend_info_detail_delete_container{
@@ -202,6 +193,31 @@
     cursor: pointer;
 }
 
+/* 친구 정보 부분 (private) */
+.my_friend_info_detail_private_content{
+    width: 1160px;
+    display: flex;
+    justify-content: center;
+}
+.my_friend_info_detail_private_lock_content{
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+.my_friend_info_detail_private_lock{
+    font-size: 40px;
+}
+.my_friend_info_detail_private_text_content{
+    height: 50px;
+    display: flex;
+    align-items: center;
+    margin-left: 3px;
+}
+.my_friend_info_detail_private_text{
+    font-weight: bold;
+    font-size: 22px;
+}
+
 /* pagination */
 .pagination_content{
     height: 120px;
@@ -221,6 +237,182 @@
 .pagination{
     font-size: 18px;
     cursor: pointer;
+}
+
+@media screen and (max-width:600px) {
+    .my_friend_info-container{
+        width: 100%;
+    }
+    .my_friend_info_title_container{
+        width: 90%;
+        margin-left: 18px;
+        border-bottom: 2px solid black;
+    }
+    .my_friend_info_title_content{
+        margin-top: 18px;
+        padding-bottom: 8px;
+    }   
+    .my_friend_info_title{
+        font-size: 15px;
+    }
+    .my_friend_info_search_container{
+        width: 100%;
+        margin-top: 20px;
+        margin-left: 18px;
+    }
+    .my_friend_info_searh_input{
+        width: 30%;
+        height: 20px;
+        font-size: 8px;
+    }
+    .my_friend_info_searh_input:focus{
+        border-bottom: 1px solid rgba(0,0,0,1);
+    }
+    .my_friend_info_search_content{
+        width: 25px;
+        padding-top: 5px;
+    }
+    .my_friend_info_search{
+        font-size: 15px;
+    }
+    
+    .my_friend_info_detail_container{
+        width: 90%;
+        height: 393px;
+        margin-top: 10px;
+        margin-left: 18px;
+    }
+    /* 친구 title 부분 */
+    .my_friend_info_detail_title_container{
+        height: 35px;
+        border-bottom: 0.5px solid black;
+    }
+    .my_friend_info_detail_img_title_container{
+        width: 16%;
+    }
+    .my_friend_info_detail_username_title_container{
+        width: 20%;
+    }   
+    .my_friend_info_detail_gender_title_container{
+        width: 20%;
+    }   
+    .my_friend_info_detail_age_title_container{
+        width: 20%;
+    }   
+    .my_friend_info_detail_chat_title_container{
+        width: 14%;
+    }
+    .my_friend_info_detail_delete_title_container{
+        width: 10%;
+    }
+    .my_friend_info_detail_title{
+        font-size: 10px;
+    }
+    
+    /* 친구 정보 부분 (none) */
+    .my_friend_info_detail_none_friend_content{
+        width: 100%;
+        height: 393px;
+    }
+    .my_friend_info_detail_none_friend{
+        font-size: 20px;
+    }
+    .my_friend_info_detail_none_friend_gap{
+        width: 8px;
+    }
+    .my_friend_info_detail_none_friend_text{
+        font-size: 13px;
+    }
+    
+    .my_friend_info_detail_content{
+        width: 100%;
+        height: 70px;
+        border-bottom: 0.5px solid rgba(0,0,0,0.2);
+    }
+    
+    /* 친구 정보 부분 (public) */
+    .my_friend_info_detail_img_content{
+        width: 16%;
+        display: flex;
+        text-align: center;
+    }
+    .my_friend_info_detail_img{
+        width: 70%;
+        height: 70%;
+    }
+    .my_friend_info_detail_default_male_img{
+        width: 70%;
+        height: 70%;
+    }
+    .my_friend_info_detail_default_female_img{
+        width: 70%;
+        height: 70%;
+    }
+    .my_friend_info_detail_default_unselected_img{
+        width: 70%;
+        height: 70%;
+    }
+    .my_friend_info_detail_info_username_content{
+        width: 20%;
+    }
+    .my_friend_info_detail_info_username{
+        font-size: 10px;
+    }
+    .my_friend_info_detail_info_gender_content{
+        width: 20%;
+    }
+    .my_friend_info_detail_info_gender{
+        font-size: 10px;
+    }
+    .my_friend_info_detail_info_age_content{
+        width: 20%;
+    }
+    .my_friend_info_detail_info_age{
+        font-size: 10px;
+    }
+    .my_friend_info_detail_chat_container{
+        width: 14%;
+    }
+    .my_friend_info_detail_chat{
+        font-size: 17px;
+    }
+    .my_friend_info_detail_delete_container{
+        width: 10%;
+    }
+    .my_friend_info_detail_delete_content{
+        width: 90%;
+        height: 40px;
+        border: 0.5px solid rgba(0,0,0,0.3);
+        border-radius: 10px;
+    }
+    .my_friend_info_detail_delete{
+        font-size: 9px;
+    }
+
+    /* 친구 정보 부분 (private) */
+    .my_friend_info_detail_private_content{
+        width: 90%;
+    }
+    .my_friend_info_detail_private_lock{
+        font-size: 20px;
+    }
+    .my_friend_info_detail_private_text{
+        font-size: 12px;
+    }
+
+    /* pagination */
+    .pagination_content{
+        height: 50px;
+        margin-left: 18px;
+    }
+    .pagination_btn{
+        width: 20px;
+        height: 20px;
+        border: 0.5px solid rgba(0,0,0,0.5);
+    }
+    .pagination{
+        font-size: 10px;
+    }
 }
 
 

@@ -25,36 +25,36 @@ const Login_info = () => {
         }
     }, []); 
     const handleKakaoLogin = () => {
-    window.Kakao.Auth.login({
-        success: function (authObj) {
-        console.log('카카오 로그인 성공', authObj);
+        window.Kakao.Auth.login({
+            success: function (authObj) {
+            console.log('카카오 로그인 성공', authObj);
 
-        window.Kakao.API.request({
-            url: '/v2/user/me',
-            success: function (res) {
-            console.log('사용자 정보: ', res);
-            // 사용자 정보를 상태에 저장하거나 처리
-            const kakaoAccount = res.kakao_account;
+            window.Kakao.API.request({
+                url: '/v2/user/me',
+                success: function (res) {
+                console.log('사용자 정보: ', res);
+                // 사용자 정보를 상태에 저장하거나 처리
+                const kakaoAccount = res.kakao_account;
 
-            // 이메일 정보 확인 및 콘솔 출력
-            if (kakaoAccount.has_email) {
-                console.log('사용자 이메일: ', kakaoAccount.email); 
-                console.log('사용자 이름: ', kakaoAccount.profile.nickname);
-                setKakaoLogin(true); // 카카오톡 로그인 확인
-                navigate("/")
-            } else {
-                console.log('이메일 제공에 동의하지 않음');
-            }
+                // 이메일 정보 확인 및 콘솔 출력
+                if (kakaoAccount.has_email) {
+                    console.log('사용자 이메일: ', kakaoAccount.email); 
+                    console.log('사용자 이름: ', kakaoAccount.profile.nickname);
+                    setKakaoLogin(true); // 카카오톡 로그인 확인
+                    navigate("/")
+                } else {
+                    console.log('이메일 제공에 동의하지 않음');
+                }
+                },
+                fail: function (error) {
+                console.log('사용자 정보 요청 실패', error);
+                },
+            });
             },
-            fail: function (error) {
-            console.log('사용자 정보 요청 실패', error);
+            fail: function (err) {
+            console.log('카카오 로그인 실패', err);
             },
         });
-        },
-        fail: function (err) {
-        console.log('카카오 로그인 실패', err);
-        },
-    });
     };
 
     const navigate = useNavigate();
