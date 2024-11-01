@@ -1,6 +1,6 @@
 .my_info_content{
     width: 620px;
-    height: 400px;
+    height: 410px;
     border: 1px solid rgba(0,0,0,0.2);
     background-color: white;
     border-radius: 20px;
@@ -8,7 +8,7 @@
 }
 .my_info_introduce_content{
     display: flex;
-    margin-top: 30px;
+    margin-top: 40px;
 }
 .my_info_title_content{
     width: 200px;

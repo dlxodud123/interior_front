@@ -71,10 +71,10 @@ const My_info = () => {
             </div>
             <div style={{display:"flex"}}>
                 <My_info_detail></My_info_detail>
-                <My_info_friend></My_info_friend>
                 <div className='my_info_gap'></div>
+                <My_info_friend></My_info_friend>
                 
-                <div className='my_info_content'>
+                {/* <div className='my_info_content'>
                     <div className='my_info_introduce_content'>
                         <div className='my_info_title_content'>
                             <label className='my_info_title'>Introduce</label>
@@ -103,7 +103,7 @@ const My_info = () => {
                         <label className='my_info_colon'>:</label>
                         <label className='my_info_text'>{myInfo.range}</label>
                     </div>
-                </div>
+                </div> */}
 
             </div>
         </body>
