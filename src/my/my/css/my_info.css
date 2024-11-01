@@ -1,6 +1,6 @@
 .my_info-container{
     width: 1280px;
-    height: 800px;
+    height: 700px;
     margin: auto;
 }
 
@@ -26,6 +26,21 @@
     border-radius: 50%;
     object-fit: "cover";
 }
+.my_profile_male_img{
+    width: 120px;
+    height: 120px;
+    color: #3578FF;
+}
+.my_profile_female_img{
+    width: 120px;
+    height: 120px;
+    color: #FF69B4;
+}
+.my_profile_unselected_img{
+    width: 120px;
+    height: 120px;
+    color: #808080;
+}
 .my_info_profile_info_content{
     width: 750px;
     height: 180px;
@@ -39,9 +54,6 @@
 .my_info_profile_info_username{
     font-size: 26px;
     font-weight: bold;
-}
-.my_info_profile_info_email_content{
-    height: 90px;
 }
 .my_info_profile_info_email{
     font-size: 21px;
@@ -91,3 +103,208 @@
 .my_info_gap{
     width: 40px;
 }
+
+
+@media screen and (max-width:600px) {
+    .my_info-container{
+        width: 100%;
+        height: 600px;
+    }
+    
+    /* 프로필 부분 */
+    .my_info_profile_container{
+        width: 90%;
+        height: 96px;
+        margin: 30px auto auto auto;
+        border-radius: 10px;
+    }
+    .my_info_profile_img_content{
+        width: 17%;
+    }
+    .my_info_profile_img{
+        width: 65%;
+        height: 60%;
+    }
+    .my_profile_male_img{
+        width: 65%;
+        height: 60%;
+        color: #3578FF;
+    }
+    .my_profile_female_img{
+        width: 65%;
+        height: 60%;
+        color: #FF69B4;
+    }
+    .my_profile_unselected_img{
+        width: 65%;
+        height: 60%;
+        color: #808080;
+    }
+    .my_info_profile_info_content{
+        width: 60%;
+        height: 96px;
+    }
+    .my_info_profile_info_username_content{
+        height: 50px;
+    }
+    .my_info_profile_info_username{
+        font-size: 10px;
+    }
+    .my_info_profile_info_email_content{
+        display: flex; /* 변경 */
+        align-items: center; /* 수직 정렬 */
+        unicode-bidi: normal; /* 텍스트 방향성을 초기화 */
+    }
+    .my_info_profile_info_email{
+        font-size: 10px;
+    }
+    .my_info_profile_management_container{
+        width: 10%;
+    }
+    .my_info_profile_management_content{
+        width: 90%;
+        height: 25px;
+        border: 0.5px solid rgba(34, 34, 34, 0.3);
+        border-radius: 8px;
+    }
+    .my_info_profile_management{
+        font-size: 6px;
+    }
+    .my_info_friend_management_container{
+        width: 10%;
+    }
+    .my_info_friend_management_content{
+        width: 90%;
+        height: 25px;
+        border: 0.5px solid rgba(34, 34, 34, 0.3);
+        border-radius: 8px;
+    }
+    .my_info_friend_management{
+        font-size: 6px;
+    }
+    
+    /* .my_info_gap{
+        width: 40px;
+    } */
+}
+
+@media screen and (max-width:500px) {
+    /* 사진 */
+    .my_info_profile_img{
+        height: 55%;
+    }
+    .my_profile_male_img{
+        height: 55%;
+    }
+    .my_profile_female_img{
+        height: 55%;
+    }
+    .my_profile_unselected_img{
+        height: 55%;
+    }
+
+    /* 정보 */
+    .my_info_profile_info_username{
+        font-size: 9px;
+    }
+    .my_info_profile_info_email{
+        font-size: 9px;
+    }
+    
+    /* 버튼 */
+    .my_info_profile_management_content{
+        height: 23px;
+        border-radius: 8px;
+    }
+    .my_info_profile_management{
+        font-size: 5px;
+    }
+    .my_info_friend_management_content{
+        height: 23px;
+        border-radius: 8px;
+    }
+    .my_info_friend_management{
+        font-size: 5px;
+    }
+}
+
+@media screen and (max-width:420px) {
+    /* 사진 */
+    .my_info_profile_img{
+        height: 45%;
+    }
+    .my_profile_male_img{
+        height: 45%;
+    }
+    .my_profile_female_img{
+        height: 45%;
+    }
+    .my_profile_unselected_img{
+        height: 45%;
+    }
+
+    /* 정보 */
+    .my_info_profile_info_username{
+        font-size:8.5px;
+    }
+    .my_info_profile_info_email{
+        font-size: 8.5px;
+    }
+
+    /* 버튼 */
+    .my_info_profile_management_content{
+        height: 21px;
+        border-radius: 7px;
+    }
+    .my_info_profile_management{
+        font-size: 4px;
+    }
+    .my_info_friend_management_content{
+        height: 21px;
+        border-radius: 7px;
+    }
+    .my_info_friend_management{
+        font-size: 4px;
+    }
+}
+
+@media screen and (max-width:350px) {
+    /* 사진 */
+    .my_info_profile_img{
+        height: 40%;
+    }
+    .my_profile_male_img{
+        height: 40%;
+    }
+    .my_profile_female_img{
+        height: 40%;
+    }
+    .my_profile_unselected_img{
+        height: 40%;
+    }
+
+    /* 정보 */
+    .my_info_profile_info_username{
+        font-size:8px;
+    }
+    .my_info_profile_info_email{
+        font-size: 8px;
+    }
+
+    /* 버튼 */
+    .my_info_profile_management_content{
+        height: 19px;
+        border-radius: 7px;
+    }
+    .my_info_profile_management{
+        font-size: 3.5px;
+    }
+    .my_info_friend_management_content{
+        height: 19px;
+        border-radius: 7px;
+    }
+    .my_info_friend_management{
+        font-size: 3.5px;
+    }
+}
+
