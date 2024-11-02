@@ -9,16 +9,29 @@ import { useNavigate } from 'react-router-dom';
 const My_info = () => {
     const { api } = useContext(MyContext);
 
-    let [imgAvailable, setImgAvailable] = useState();
     let [profileSettingBtn, setProfileSettingBtn] = useState(false);
     let [friendSettingBtn, setFriendSettingBtn] = useState(false);
+    
     let [myInfo, setMyInfo] = useState(
         { unique: '1', image: '사진', email: 'xodud5080@naver.com', introduce:'안녕하세요', username: '이태영', gender: 'male', age: 'twenties', range: 'public' },
     );
+    let [myFriendsInfo, setMyFriendsInfo] = useState([
+        { unique: '1', image: '사진', username: '이태영', gender: 'male', age: 'twenties', range: 'public' },
+        { unique: '2', image: 'default', username: '전영호', gender: 'male', age: 'thirties', range: 'public' },
+        { unique: '3', image: 'default', username: '김하영', gender: 'female', age: 'twenties', range: 'private' },
+        { unique: '4', image: '사진', username: '박민수', gender: 'unselected', age: 'twenties', range: 'public' },
+        { unique: '5', image: 'default', username: '이준영', gender: 'unselected', age: 'twenties', range: 'private' },
+        { unique: '6', image: 'default', username: '최은지', gender: 'female', age: 'thirties', range: 'public' },
+        { unique: '7', image: '사진', username: '정지훈', gender: 'male', age: 'twenties', range: 'public' },
+        { unique: '8', image: 'default', username: '오지혜', gender: 'female', age: 'twenties', range: 'private' },
+        { unique: '9', image: 'default', username: '김우빈', gender: 'male', age: 'thirties', range: 'public' },
+        { unique: '10', image: 'default', username: '한소희', gender: 'unselected', age: 'twenties', range: 'public' },
+        { unique: '11', image: 'default', username: '신예은', gender: 'female', age: 'twenties', range: 'public' }
+    ]);
 
     useEffect(() => {
-        console.log("이메일 : ", myInfo.email);
-    })
+        
+    }, [])
 
     function securityEmail(email) {
         const [localPart, domain] = email.split('@');
@@ -36,7 +49,7 @@ const My_info = () => {
             navigate('/my/friend');
             setFriendSettingBtn(false);
         }
-    }, [profileSettingBtn, friendSettingBtn])
+    }, [profileSettingBtn, friendSettingBtn, navigate])
 
     return(
         <body className='my_info-container'>
@@ -52,7 +65,6 @@ const My_info = () => {
                         <IoMdPerson className='my_profile_female_img' />
                         :
                         <IoMdPerson className='my_profile_unselected_img' />
-                        // <img className='my_profile_img' src={`https://kream.co.kr/_nuxt/img/blank_profile.538b7ac.png`}></img>
                     }
                 </div>
                 <div className='my_info_profile_info_content'>
@@ -76,10 +88,10 @@ const My_info = () => {
                     </div>
                 </div>
             </div>
-            <div style={{display:"flex"}}>
-                <My_info_detail></My_info_detail>
+            <div className='my_info_detail_friend_container'>
+                <My_info_detail my={myInfo}></My_info_detail>
                 <div className='my_info_gap'></div>
-                <My_info_friend></My_info_friend>
+                <My_info_friend friends={myFriendsInfo}></My_info_friend>
             </div>
         </body>
     )

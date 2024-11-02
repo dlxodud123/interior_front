@@ -46,3 +46,70 @@
 .my_info_range_content{
     display: flex;
 }
+
+@media screen and (max-width:600px) {
+    .my_info_content{
+        width: 44%;
+        height: 200px;
+        border: 0.5px solid rgba(0,0,0,0.2);
+        border-radius: 10px;
+        margin-top: 15px;
+    }
+    .my_info_introduce_content{
+        margin-top: 20px;
+    }
+    .my_info_title_content{
+        width: 35%;
+        height: 40px;
+    }
+    .my_info_title{
+        width: 70%;
+        font-size: 13px;
+    }
+    .my_info_colon{
+        width: 5%;
+        height: 40px;
+        font-size: 13px;
+    }
+    .my_info_text{
+        width: 60%;
+        height: 40px;
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .my_info_title{
+        font-size: 12px;
+    }
+    .my_info_colon{
+        font-size: 12px;
+    }
+    .my_info_text{
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width:420px) {
+    .my_info_title{
+        font-size: 11px;
+    }
+    .my_info_colon{
+        font-size: 11px;
+    }
+    .my_info_text{
+        font-size: 11px;
+    }
+}
+
+@media screen and (max-width:350px) {
+    .my_info_title{
+        font-size: 10px;
+    }
+    .my_info_colon{
+        font-size: 10px;
+    }
+    .my_info_text{
+        font-size: 10px;
+    }
+}

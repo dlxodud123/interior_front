@@ -100,6 +100,11 @@
     cursor: pointer;
 }
 
+.my_info_detail_friend_container{
+    display: flex;
+    margin: auto;
+    width: 100%;
+}
 .my_info_gap{
     width: 40px;
 }
@@ -108,14 +113,15 @@
 @media screen and (max-width:600px) {
     .my_info-container{
         width: 100%;
-        height: 600px;
+        height: 350px;
     }
     
     /* 프로필 부분 */
     .my_info_profile_container{
         width: 90%;
         height: 96px;
-        margin: 30px auto auto auto;
+        border: 0.5px solid rgba(0,0,0,0.2);
+        margin: 20px auto auto auto;
         border-radius: 10px;
     }
     .my_info_profile_img_content{
@@ -183,9 +189,14 @@
         font-size: 6px;
     }
     
-    /* .my_info_gap{
-        width: 40px;
-    } */
+    .my_info_detail_friend_container{
+        width: 100%;
+        display: flex;
+        justify-content: center; 
+    }
+    .my_info_gap{
+        width: 2%;
+    }
 }
 
 @media screen and (max-width:500px) {
