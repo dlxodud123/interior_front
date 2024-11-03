@@ -8,22 +8,24 @@ const Login_info = () => {
     const { api, setKakaoLogin } = useContext(MyContext);
 
     let [signupBtn, setSignupBtn] = useState(false);
+    let [loginBtn, setLoginBtn] = useState(false);
     
     // 구글 로그인
     const clientId = '357346370305-im49i267ggf9efg53vn0ndk11j5ud7m2.apps.googleusercontent.com';
-    const redirectUri = 'http://localhost:3000/callback'; // ex: 'http://localhost:3000/callback'
+    const redirectUri = 'http://localhost:3000/callback'; 
     
     const handleGoogleLogin = () => {
         const googleAuthUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=token&scope=email%20profile&include_granted_scopes=true&state=state_parameter_passthrough_value`;
         window.location.href = googleAuthUrl; // Google 로그인 페이지로 리다이렉트
     };
     
+
     // 카카오톡 로그인
     useEffect(() => {
         if (!window.Kakao.isInitialized()) {
           window.Kakao.init('b2e7ab243f5aa2e4ed242b580bb2a646');  // 발급받은 JavaScript 키
         }
-    }, []); 
+    }, []);
     const handleKakaoLogin = () => {
         window.Kakao.Auth.login({
             success: function (authObj) {
@@ -57,6 +59,79 @@ const Login_info = () => {
         });
     };
 
+
+    // 이메일 및 비밀번호 입력
+    let [emailValue, setEmailValue] = useState('');
+    let [passwordValue, setPasswordValue] = useState('');
+
+    const handleEmailChange = (e) => {
+        setEmailValue(e.target.value);
+    };
+    const handlePasswordChange = (e) => {
+        setPasswordValue(e.target.value);
+    };
+
+    // 일반 로그인
+    let [data, setData] = useState(null); // 데이터를 저장할 상태
+    let [loading, setLoading] = useState(true); // 로딩 상태
+    let [error, setError] = useState(null); // 에러 상태
+
+    const fetchData = async () => {
+        console.log("최종 이메일 : ", emailValue);
+        console.log("최종 비밀번호 : ", passwordValue);
+
+        setLoading(true); // 로딩 시작
+        try {
+            const response = await fetch('http://localhost:8080/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email: emailValue,
+                    password: passwordValue
+                })
+            });
+
+            // status 확인
+            console.log("status 확인 : ", response.status);
+
+            if (response.status === 200) {
+                // 성공적인 요청인 경우 (status 200)
+                const result = await response.json();
+                setData(result);
+            } else if (response.status === 401) {
+                // 인증 실패 등의 상황 (status 401)
+                setError("인증에 실패했습니다. 이메일과 비밀번호를 확인하세요.");
+            } else {
+                // 그 외의 에러
+                throw new Error(`Error: ${response.status}`);
+            }
+            
+        } catch (error) {
+            setError(error.message);
+        } finally {
+            setLoading(false); // 로딩 종료
+        }
+    };
+
+    useEffect(() => {
+        if (loginBtn) {
+            if (emailValue.length === 0) {
+                alert("please enter your email!");
+                setLoginBtn(false); 
+            }else if (passwordValue.length === 0) {
+                alert("please enter yout password!");
+                setLoginBtn(false); 
+            }else{
+                fetchData();
+                setLoginBtn(false); 
+            }
+        }
+    }, [loginBtn, emailValue, passwordValue]);
+
+
+    // 페이지 이동
     const navigate = useNavigate();
     useEffect(() => {
         if(signupBtn) {
@@ -68,8 +143,8 @@ const Login_info = () => {
         <body className='login_container'>
             <div className='login_content'>
                 <div className='login_input_content'>
-                    <input className='login-email_input-content' placeholder='Email'></input>
-                    <input type='password' className='login-password_input-content' placeholder='Password'></input>
+                    <input onChange={handleEmailChange} className='login-email_input-content' placeholder='Email'></input>
+                    <input onChange={handlePasswordChange} className='login-password_input-content' placeholder='Password' type='password'></input>
                 </div>  
                 <div className='login_pwd-forget_container'>
                     <div className='login_forget_content'>
@@ -77,7 +152,7 @@ const Login_info = () => {
                     </div>
                 </div>
                 <div className='login-signup_btn_container'>
-                    <button className='login_btn'>
+                    <button onClick={() => setLoginBtn(true)} className='login_btn'>
                         Login
                     </button>
                     <div className='login-account_btn'>

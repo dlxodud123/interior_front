@@ -29,10 +29,6 @@ const My_info = () => {
         { unique: '11', image: 'default', username: '신예은', gender: 'female', age: 'twenties', range: 'public' }
     ]);
 
-    useEffect(() => {
-        
-    }, [])
-
     function securityEmail(email) {
         const [localPart, domain] = email.split('@');
         const maskedLocalPart = localPart.slice(0, 2) + '*'.repeat(localPart.length - 2);

@@ -62,6 +62,7 @@
     border: none;
     border-radius: 10px;
     color: white;
+    cursor: pointer;
 }
 .login-account_btn{
     text-align: center;
