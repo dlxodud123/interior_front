@@ -11,64 +11,152 @@ const Signup_info = () => {
 
     // 이메일 인증
     let [emailValue, setEmailValue] = useState('');
-    let [emailAuthenticationBtn, setEmailAuthenticationBtn] = useState(false);
+    let [emailAuthenticationPart, setEmailAuthenticationPart] = useState(false);
 
     const handleEmailChange = (e) => {
         setEmailValue(e.target.value);
     };
 
+    let [emailAuthenticationData, setEmailAuthenticationData] = useState(null); // 데이터를 저장할 상태
+    let [emailAuthenticationLoading, setEmailAuthenticationLoading] = useState(null); // 로딩 상태 
+    let [emailAuthenticationError, setEmailAuthenticationError] = useState(null); // 에러 상태
+
     const fetchEmailAuthentication = async () => {
+        alert("이메일 인증이 완료되었습니다. 코드를 입력해주세요.");
+        // console.log("이메일 : ", emailValue);
+        setEmailAuthenticationPart(true);
 
-        console.log("이메일 : ", emailValue);
+        setEmailAuthenticationLoading(true); // 로딩 시작
+        try {
+            const response = await fetch('http://localhost:8080/register/email/verification', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email: emailValue,
+                })
+            });
 
-        setEmailAuthenticationBtn(true);
+            // status 확인
+            console.log("status Code : ", response.status); // 200 or 401
+            console.log("Status Text:", response.statusText);
+
+            if (response.status === 200) {
+                // 성공적인 요청인 경우 (status 200)
+                const result = await response.json();
+                setEmailAuthenticationData(result);
+                alert("이메일 인증이 완료되었습니다. 코드를 입력해주세요.");
+            } else if (response.status === 401) {
+                // 인증 실패 등의 상황 (status 401)
+                setEmailAuthenticationError("인증에 실패했습니다. 이메일을 확인하세요.");
+                alert(emailAuthenticationError);
+            } else {
+                // 그 외의 에러
+                try {
+                    throw new Error(`Error: ${response.status} : ${response.statusText}`);
+                } catch (error) {
+                    alert(error.message);
+                }
+            }
+            
+        } catch (error) {
+            setEmailAuthenticationError(error.message);
+        } finally {
+            setEmailAuthenticationLoading(false); // 로딩 종료
+        }
 
     };
 
+
     // 코드 인증
     let [codeValue, setCodeValue] = useState('');
-    let [codeAuthenticationBtn, setCodeAuthenticationBtn] = useState(false);
+    let [codeAuthenticationPart, setCodeAuthenticationPart] = useState(false);
     
     const handleCodeChange = (e) => {
         setCodeValue(e.target.value);
     };
 
+    let [codeAuthenticationData, setCodeAuthenticationData] = useState(null); // 데이터를 저장할 상태
+    let [codeAuthenticationLoading, setCodeAuthenticationLoading] = useState(null); // 로딩 상태 
+    let [codeAuthenticationError, setCodeAuthenticationError] = useState(null); // 에러 상태
+
     const fetchCodeAuthentication = async () => {
-
-        console.log("코드 : ", codeValue);
-
-        setCodeAuthenticationBtn(true);
+        alert("코드 인증이 완료되었습니다.");
+        // console.log("코드 : ", codeValue);
+        setCodeAuthenticationPart(true);
 
     };
 
+
     // 유저네임 중복 체크
     let [usernameValue, setUsernameValue] = useState('');
-    let [usernameDuplicationBtn, setUsernameDuplicationBtn] = useState(false)
+    let [usernameDuplicationPart, setUsernameDuplicationPart] = useState(false)
  
     const handleUsernameChange = (e) => {
         setUsernameValue(e.target.value);
     };
 
+    let [usernameDuplicationData, setUsernameDuplicationData] = useState(null); // 데이터를 저장할 상태
+    let [usernameDuplicationLoading, setUsernameDuplicationLoading] = useState(null); // 로딩 상태 
+    let [usernameDuplicationError, setUsernameDuplicationError] = useState(null); // 에러 상태
+
     const fetchUsernameDuplication = async () => {
+        alert("사용 가능한 유저네임 입니다.");
+        // console.log("유저네임 : ", usernameValue);
+        setUsernameDuplicationPart(true);
 
-        console.log("유저네임 : ", usernameValue);
+        setUsernameDuplicationLoading(true); // 로딩 시작
+        try {
+            const response = await fetch(`http://localhost:8080/register/nickname/${usernameValue}`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
 
-        setUsernameDuplicationBtn(true);
+            // status 확인
+            console.log("status Code : ", response.status); // 200 or 409
+            console.log("Status Text:", response.statusText); // 사용 가능한 닉네임입니다. or 사용중인 닉네임입니다.
+
+            if (response.status === 200) {
+                // 성공적인 요청인 경우 (status 200)
+                const result = await response.json();
+                setUsernameDuplicationData(result); // 성공시
+                alert("사용 가능한 유저네임 입니다."); 
+            } else if (response.status === 409) {
+                // 인증 실패 등의 상황 (status 409)
+                setUsernameDuplicationError("유저네임이 중복되었습니다.");
+                alert(usernameDuplicationError);
+            } else {
+                // 그 외의 에러
+                try {
+                    throw new Error(`Error: ${response.status} : ${response.statusText}`);
+                } catch (error) {
+                    alert(error.message);
+                }
+            }
+            
+        } catch (error) {
+            setUsernameDuplicationError(error.message);
+        } finally {
+            setUsernameDuplicationLoading(false); // 로딩 종료
+        }
 
     };
 
-    // 버튼들 확인
+    // 각 부분 통과 확인
     useEffect(() => {
-        if (emailAuthenticationBtn) {
-            console.log("이메일 인증 버튼 활성화");
+        if (emailAuthenticationPart) {
+            console.log("이메일 인증 부분 통과");
         }
-        if (codeAuthenticationBtn) {
-            console.log("코드 인증 버튼 활성화");
+        if (codeAuthenticationPart) {
+            console.log("코드 인증 부분 통과");
         }
-        if (usernameDuplicationBtn) {
-            console.log("유저네임 중복 버튼 활성화");
+        if (usernameDuplicationPart) {
+            console.log("유저네임 중복 부분 통과");
         }
-    }, [emailAuthenticationBtn, codeAuthenticationBtn, usernameDuplicationBtn]);
+    }, [emailAuthenticationPart, codeAuthenticationPart, usernameDuplicationPart]);
 
 
     // 패스워드 확인
@@ -83,84 +171,89 @@ const Signup_info = () => {
     let [SignupBtn, setSignupBtn] = useState(false);
 
     useEffect(() => {
-        if(codeAuthenticationBtn && usernameDuplicationBtn && (passwordValue.length >= 8)){
+        if(codeAuthenticationPart && usernameDuplicationPart && (passwordValue.length >= 8)){
             setSignupBtn(true);
         }else{
             setSignupBtn(false);
         }
-    }, [codeAuthenticationBtn, usernameDuplicationBtn, passwordValue, SignupBtn]);
+    }, [codeAuthenticationPart, usernameDuplicationPart, passwordValue, SignupBtn]);
+
 
 
     // 최종 회원가입
+    let [signupData, setSignupData] = useState(null); // 데이터를 저장할 상태
+    let [signupLoading, setSignupLoading] = useState(null); // 로딩 상태 
+    let [signupError, setSignupError] = useState(null); // 에러 상태
+
     const fetchSignup = async () => {
+        alert("회원가입이 완료되었습니다!");
+        console.log("이메일 : ", emailValue);
+        console.log("닉네임 : ", usernameValue);
         console.log("비밀번호 : ", passwordValue);
-        console.log("최종 회원가입");
+        // navigate("/");
+
+        setSignupLoading(true); // 로딩 시작
+        try {
+            const response = await fetch('http://localhost:8080/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email: emailValue,
+                    password : passwordValue,
+                    nickname : usernameValue,
+                })
+            });
+
+            // status 확인
+            console.log("status Code : ", response.status); // 200 or 409
+            console.log("Status Text:", response.statusText); // register success or already registered email
+
+            if (response.status === 200) {
+                // 성공적인 요청인 경우 (status 200)
+                const result = await response.json();
+                setSignupData(result); // 성공시 
+                alert("회원가입이 완료되었습니다!");
+                navigate("/");
+            } else if (response.status === 409) {
+                // 인증 실패 등의 상황 (status 409)
+                setSignupError("이미 가입되어있는 회원 입니다.");
+            } else {
+                // 그 외의 에러
+                throw new Error(`Error: ${response.status} : ${response.statusText}`);
+            }
+            
+        } catch (error) {
+            setSignupError(error.message);
+        } finally {
+            setSignupLoading(false); // 로딩 종료
+        }
 
     }
-
-    // let [data, setData] = useState(null); // 데이터를 저장할 상태
-    // let [loading, setLoading] = useState(true); // 로딩 상태
-    // let [error, setError] = useState(null); // 에러 상태
-
-    // const fetchData = async () => {
-    //     console.log("최종 이메일 : ", );
-    //     console.log("최종 닉네임 : ", );
-    //     console.log("최종 비밀번호 : ", );
-
-    //     setLoading(true); // 로딩 시작
-    //     try {
-    //         const response = await fetch('http://localhost:8080/login', {
-    //             method: 'POST',
-    //             headers: {
-    //                 'Content-Type': 'application/json',
-    //             },
-    //             body: JSON.stringify({
-    //                 email : "user@gmail.com",
-    //                 password : "password",
-    //                 nickname : "nickname",
-    //             })
-    //         });
-
-    //         // status 확인
-    //         console.log("status 확인 : ", response.status);
-
-    //         if (response.status === 200) {
-    //             // 성공적인 요청인 경우 (status 200)
-    //             const result = await response.json();
-    //             setData(result);
-    //         } else if (response.status === 401) {
-    //             // 인증 실패 등의 상황 (status 401)
-    //             setError("인증에 실패했습니다. 이메일과 비밀번호를 확인하세요.");
-    //         } else {
-    //             // 그 외의 에러
-    //             throw new Error(`Error: ${response.status}`);
-    //         }
-            
-    //     } catch (error) {
-    //         setError(error.message);
-    //     } finally {
-    //         setLoading(false); // 로딩 종료
-    //     }
-    // };
-    // useEffect(() => {
-
-    // }, []);
-
 
     return(
         <body className='signup_container'>
             <div className='signup_content'>
                 <div className='signup_input-email_container'>
                     {
-                        emailAuthenticationBtn ? 
+                        emailAuthenticationPart ? 
                         <div className='media_signup_input_email_container'>
-                            <input readOnly className='signup_input-email_hold_content' placeholder='Email' value={emailValue}></input>
-                            <input className='signup_input_verification_code_content' placeholder='Verification Code' onChange={handleCodeChange}></input>
+                            <input readOnly className='signup_input-email_hold_content' placeholder='Email' value={emailValue} style={{outline:"none", cursor:"default"}}></input>
+                            {
+                                codeAuthenticationPart ? 
+                                <input readOnly className='signup_input_verification_code_content' placeholder='Verification Code' onChange={handleCodeChange} style={{outline:"none", cursor:"default"}}></input>
+                                :
+                                <input className='signup_input_verification_code_content' placeholder='Verification Code' onChange={handleCodeChange}></input>
+                            }
                             {
                                 codeValue.length >= 1 ?
-                                <button onClick={() => fetchCodeAuthentication()} className='signup_verification_code_btn'> Code Authentication</button>
+                                codeAuthenticationPart ? 
+                                <button className='signup_verification_code_btn' style={{cursor:"default"}}>Success</button>
                                 :
-                                <button className='signup_verification_code_none_btn'> Code Authentication</button>
+                                <button onClick={() => fetchCodeAuthentication()} className='signup_verification_code_btn'>Code Authentication</button>
+                                :
+                                <button className='signup_verification_code_none_btn'>Code Authentication</button>
                             }
                         </div>
                         :
@@ -178,8 +271,18 @@ const Signup_info = () => {
 
                 <div className='signup_input-username_container'>
                     <div className='media_signup_input-username_container'>
+                        {/* {
+                            usernameDuplicationPart ? 
+                            <input readOnly className='signup_input-username_content' maxLength={8} placeholder='Username (min 3 characters & max 8 characters)' onChange={handleUsernameChange}></input>
+                            :
+                            <input className='signup_input-username_content' maxLength={8} placeholder='Username (min 3 characters & max 8 characters)' onChange={handleUsernameChange}></input>
+                        } */}
                         <input className='signup_input-username_content' maxLength={8} placeholder='Username (min 3 characters & max 8 characters)' onChange={handleUsernameChange}></input>
-                        {usernameValue.length >= 3 ? 
+                        {
+                            usernameValue.length >= 3 ? 
+                            usernameDuplicationPart ? 
+                            <button onClick={() => fetchUsernameDuplication()} className='signup_username_duplication_btn'>Duplication Check</button>
+                            :
                             <button onClick={() => fetchUsernameDuplication()} className='signup_username_duplication_btn'>Duplication Check</button>
                             :
                             <button className='signup_username_duplication_none_btn'>Duplication Check</button>

@@ -94,7 +94,8 @@ const Login_info = () => {
             });
 
             // status 확인
-            console.log("status 확인 : ", response.status);
+            console.log("status Code : ", response.status);
+            console.log("Status Text:", response.statusText);
 
             if (response.status === 200) {
                 // 성공적인 요청인 경우 (status 200)
@@ -105,7 +106,7 @@ const Login_info = () => {
                 setError("인증에 실패했습니다. 이메일과 비밀번호를 확인하세요.");
             } else {
                 // 그 외의 에러
-                throw new Error(`Error: ${response.status}`);
+                throw new Error(`Error: ${response.status} : ${response.statusText}`);
             }
             
         } catch (error) {
