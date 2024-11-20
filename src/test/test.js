@@ -1,45 +1,59 @@
-// import React, { useEffect, useState } from 'react';
-// import io from 'socket.io-client';
+import React, { useEffect, useState } from 'react';
+import io from 'socket.io-client';
 
-// // 로컬 서버와 연결
-// const socket = io('http://localhost:8080');
+// 로컬 서버와 연결
+const socket = io('http://localhost:8080');
 
-// const Test = () => {
-//   const [message, setMessage] = useState(''); // 서버에서 받은 메시지를 저장할 상태
+const Test = () => {
+  const [input, setInput] = useState('');  // 사용자가 입력한 메시지를 저장할 상태
+  const [messages, setMessages] = useState([]);  // 메시지 목록
 
-//   useEffect(() => {
-//     console.log("Asdf")
-//     // 서버 연결 성공 시
-//     socket.on('connect', () => {
-//       console.log('Connected to server:', socket.id);
-//     });
+  useEffect(() => {
+    // 서버 연결 성공 시
+    socket.on('connect', () => {
+      console.log('Connected to server:', socket.id);
+    });
 
-//     // 서버에서 보낸 메시지 받기
-//     socket.on('message', (data) => {
-//       console.log('Message from server:', data); // 서버로부터 받은 메시지 출력
-//       setMessage(data); // 받은 메시지를 상태에 저장
-//     });
+    // 서버에서 보낸 메시지 받기
+    socket.on('message', (data) => {
+      console.log('Message from server:', data);
+      setMessages((prevMessages) => [...prevMessages, data]);  // 받은 메시지를 상태에 추가
+    });
 
-//     // 컴포넌트가 언마운트되면 소켓 연결 종료
-//     return () => {
-//       socket.off('connect');
-//       socket.off('message');
-//       socket.disconnect();
-//     };
-//   }, []); // 빈 배열을 넣어 컴포넌트가 마운트될 때 한 번만 실행
+    // 컴포넌트가 언마운트되면 소켓 연결 종료
+    return () => {
+      socket.off('connect');
+      socket.off('message');
+    };
+  }, []);
 
-//   // 메시지 보내기
-//   const sendMessage = () => {
-//     socket.emit('sendMessage', 'Hello, server!');
-//   };
+  // 메시지 보내기
+  const sendMessage = () => {
+    if (input.trim()) {
+      socket.emit('sendMessage', input);  // 서버로 메시지 전송
+    //   setMessages((prevMessages) => [...prevMessages, `You: ${input}`]);  // 클라이언트 메시지 상태에 추가
+      setInput('');  // 입력란 초기화
+    }
+  };
 
-//   return (
-//     <div>
-//       <button onClick={sendMessage}>Send Message</button>
-//       {/* 서버에서 받은 메시지를 출력 */}
-//       <p>{message}</p> 
-//     </div>
-//   );
-// };
+  return (
+    <div>
+      <div>
+        <input
+          type="text"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}  // 입력값 상태 업데이트
+        />
+        <button onClick={sendMessage}>Send Message</button>
+      </div>
+      <div>
+        {/* 서버에서 받은 메시지를 출력 */}
+        {messages.map((msg, index) => (
+          <p key={index}>{msg}</p>
+        ))}
+      </div>
+    </div>
+  );
+};
 
-// export default Test;
+export default Test;
