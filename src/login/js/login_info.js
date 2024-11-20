@@ -82,14 +82,16 @@ const Login_info = () => {
 
         setLoading(true); // 로딩 시작
         try {
-            const response = await fetch('http://localhost:8080/login', {
+            const response = await fetch('/api/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
                     email: emailValue,
-                    password: passwordValue
+                    password: passwordValue,
+                    // nickname: "asdf",
+                    // gender: "male"
                 })
             });
 
@@ -108,7 +110,6 @@ const Login_info = () => {
                 // 그 외의 에러
                 throw new Error(`Error: ${response.status} : ${response.statusText}`);
             }
-            
         } catch (error) {
             setError(error.message);
         } finally {
@@ -183,7 +184,7 @@ const Login_info = () => {
                 <div className='login_google-kakao_container'>
                     <div onClick={handleKakaoLogin} className='login_kakao_content'>
                         <div className='login_google-kakao_img_content'>
-                            <img src={`${process.env.PUBLIC_URL}/img/카톡.png`} className='login_kakao_img'></img> 
+                            <img src={`${process.env.PUBLIC_URL}/img/kakao.png`} className='login_kakao_img'></img> 
                             
                         </div>
                         <div className='login_google-kakao_text'>

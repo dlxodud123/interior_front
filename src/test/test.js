@@ -1,43 +1,43 @@
-// import React, { useState, useEffect } from 'react';
+// import React, { useEffect, useState } from 'react';
 // import io from 'socket.io-client';
 
-// const socket = io('http://localhost:5000'); // 서버 URL
+// // 로컬 서버와 연결
+// const socket = io('http://localhost:8080');
 
 // const Test = () => {
-//   const [message, setMessage] = useState('');
-//   const [chat, setChat] = useState([]); // 채팅 메시지 목록 저장
+//   const [message, setMessage] = useState(''); // 서버에서 받은 메시지를 저장할 상태
 
 //   useEffect(() => {
-//     // 서버에서 메시지를 수신할 때마다 `chat` 상태에 추가
-//     socket.on('receiveMessage', (msg) => {
-//       setChat((prevChat) => [...prevChat, msg]); // 이전 메시지 배열에 새 메시지를 추가
+//     console.log("Asdf")
+//     // 서버 연결 성공 시
+//     socket.on('connect', () => {
+//       console.log('Connected to server:', socket.id);
 //     });
-//   }, []);
 
+//     // 서버에서 보낸 메시지 받기
+//     socket.on('message', (data) => {
+//       console.log('Message from server:', data); // 서버로부터 받은 메시지 출력
+//       setMessage(data); // 받은 메시지를 상태에 저장
+//     });
+
+//     // 컴포넌트가 언마운트되면 소켓 연결 종료
+//     return () => {
+//       socket.off('connect');
+//       socket.off('message');
+//       socket.disconnect();
+//     };
+//   }, []); // 빈 배열을 넣어 컴포넌트가 마운트될 때 한 번만 실행
+
+//   // 메시지 보내기
 //   const sendMessage = () => {
-//     if (message.trim()) {
-//       // 서버에 메시지 전송
-//       socket.emit('sendMessage', message);
-//       // 전송한 메시지도 `chat` 상태에 추가
-//       setChat((prevChat) => [...prevChat, message]);
-//       setMessage(''); // 입력 필드를 초기화
-//     }
+//     socket.emit('sendMessage', 'Hello, server!');
 //   };
 
 //   return (
 //     <div>
-//       <div className="chat-window">
-//         {chat.map((msg, index) => (
-//           <p key={index}>{msg}</p> // 저장된 메시지를 화면에 표시
-//         ))}
-//       </div>
-//       <input
-//         type="text"
-//         value={message}
-//         onChange={(e) => setMessage(e.target.value)}
-//         placeholder="메시지를 입력하세요"
-//       />
-//       <button onClick={sendMessage}>Send</button>
+//       <button onClick={sendMessage}>Send Message</button>
+//       {/* 서버에서 받은 메시지를 출력 */}
+//       <p>{message}</p> 
 //     </div>
 //   );
 // };
