@@ -24,14 +24,11 @@ const io = socketIo(server, {
 io.on('connection', (socket) => {
   console.log('A user connected:', socket.id);
 
-  // 클라이언트로 메시지 전송
-  socket.emit('message', 'Hello from server!');
-
-  // 클라이언트로부터 메시지 수신
   socket.on('sendMessage', (data) => {
     console.log('Message from client:', data);
-    // 모든 클라이언트에게 메시지 전송
-    io.emit('message', ` says: ${data}`);
+
+    // 메시지 브로드캐스트 (보낸 클라이언트 ID 포함)
+    socket.broadcast.emit('message', { sender: 'other', content: data.content, socketId: socket.id });
   });
 
   socket.on('disconnect', () => {

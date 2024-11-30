@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import { MyContext } from '../../../App';
 import { MdPeople } from "react-icons/md";
 import { useEffect, useState } from 'react';
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { RiSettings4Fill } from "react-icons/ri";
 import { FaXmark } from "react-icons/fa6";
 import { IoMdPerson } from "react-icons/io";
@@ -12,17 +12,15 @@ import { FaUserCircle } from "react-icons/fa";
 
 const Header = () => {
     const { api, googleLogin, setGoogleLogin, kakaoLogin, setKakaoLogin } = useContext(MyContext);
+    const location = useLocation();
+    const initialCategory  =  location.state?.categoryBtn || "default";
 
-    let [categoryBtn, setCategoryBtn] = useState("default");
+    let [categoryBtn, setCategoryBtn] = useState(initialCategory);
     let [myBtn, setMyBtn] = useState(false);
     let [mainBtn, setMainBtn] = useState(false);
     let [loginBtn, setLoginBtn] = useState(false);
     let [signupBtn, setSignupBtn] = useState(false);
     let [chatBtn, setChatBtn] = useState(false);
-
-    useEffect(() => {
-        setCategoryBtn("default");
-    }, [mainBtn])
 
     useEffect(() => {
         console.log("구글 로그인 확인용: ", googleLogin);
@@ -61,6 +59,16 @@ const Header = () => {
             setChatBtn(false)
         }
     }, [myBtn, loginBtn, signupBtn, mainBtn, chatBtn, navigate])
+
+    const handleCategoryChange = (category) => {
+        if (category === "chat") {
+            setCategoryBtn(category);
+            navigate(`/randomchat`, { state: { categoryBtn: category } }); // state에 선택한 카테고리 전달
+        }else{
+            setCategoryBtn(category);
+            navigate(`/randomvideo`, { state: { categoryBtn: category } }); // state에 선택한 카테고리 전달
+        }
+    };
 
     return(
         <header className='header_content'>
@@ -106,12 +114,12 @@ const Header = () => {
                 </div>
             </div>
             <div className='header_bottom'>
-                <div onClick={() => setCategoryBtn("chat")} 
+                <div onClick={() => handleCategoryChange("chat")}
                     className={`default-btn ${categoryBtn === "chat" ? "check-btn" : "none-check-btn"}`}>
                         Random Chat
                 </div>
                 <div className='header_random_gap'></div>
-                <div onClick={() => setCategoryBtn("video")} 
+                <div onClick={() => handleCategoryChange ("video")}
                     className={`default-btn ${categoryBtn === "video" ? "check-btn" : "none-check-btn"}`}>
                         Random Video
                 </div>

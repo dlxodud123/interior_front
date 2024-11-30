@@ -8,6 +8,7 @@ import My_form from './my/my/js/my_form';
 import My_profile_form from './my/profile/js/my_profile_form';
 import My_friend_form from './my/friend/js/my_friend_form';
 import Callback from './google_callback/callback';
+import Randomchat_form from './randomchat/js/randomchat_form';
 
 import Test from './test/test';
 
@@ -38,6 +39,7 @@ function App() {
           <Route path='/my/profile' element={<My_profile_form />}></Route>
           <Route path='/my/friend' element={<My_friend_form></My_friend_form>}></Route>
           <Route path='/callback' element={<Callback></Callback>}></Route>
+          <Route path='/randomchat' element={<Randomchat_form></Randomchat_form>}></Route>
           
           <Route path='/test' element={<Test></Test>}></Route>
         </Routes>

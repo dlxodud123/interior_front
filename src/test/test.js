@@ -30,8 +30,8 @@ const Test = () => {
   // 메시지 보내기
   const sendMessage = () => {
     if (input.trim()) {
-      socket.emit('sendMessage', input);  // 서버로 메시지 전송
-    //   setMessages((prevMessages) => [...prevMessages, `You: ${input}`]);  // 클라이언트 메시지 상태에 추가
+      // socket.emit('sendMessage', input);  // 서버로 메시지 전송
+      socket.emit('sendMessage', { sender: socket.id, content: input });
       setInput('');  // 입력란 초기화
     }
   };
@@ -49,7 +49,10 @@ const Test = () => {
       <div>
         {/* 서버에서 받은 메시지를 출력 */}
         {messages.map((msg, index) => (
-          <p key={index}>{msg}</p>
+          <p key={index}>
+            {msg.sender === socket.id ? 'You: ' : 'Other: '}
+            {msg.content}
+        </p>
         ))}
       </div>
     </div>

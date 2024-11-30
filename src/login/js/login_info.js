@@ -82,7 +82,7 @@ const Login_info = () => {
 
         setLoading(true); // 로딩 시작
         try {
-            const response = await fetch('/api/register', {
+            const response = await fetch('http://34.83.150.132:8080/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -90,8 +90,8 @@ const Login_info = () => {
                 body: JSON.stringify({
                     email: emailValue,
                     password: passwordValue,
-                    // nickname: "asdf",
-                    // gender: "male"
+                    nickname: "asdf",
+                    gender: "male"
                 })
             });
 

@@ -1,6 +1,6 @@
 import "./../css/main_form.css";
 import React, { useContext } from 'react';
-import { MyContext } from './../../App'; // Context 가져오기
+import { MyContext } from './../../App';
 import Header from "../../common/header/js/header";
 import Main_video from "./main_video";
 import Footer from "../../common/footer/js/footer";

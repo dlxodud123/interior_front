@@ -1,0 +1,162 @@
+.randomchat_info_container{
+    width: 1280px;
+    margin: auto;
+}
+
+/* 제목 */
+.randomchat_info_title_content{
+    height: 120px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(0,0,0,0.5);
+}
+.randomchat_info_title_icon_content{
+    width: 90px;
+    height: 90px;
+    background-color: rgba(128,128,128,0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+.randomchat_info_title_icon{
+    width: 80px;
+    height: 80px;
+    color: rgba(128,128,128,0.7);
+    border-radius: 50%;
+}
+.randomchat_info_title_text{
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 10px;
+
+}
+.randomchat_info_title_search{
+    margin-left: 1060px;
+    font-size: 50px;
+    color: #3578FF;
+    display: flex;
+    align-items: center;
+}
+
+/* 채팅 정보 */
+.randomchat_info_content{
+    height: 600px;
+    margin-top: 10px;
+    overflow-y: auto;
+}
+/* 스크롤바를 완전히 숨기기 */
+.randomchat_info_content::-webkit-scrollbar {
+    display: none;  /* 스크롤바를 숨깁니다 */
+} 
+/* 없음 */
+.randomchat_info_none_content{
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    color: rgba(0,0,0,0.5);
+}
+
+.randomchat_info_text_container{
+    display: flex;
+}
+
+/* 아이콘 */
+.randomchat_info_other_icon_container{
+    display: flex;
+    flex-direction: column;
+}
+.randomchat_info_other_icon_content{
+    width: 40px;
+    height: 40px;
+    background-color: rgba(128,128,128,0.2);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+}
+.randomchat_info_other_icon{
+    width: 30px;
+    height: 30px;
+    color: rgba(128,128,128,0.7);
+    border-radius: 50%;
+}
+/* 텍스트 */
+.randomchat_info_text_content{
+    width: 1280px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.randomchat_info_text_me,
+.randomchat_info_text_oher {
+    max-width: 600px;
+    width: auto;
+    min-height: 40px;
+    color: white;
+    font-size: 20px;
+    background-color: #3578FF;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    margin-left: 10px;
+    margin-top: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    word-wrap: break-word;  
+    white-space: normal;  
+}
+
+.randomchat_info_text_oher {
+    background-color: rgba(128,128,128,0.5);
+}
+
+.randomchat_info_text_me {
+    background-color: #3578FF;
+    margin-left: auto;  /* 오른쪽에 정렬 */
+}
+
+
+
+
+
+
+/* 나 */
+.randomchat_info_me_content{
+
+}
+.randomchat_info_me_text_content{
+    background-color: #3578FF;
+    color: white;
+}
+
+
+/* 입력 */
+.randomchat_info_input_content{
+    margin-top: 10px;
+    margin-bottom: 30px;
+    display: flex;
+}
+.randomchat_info_input{
+    width: 1190px;
+    height: 50px;
+    padding: 0px 0px 0px 10px;
+    outline: none;
+    font-size: 22px;
+}
+.randomchat_info_input_btn{
+    width: 80px;
+    height: 53px;
+    background-color: #3578FF;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
