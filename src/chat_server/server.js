@@ -26,13 +26,15 @@ io.on('connection', (socket) => {
 
   socket.on('sendMessage', (data) => {
     console.log('Message from client:', data);
-
     // 메시지 브로드캐스트 (보낸 클라이언트 ID 포함)
     socket.broadcast.emit('message', { sender: 'other', content: data.content, socketId: socket.id });
   });
 
+  io.emit('userConnected', { socketId: socket.id });
+
   socket.on('disconnect', () => {
     console.log('User disconnected:', socket.id);
+    io.emit('userDisconnected', { socketId: socket.id });
   });
 });
 

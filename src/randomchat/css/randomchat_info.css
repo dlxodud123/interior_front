@@ -92,7 +92,7 @@
     align-items: flex-start;
 }
 .randomchat_info_text_me,
-.randomchat_info_text_oher {
+.randomchat_info_text_other {
     max-width: 600px;
     width: auto;
     min-height: 40px;
@@ -102,7 +102,6 @@
     display: flex;
     align-items: center;
     border-radius: 8px;
-    margin-left: 10px;
     margin-top: 5px;
     padding-left: 10px;
     padding-right: 10px;
@@ -110,13 +109,15 @@
     white-space: normal;  
 }
 
-.randomchat_info_text_oher {
+.randomchat_info_text_other {
     background-color: rgba(128,128,128,0.5);
+    margin-left: 10px;
 }
 
 .randomchat_info_text_me {
     background-color: #3578FF;
     margin-left: auto;  /* 오른쪽에 정렬 */
+    margin-right: 10px;
 }
 
 
