@@ -28,7 +28,7 @@ const Signup_info = () => {
 
         setEmailAuthenticationLoading(true); // 로딩 시작
         try {
-            const response = await fetch('http://localhost:8080/register/email/verification', {
+            const response = await fetch(`${api}/register/email/verification`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -108,7 +108,7 @@ const Signup_info = () => {
 
         setUsernameDuplicationLoading(true); // 로딩 시작
         try {
-            const response = await fetch(`http://localhost:8080/register/nickname/${usernameValue}`, {
+            const response = await fetch(`${api}/register/nickname/${usernameValue}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -194,7 +194,7 @@ const Signup_info = () => {
 
         setSignupLoading(true); // 로딩 시작
         try {
-            const response = await fetch('http://localhost:8080/register', {
+            const response = await fetch(`${api}/register`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
