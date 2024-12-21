@@ -4,7 +4,6 @@ import { Client } from '@stomp/stompjs'; // STOMP 클라이언트
 import { MyContext } from '../../App';
 import { IoMdPerson } from "react-icons/io";
 import { FiSearch } from "react-icons/fi";
-import { GiSouthAfrica } from 'react-icons/gi';
 
 const Randomchat_info = () => {
     const { api } = useContext(MyContext);
@@ -13,7 +12,6 @@ const Randomchat_info = () => {
     const [messages, setMessages] = useState([]); // 메시지 목록
     const [nickname, setNickname] = useState(''); // 닉네임 상태
     const [roomId, setRoomId] = useState(null); // 구독할 채널 번호 상태
-    const [isComposing, setIsComposing] = useState(false); // IME 조합 상태 관리
 
     // STOMP 클라이언트 초기화
     useEffect(() => {
@@ -54,12 +52,9 @@ const Randomchat_info = () => {
         if (stompClient) {
             stompClient.subscribe(`/room/${roomId}`, (message) => {
                 const msg = JSON.parse(message.body); // 서버로부터 메시지 수신
-
-                console.log("msg 내용입니다 >>>>> ", msg)
-
                 setMessages((prevMessages) => [
                     ...prevMessages,
-                    { type: msg.type, sender: msg.sender, message: msg.message }, // 메시지 목록 업데이트
+                    { sender: 'other', content: msg.content }, // 메시지 목록 업데이트
                 ]);
             });
             console.log(`Subscribed to room ${roomId}`);
@@ -69,12 +64,15 @@ const Randomchat_info = () => {
     // 메시지 전송
     const sendMessage = () => {
         if (input.trim() && stompClient && roomId) {
-            const message = { message: input };
+            const message = { content: input };
             stompClient.publish({
                 destination: `/send/${roomId}`, // 메시지 전송 경로
-                body: JSON.stringify({"sender" : nickname, "message" : message.message}),
+                body: JSON.stringify(message),
             });
-            console.log("메세지 전송 완료!!! >>> " , message.message);
+            setMessages((prevMessages) => [
+                ...prevMessages,
+                { sender: 'me', content: input },
+            ]); // 내가 보낸 메시지 추가
             setInput('');
         }
     };
@@ -84,28 +82,17 @@ const Randomchat_info = () => {
         console.log("Messages:", messages);
     }, [messages]);
 
-    // 메세지별 css 클래스네임 정의
-    const getMessageClassName = (msg) => {
-        console.log("메세지 내용 >>>>> " , msg)
-        if(msg.type !== undefined) return 'randomchat_info_text_alert';
-        else if(msg.sender === nickname) return 'randomchat_info_text_me';
-        else return 'randomchat_info_text_other';
-    }
-
     return (
         <div className='randomchat_info_container'>
             {!roomId ? (
                 <div className='randomchat_waiting_screen'>
-                    <div className='randomchat_nickname_div'>
-                        <input
-                            className='randomchat_nickname_input_box'
-                            type="text"
-                            placeholder="닉네임을 입력하세요"
-                            value={nickname}
-                            onChange={(e) => setNickname(e.target.value)}
-                        />
-                        <button onClick={handleConnect}>연결</button>
-                    </div>
+                    <input
+                        type="text"
+                        placeholder="닉네임을 입력하세요"
+                        value={nickname}
+                        onChange={(e) => setNickname(e.target.value)}
+                    />
+                    <button onClick={handleConnect}>연결</button>
                 </div>
             ) : (
                 <>
@@ -126,31 +113,30 @@ const Randomchat_info = () => {
                                 {messages.map((msg, index) => (
                                     <div
                                         key={index}
-                                        className={getMessageClassName(msg)}
+                                        className={
+                                            msg.sender === 'me'
+                                                ? 'randomchat_info_text_me'
+                                                : 'randomchat_info_text_other'
+                                        }
                                     >
-                                        {msg.message}
+                                        {msg.content}
                                     </div>
                                 ))}
                             </div>
                         )}
                     </div>
                     <div className='randomchat_info_input_content'>
-                    <input
-                        value={input}
-                        onChange={(e) => setInput(e.target.value)}
-                        onKeyDown={(e) => {
-                            if (e.key === 'Enter' && !isComposing) { 
-                                // IME 조합 중이 아닐 때만 실행
-                                e.preventDefault();
-                                if (input.trim()) {
+                        <input
+                            value={input}
+                            onChange={(e) => setInput(e.target.value)}
+                            onKeyDown={(e) => {
+                                if (e.key === 'Enter') {
+                                    e.preventDefault();
                                     sendMessage();
                                 }
-                            }
-                        }}
-                        onCompositionStart={() => setIsComposing(true)} // IME 입력 시작
-                        onCompositionEnd={() => setIsComposing(false)}  // IME 입력 완료
-                        className='randomchat_info_input'
-                    />
+                            }}
+                            className='randomchat_info_input'
+                        />
                         <div onClick={sendMessage} className='randomchat_info_input_btn'>
                             Send
                         </div>
