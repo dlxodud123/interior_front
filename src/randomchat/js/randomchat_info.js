@@ -96,7 +96,6 @@ const Randomchat_info = () => {
     return (
         <div className='randomchat_info_container'>
             {!roomId ? (
-                <div className='randomchat_waiting_screen'>
                     <div className='randomchat_nickname_div'>
                         <input
                             className='randomchat_nickname_input_box'
@@ -107,7 +106,6 @@ const Randomchat_info = () => {
                         />
                         <button onClick={handleConnect}>연결</button>
                     </div>
-                </div>
             ) : (
                 <>
                     <div className='randomchat_info_title_content'>
