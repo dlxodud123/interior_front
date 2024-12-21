@@ -8,6 +8,7 @@ import { GiSouthAfrica } from 'react-icons/gi';
 
 const Randomchat_info = () => {
     const { api } = useContext(MyContext);
+    const { socket } = useContext(MyContext);
     const [stompClient, setStompClient] = useState(null); // STOMP 클라이언트 상태
     const [input, setInput] = useState(''); // 메시지 입력 상태
     const [messages, setMessages] = useState([]); // 메시지 목록
@@ -18,7 +19,7 @@ const Randomchat_info = () => {
     // STOMP 클라이언트 초기화
     useEffect(() => {
         const client = new Client({
-            brokerURL: 'ws://localhost:8080/chat', // STOMP 서버 WebSocket URL
+            brokerURL: `${socket}/chat`, // STOMP 서버 WebSocket URL
             reconnectDelay: 5000, // 재연결 간격
             debug: (str) => console.log(str), // 디버그 로그
         });
@@ -35,7 +36,7 @@ const Randomchat_info = () => {
     // 닉네임 설정 후 채팅방 연결
     const handleConnect = () => {
         if (nickname.trim()) {
-            fetch('http://localhost:8080/chat/enterChatRoom', {
+            fetch(`${api}/enter/enterChatRoom`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ nickname }), // 닉네임 전송

@@ -17,11 +17,12 @@ export const MyContext = createContext();
 
 const MyProvider = ({ children }) => {
     const [api] = useState('http://api.random-chat.site');
+    const [socket] = useState('ws://api.random-chat.site')
     const [googleLogin, setGoogleLogin] = useState(false);
     const [kakaoLogin, setKakaoLogin] = useState(false);
 
     return (
-        <MyContext.Provider value={{ api, googleLogin, setGoogleLogin, kakaoLogin, setKakaoLogin }}>
+        <MyContext.Provider value={{ api, socket, googleLogin, setGoogleLogin, kakaoLogin, setKakaoLogin }}>
             {children}
         </MyContext.Provider>
     );
