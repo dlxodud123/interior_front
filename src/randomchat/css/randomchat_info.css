@@ -1,5 +1,5 @@
 .randomchat_info_container{
-    width: 1280px;
+    width: auto;
     margin: auto;
 }
 
@@ -62,6 +62,7 @@
 .randomchat_info_text_container{
     /* display: flex; */
 }
+
 
 /* 텍스트 */
 .randomchat_info_text_me,
