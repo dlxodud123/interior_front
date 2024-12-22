@@ -16,8 +16,8 @@ import Test from './test/test';
 export const MyContext = createContext();
 
 const MyProvider = ({ children }) => {
-    const [api] = useState('http://api.random-chat.site');
-    const [socket] = useState('ws://api.random-chat.site')
+    const [api] = useState('https://api.random-chat.site');
+    const [socket] = useState('wss://api.random-chat.site')
     const [googleLogin, setGoogleLogin] = useState(false);
     const [kakaoLogin, setKakaoLogin] = useState(false);
 
