@@ -1,12 +1,10 @@
 import './../css/randomchat_info.css';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { Client } from '@stomp/stompjs'; // STOMP 클라이언트
 import { MyContext } from '../../App';
-import { IoMdPerson } from "react-icons/io";
-import { FiSearch } from "react-icons/fi";
-import { GiSouthAfrica } from 'react-icons/gi';
 
 const Randomchat_info = () => {
+
     const { api } = useContext(MyContext);
     const { socket } = useContext(MyContext);
     const [stompClient, setStompClient] = useState(null); // STOMP 클라이언트 상태
@@ -92,46 +90,70 @@ const Randomchat_info = () => {
         else if(msg.sender === nickname) return 'randomchat_info_text_me';
         else return 'randomchat_info_text_other';
     }
+    // 닉네임별별 css 클래스네임 정의
+    const getMessageNicknameClassName = (msg) => {
+        if(msg.sender === nickname) return 'randomchat_info_text_me_nickname';
+        else return 'randomchat_info_text_other_nickname';
+    }
+
+
+    // 메시지 최근 내용 ref
+    const messagesEndRef = useRef(null); 
+
+    useEffect(() => {
+        if (messagesEndRef.current) {
+            messagesEndRef.current.scrollIntoView({ behavior: 'smooth' }); 
+        }
+    }, [messages]);
 
     return (
         <div className='randomchat_info_container'>
             {!roomId ? (
-                    <div className='randomchat_nickname_div'>
+                    <div className='randomchat_info_nickname_content'>
                         <input
-                            className='randomchat_nickname_input_box'
+                            className='randomchat_info_nickname_input'
                             type="text"
-                            placeholder="닉네임을 입력하세요"
+                            placeholder="Enter your nickname"
                             value={nickname}
                             onChange={(e) => setNickname(e.target.value)}
                         />
-                        <button onClick={handleConnect}>연결</button>
+                        <button className='randomchat_info_nickname_btn' onClick={handleConnect}>Connect</button>
                     </div>
             ) : (
                 <>
                     <div className='randomchat_info_title_content'>
-                        <div className='randomchat_info_title_icon_content'>
-                            <IoMdPerson className='randomchat_info_title_icon'></IoMdPerson>
-                        </div>
-                        <div className='randomchat_info_title_text'>채팅방</div>
-                        <div className='randomchat_info_title_search'>
-                            <FiSearch />
-                        </div>
+                        <div className='randomchat_info_title_text'>Chat Room</div>
                     </div>
                     <div className='randomchat_info_content'>
-                        {messages.length === 0 ? (
-                            <div className='randomchat_info_none_content'>대화 내용이 없습니다.</div>
-                        ) : (
-                            <div className='randomchat_info_text_container'>
-                                {messages.map((msg, index) => (
+                        <div className='randomchat_info_text_container'>
+                            {messages.map((msg, index) => (
+                                <div>
+                                    <div className={getMessageNicknameClassName(msg)}>{msg.sender}</div>
                                     <div
                                         key={index}
                                         className={getMessageClassName(msg)}
                                     >
-                                        {msg.message}
+                                        {
+                                            msg.message === "상대방을 기다리는 중입니다." ? 
+                                                "Waiting for the other person..."
+                                            :
+                                                msg.message === "매칭되었습니다." ?
+                                                    "Matched!"
+                                                :
+                                                    msg.message === "상대방이 대화를 떠났습니다." ? 
+                                                        "The other person has left the chat."
+                                                    :
+                                                        msg.message
+                                        }
                                     </div>
-                                ))}
-                            </div>
-                        )}
+                                    {
+                                        msg.message === "상대방이 대화를 떠났습니다." &&
+                                        <button onClick={() => window.location.reload()} className='randomchat_info_text_new'>Start New Chat</button>
+                                    }
+                                </div>
+                            ))}
+                            <div ref={messagesEndRef} /> 
+                        </div>
                     </div>
                     <div className='randomchat_info_input_content'>
                     <input

@@ -3,40 +3,53 @@
     margin: auto;
 }
 
+/* 채팅 전 */
+.randomchat_info_nickname_content {
+    height: 600px;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
+.randomchat_info_nickname_input {
+    width: 300px;
+    height: 30px;
+    font-size: 16px;
+    border: 1px solid rgb(159, 153, 153);
+    border-radius: 8px;
+    text-align: center;
+    letter-spacing: -0.5px;
+    outline: none;
+}
+.randomchat_info_nickname_input::placeholder{
+    color: rgba(0,0,0,0.3);
+}
+.randomchat_info_nickname_input:focus::placeholder{
+    opacity: 0;
+}
+.randomchat_info_nickname_btn {
+    width: 80px;
+    height: 30px;
+    margin-left: 10px;
+    border: 1px solid #3578FF;
+    background-color: #3578FF; /* 메인 색 배경 */
+    color: white; /* 글자색 */
+    font-size: 15px; /* 글자 크기 */
+    border: none; /* 테두리 제거 */
+    border-radius: 5px; /* 모서리 둥글게 */
+    cursor: pointer; /* 마우스 포인터 변경 */
+}
+
 /* 제목 */
 .randomchat_info_title_content{
-    height: 120px;
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid rgba(0,0,0,0.5);
-}
-.randomchat_info_title_icon_content{
-    width: 90px;
-    height: 90px;
-    background-color: rgba(128,128,128,0.2);
+    height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 50%;
-}
-.randomchat_info_title_icon{
-    width: 80px;
-    height: 80px;
-    color: rgba(128,128,128,0.7);
-    border-radius: 50%;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
 }
 .randomchat_info_title_text{
     font-size: 20px;
     font-weight: bold;
-    margin-left: 10px;
-
-}
-.randomchat_info_title_search{
-    margin-left: 1060px;
-    font-size: 50px;
-    color: #3578FF;
-    display: flex;
-    align-items: center;
 }
 
 /* 채팅 정보 */
@@ -49,125 +62,104 @@
 .randomchat_info_content::-webkit-scrollbar {
     display: none;  /* 스크롤바를 숨깁니다 */
 } 
-/* 없음 */
-.randomchat_info_none_content{
-    height: 600px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 25px;
-    color: rgba(0,0,0,0.5);
-}
+
 
 .randomchat_info_text_container{
-    /* display: flex; */
+    width: 1280px;
+    margin: auto;
 }
 
 
 /* 텍스트 */
+.randomchat_info_text_me_nickname,
+.randomchat_info_text_other_nickname {
+    font-weight: bold;
+    letter-spacing: -1px;
+}
+.randomchat_info_text_me_nickname{
+    margin-left: auto; 
+    margin-right: 3px;
+    text-align: right; 
+    justify-content: right;
+}
+.randomchat_info_text_other_nickname{
+    margin-left: 3px;
+}
+
 .randomchat_info_text_me,
 .randomchat_info_text_other,
 .randomchat_info_text_alert {
     max-width: 600px;
-    width: auto;
+    width: fit-content;    
     min-height: 40px;
     color: white;
     font-size: 20px;
     background-color: #3578FF;
     display: flex;
     align-items: center;
-    justify-content: center; /* 텍스트를 중앙 정렬 */
     border-radius: 8px;
     margin-top: 5px;
     padding-left: 10px;
     padding-right: 10px;
-    word-wrap: break-word;
-    white-space: normal;
-    width: 100%; /* 한 줄을 차지하도록 설정 */
-    box-sizing: border-box; /* padding 포함한 전체 크기 계산 */
+    box-sizing: border-box;
 }
-
 .randomchat_info_text_other {
     background-color: rgba(128,128,128,0.5);
-    margin-left: 0; /* 왼쪽으로 정렬 */
-    margin-right: auto; /* 오른쪽 여유 공간 */
-    text-align: left; /* 텍스트 왼쪽 정렬 */
-    justify-content: left;
+    margin-top: 0px;
+    margin-bottom: 5px;
 }
-
 .randomchat_info_text_me {
     background-color: #3578FF;
-    margin-left: auto; /* 왼쪽 여유 공간 */
-    margin-right: 0; /* 오른쪽으로 정렬 */
-    text-align: right; /* 텍스트 오른쪽 정렬 */
+    margin-top: 0px;
+    margin-left: auto; 
+    margin-right: 0;
+    text-align: right; 
     justify-content: right;
+    margin-bottom: 5px;
 }
-
 .randomchat_info_text_alert {
+    width: 600px;
     background-color: #fc0000;
-    margin-left: auto; /* 왼쪽 여유 공간 */
-    margin-right: auto; /* 오른쪽 여유 공간 */
-    text-align: center; /* 텍스트 중앙 정렬 */
+    margin-left: auto;
+    margin-right: auto; 
+    text-align: center; 
+    justify-content: center; 
 }
-
-.randomchat_nickname_div {
-    height: 600px;
-    overflow-y: auto;
-    display: flex; /* 플렉스 박스 활성화 */
-    justify-content: center; /* 가로 정렬 */
-    align-items: center; /* 세로 정렬 */
-}
-
-.randomchat_nickname_input_box {
-    /* 닉네임 인풋박스 css*/
-    border: 1px solid rgb(159, 153, 153);
+.randomchat_info_text_new{
+    width: 180px;
+    height: 60px;
+    font-size: 20px;
+    margin: 5px auto auto auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    /* border: none; */
     border-radius: 8px;
-    text-align: center;
-    height: 30px;
-    width: 210px;
+    background-color: #32CD32;
+    color: white;
+    cursor: pointer;
 }
 
-.randomchat_nickname_div > button {
-    /* 연결 버튼 css */
-    margin-left: 10px;
-    background-color: #3578FF; /* 메인 색 배경 */
-    color: white; /* 글자색 */
-    font-size: 15px; /* 글자 크기 */
-    height: 20px;
-    width: 40px;
-    border: none; /* 테두리 제거 */
-    border-radius: 5px; /* 모서리 둥글게 */
-    cursor: pointer; /* 마우스 포인터 변경 */
-    box-shadow: 0 4px #184192; /* 그림자 */
-    transition: background-color 0.3s ease; /* 배경색 변화 효과 */
-}
-
-.randomchat_nickname_div > button:hover {
-    background-color: #143371;
-}
-
-.randomchat_nickname_div > button:active {
-    box-shadow: 0 2px #184192; /* 그림자 줄이기 */
-  transform: translateY(2px); /* 버튼 눌리는 효과 */
-}
 
 
 /* 입력 */
 .randomchat_info_input_content{
-    margin-top: 10px;
-    margin-bottom: 30px;
+    width: 1280px;
+    margin: 10px auto 30px auto;
     display: flex;
 }
 .randomchat_info_input{
-    width: 1190px;
+    width: 1200px;
     height: 50px;
     padding: 0px 0px 0px 10px;
     outline: none;
     font-size: 22px;
+    box-sizing: border-box;
 }
 .randomchat_info_input_btn{
     width: 80px;
-    height: 53px;
+    height: 50px;
     background-color: #3578FF;
     color: white;
     font-size: 20px;
