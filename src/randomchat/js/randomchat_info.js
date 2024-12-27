@@ -13,6 +13,7 @@ const Randomchat_info = () => {
     const [nickname, setNickname] = useState(''); // 닉네임 상태
     const [roomId, setRoomId] = useState(null); // 구독할 채널 번호 상태
     const [isComposing, setIsComposing] = useState(false); // IME 조합 상태 관리
+    const [socketDisconnect, setSocketDisconnect] = useState(false); // socket 연결 상태
 
     // STOMP 클라이언트 초기화
     useEffect(() => {
@@ -22,8 +23,20 @@ const Randomchat_info = () => {
             debug: (str) => console.log(str), // 디버그 로그
         });
 
+        // STOMP 연결 성공
         client.onConnect = () => console.log("STOMP connected");
+
+        // STOMP 연결 종료
+        client.onDisconnect = () => console.log("STOMP 연결이 종료되었습니다.");
+
+        // STOMP 오류 처리
         client.onStompError = (error) => console.error("STOMP error:", error);
+
+        // WebSocket 연결 종료 처리
+        client.onWebSocketClose = () => {
+            console.log("소켓 연결이 끊겼습니다.");
+            setSocketDisconnect(true);
+        };
 
         client.activate(); // 연결 시작
         setStompClient(client);
@@ -54,7 +67,7 @@ const Randomchat_info = () => {
             stompClient.subscribe(`/room/${roomId}`, (message) => {
                 const msg = JSON.parse(message.body); // 서버로부터 메시지 수신
 
-                console.log("msg 내용입니다 >>>>> ", msg)
+                console.log("msg 내용입니다 >>>>> ", msg);
 
                 setMessages((prevMessages) => [
                     ...prevMessages,
@@ -85,12 +98,13 @@ const Randomchat_info = () => {
 
     // 메세지별 css 클래스네임 정의
     const getMessageClassName = (msg) => {
-        console.log("메세지 내용 >>>>> " , msg)
-        if(msg.type !== undefined) return 'randomchat_info_text_alert';
+        // console.log("메세지 내용 >>>>> " , msg);
+        if(msg.type === "waiting" || msg.type === "matched" || msg.type === "leaved" || msg.type === "disconnect") return 'randomchat_info_text_alert';
         else if(msg.sender === nickname) return 'randomchat_info_text_me';
+
         else return 'randomchat_info_text_other';
     }
-    // 닉네임별별 css 클래스네임 정의
+    // 닉네임별 css 클래스네임 정의
     const getMessageNicknameClassName = (msg) => {
         if(msg.sender === nickname) return 'randomchat_info_text_me_nickname';
         else return 'randomchat_info_text_other_nickname';
@@ -105,6 +119,21 @@ const Randomchat_info = () => {
             messagesEndRef.current.scrollIntoView({ behavior: 'smooth' }); 
         }
     }, [messages]);
+
+
+    // 소켓 연결 끊길시 or 상대방이 나갈시 메시지 출력
+    useEffect(() => {
+        const socketDisconnectMsg = {
+            type: "disconnect",
+            message: "Connection lost. Please try again.",
+            sender: "",
+        }
+
+        if (socketDisconnect) {
+            setMessages((prevMessages) => [...prevMessages, socketDisconnectMsg]);
+            setSocketDisconnect(false);
+        }
+    }, [socketDisconnect, messages]);
 
     return (
         <div className='randomchat_info_container'>
@@ -147,8 +176,8 @@ const Randomchat_info = () => {
                                         }
                                     </div>
                                     {
-                                        msg.message === "상대방이 대화를 떠났습니다." &&
-                                        <button onClick={() => window.location.reload()} className='randomchat_info_text_new'>Start New Chat</button>
+                                        (msg.message === "상대방이 대화를 떠났습니다." || msg.message === "Connection lost. Please try again.") &&
+                                            <button onClick={() => window.location.reload()} className='randomchat_info_text_new'>Start New Chat</button>
                                     }
                                 </div>
                             ))}
