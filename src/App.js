@@ -21,8 +21,10 @@ const MyProvider = ({ children }) => {
     const [googleLogin, setGoogleLogin] = useState(false);
     const [kakaoLogin, setKakaoLogin] = useState(false);
 
+    const [siteLogin, setSiteLogin] = useState(false);
+
     return (
-        <MyContext.Provider value={{ api, socket, googleLogin, setGoogleLogin, kakaoLogin, setKakaoLogin }}>
+        <MyContext.Provider value={{ api, socket, googleLogin, setGoogleLogin, kakaoLogin, setKakaoLogin, siteLogin, setSiteLogin }}>
             {children}
         </MyContext.Provider>
     );

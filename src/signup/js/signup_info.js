@@ -22,10 +22,9 @@ const Signup_info = () => {
     let [emailAuthenticationError, setEmailAuthenticationError] = useState(null); // 에러 상태
 
     const fetchEmailAuthentication = async () => {
-        alert("이메일 인증이 완료되었습니다. 코드를 입력해주세요.");
+        // alert("이메일 인증이 완료되었습니다. 코드를 입력해주세요.");
         // console.log("이메일 : ", emailValue);
-        setEmailAuthenticationPart(true);
-
+        
         setEmailAuthenticationLoading(true); // 로딩 시작
         try {
             const response = await fetch(`${api}/register/email/verification`, {
@@ -37,16 +36,17 @@ const Signup_info = () => {
                     email: emailValue,
                 })
             });
-
+            
             // status 확인
             console.log("status Code : ", response.status); // 200 or 401
             console.log("Status Text:", response.statusText);
-
+            
             if (response.status === 200) {
                 // 성공적인 요청인 경우 (status 200)
-                const result = await response.json();
-                setEmailAuthenticationData(result);
                 alert("이메일 인증이 완료되었습니다. 코드를 입력해주세요.");
+                // const result = await response.json();
+                // setEmailAuthenticationData(result);
+                setEmailAuthenticationPart(true);
             } else if (response.status === 401) {
                 // 인증 실패 등의 상황 (status 401)
                 setEmailAuthenticationError("인증에 실패했습니다. 이메일을 확인하세요.");
@@ -82,10 +82,50 @@ const Signup_info = () => {
     let [codeAuthenticationError, setCodeAuthenticationError] = useState(null); // 에러 상태
 
     const fetchCodeAuthentication = async () => {
-        alert("코드 인증이 완료되었습니다.");
+        // alert("코드 인증이 완료되었습니다.");
         // console.log("코드 : ", codeValue);
         setCodeAuthenticationPart(true);
-
+        setCodeAuthenticationLoading(true); // 로딩 시작
+        try {
+            const response = await fetch(`${api}/register/email/check/verification`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email: emailValue,
+                    verificationCode: codeValue,
+                })
+            });
+            
+            // status 확인
+            console.log("status Code : ", response.status); // 200 or 401
+            console.log("Status Text:", response.statusText);
+            
+            if (response.status === 200) {
+                // 성공적인 요청인 경우 (status 200)
+                alert("코드 인증이 완료되었습니다.");
+                setEmailAuthenticationPart(true);
+                // const result = await response.json();
+                // setCodeAuthenticationData(result);
+            } else if (response.status === 401) {
+                // 인증 실패 등의 상황 (status 401)
+                setCodeAuthenticationError("인증에 실패했습니다. 코드번호를 확인하세요.");
+                alert(emailAuthenticationError);
+            } else {
+                // 그 외의 에러
+                try {
+                    throw new Error(`Error: ${response.status} : ${response.statusText}`);
+                } catch (error) {
+                    alert(error.message);
+                }
+            }
+            
+        } catch (error) {
+            setCodeAuthenticationError(error.message);
+        } finally {
+            setCodeAuthenticationLoading(false); // 로딩 종료
+        }
     };
 
 
@@ -102,7 +142,7 @@ const Signup_info = () => {
     let [usernameDuplicationError, setUsernameDuplicationError] = useState(null); // 에러 상태
 
     const fetchUsernameDuplication = async () => {
-        alert("사용 가능한 유저네임 입니다.");
+        // alert("사용 가능한 유저네임 입니다.");
         // console.log("유저네임 : ", usernameValue);
         setUsernameDuplicationPart(true);
 
@@ -121,9 +161,9 @@ const Signup_info = () => {
 
             if (response.status === 200) {
                 // 성공적인 요청인 경우 (status 200)
+                alert("사용 가능한 유저네임 입니다."); 
                 const result = await response.json();
                 setUsernameDuplicationData(result); // 성공시
-                alert("사용 가능한 유저네임 입니다."); 
             } else if (response.status === 409) {
                 // 인증 실패 등의 상황 (status 409)
                 setUsernameDuplicationError("유저네임이 중복되었습니다.");
@@ -181,12 +221,12 @@ const Signup_info = () => {
 
 
     // 최종 회원가입
-    let [signupData, setSignupData] = useState(null); // 데이터를 저장할 상태
+    // let [signupData, setSignupData] = useState(null); // 데이터를 저장할 상태
     let [signupLoading, setSignupLoading] = useState(null); // 로딩 상태 
     let [signupError, setSignupError] = useState(null); // 에러 상태
 
     const fetchSignup = async () => {
-        alert("회원가입이 완료되었습니다!");
+        // alert("회원가입이 완료되었습니다!");
         console.log("이메일 : ", emailValue);
         console.log("닉네임 : ", usernameValue);
         console.log("비밀번호 : ", passwordValue);
@@ -203,6 +243,7 @@ const Signup_info = () => {
                     email: emailValue,
                     password : passwordValue,
                     nickname : usernameValue,
+                    gender: "male",
                 })
             });
 
@@ -212,8 +253,8 @@ const Signup_info = () => {
 
             if (response.status === 200) {
                 // 성공적인 요청인 경우 (status 200)
-                const result = await response.json();
-                setSignupData(result); // 성공시 
+                // const result = await response.json();
+                // setSignupData(result); // 성공시 
                 alert("회원가입이 완료되었습니다!");
                 navigate("/");
             } else if (response.status === 409) {

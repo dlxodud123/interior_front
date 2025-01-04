@@ -11,7 +11,7 @@ import { BsChatDotsFill } from "react-icons/bs";
 import { FaUserCircle } from "react-icons/fa";
 
 const Header = () => {
-    const { api, googleLogin, setGoogleLogin, kakaoLogin, setKakaoLogin } = useContext(MyContext);
+    const { api, googleLogin, setGoogleLogin, kakaoLogin, setKakaoLogin, siteLogin, setSiteLogin } = useContext(MyContext);
     const location = useLocation();
     const initialCategory  =  location.state?.categoryBtn || "default";
 
@@ -25,13 +25,16 @@ const Header = () => {
     useEffect(() => {
         console.log("구글 로그인 확인용: ", googleLogin);
         console.log("카카오톡 로그인 확인용: ", kakaoLogin);
-    }, [googleLogin, kakaoLogin])
+        console.log("사이트 로그인 확인용: ", siteLogin)
+    }, [googleLogin, kakaoLogin, siteLogin])
 
     const handelLogout = () => {
         if (googleLogin) {
             setGoogleLogin(false);
         }else if (kakaoLogin) {
             setKakaoLogin(false);
+        }else if (siteLogin) {
+            setSiteLogin(false);
         }
         navigate('/');
     }
@@ -75,7 +78,7 @@ const Header = () => {
             <div className='header_top'>
                 <div className='header_my'>
                     {
-                        googleLogin || kakaoLogin ? 
+                        googleLogin || kakaoLogin || siteLogin ? 
                         <div className='header_my_container'>
                             <FaUserCircle onClick={() => setMyBtn(true)} className='header_my_content'/>
                         </div>
@@ -89,7 +92,7 @@ const Header = () => {
                 </div>
                 <div className='header_login-signup_content'>
                     {
-                        googleLogin || kakaoLogin ? 
+                        googleLogin || kakaoLogin || siteLogin ? 
                         <>
                             <div onClick={() => handelLogout()} className='login-signup_btn' >
                                 Logout

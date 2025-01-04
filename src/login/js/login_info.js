@@ -5,7 +5,7 @@ import { Children, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Login_info = () => {
-    const { api, setKakaoLogin } = useContext(MyContext);
+    const { api, setKakaoLogin, setSiteLogin } = useContext(MyContext);
 
     let [signupBtn, setSignupBtn] = useState(false);
     let [loginBtn, setLoginBtn] = useState(false);
@@ -72,17 +72,17 @@ const Login_info = () => {
     };
 
     // 일반 로그인
-    let [data, setData] = useState(null); // 데이터를 저장할 상태
+    // let [data, setData] = useState(null); // 데이터를 저장할 상태
     let [loading, setLoading] = useState(true); // 로딩 상태
     let [error, setError] = useState(null); // 에러 상태
 
-    const fetchData = async () => {
+    const fetchLoginData = async () => {
         console.log("최종 이메일 : ", emailValue);
         console.log("최종 비밀번호 : ", passwordValue);
 
         setLoading(true); // 로딩 시작
         try {
-            const response = await fetch('http://34.83.150.132:8080/register', {
+            const response = await fetch(`${api}/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -90,8 +90,8 @@ const Login_info = () => {
                 body: JSON.stringify({
                     email: emailValue,
                     password: passwordValue,
-                    nickname: "asdf",
-                    gender: "male"
+                    // nickname: "asdf",
+                    // gender: "male"
                 })
             });
 
@@ -101,8 +101,12 @@ const Login_info = () => {
 
             if (response.status === 200) {
                 // 성공적인 요청인 경우 (status 200)
-                const result = await response.json();
-                setData(result);
+                // const result = await response.json();
+                // setData(result);
+                // console.log(result);
+                // console.log(response);
+                setSiteLogin(true);
+                navigate('/')
             } else if (response.status === 401) {
                 // 인증 실패 등의 상황 (status 401)
                 setError("인증에 실패했습니다. 이메일과 비밀번호를 확인하세요.");
@@ -126,7 +130,7 @@ const Login_info = () => {
                 alert("please enter yout password!");
                 setLoginBtn(false); 
             }else{
-                fetchData();
+                fetchLoginData();
                 setLoginBtn(false); 
             }
         }
