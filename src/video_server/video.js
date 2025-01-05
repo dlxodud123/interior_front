@@ -3,14 +3,14 @@
 
 // const socket = io("http://localhost:5000");
 
-// const Test = () => {
+// const Video = () => {
 //   const localVideoRef = useRef(null); // 자신의 비디오
 //   const remoteVideoRef = useRef(null); // 상대방의 비디오
 //   const [localStream, setLocalStream] = useState(null); // 비디오, 오디오 스트림 저장
 //   const [peerConnection, setPeerConnection] = useState(null); // 피어 연결 객체
 //   const [roomId, setRoomId] = useState(""); // 방 ID
 //   const [waiting, setWaiting] = useState(false); // 대기중 상태
-//   const [remoteStream, setRemoteStream] = useState(null); // 상대방의 비디오 스트림 상태
+//   const [isRoomReady, setIsRoomReady] = useState(false); // 방 준비 완료 상태
 
 //   useEffect(() => {
 //     // 로컬 비디오 스트림 얻기
@@ -53,8 +53,8 @@
 
 //       // 원격 스트림 수신 시 처리
 //       pc.ontrack = (event) => {
-//         if (event.streams[0]) {
-//           setRemoteStream(event.streams[0]); // 상대방 스트림을 상태로 저장
+//         if (remoteVideoRef.current && event.streams[0]) {
+//           remoteVideoRef.current.srcObject = event.streams[0]; // 상대방 스트림을 remoteVideoRef에 설정
 //         }
 //       };
 
@@ -73,6 +73,8 @@
 //     const handleJoinRoom = (roomId) => {
 //       setRoomId(roomId);
 //       setWaiting(false); // 대기 중 상태 해제
+//       setIsRoomReady(true); // 방이 준비되었음을 표시
+//       console.log("Joined room:", roomId);
 //     };
 
 //     socket.on("join-room", handleJoinRoom);
@@ -157,15 +159,14 @@
 //         <h3>Your Face</h3>
 //         <video ref={localVideoRef} autoPlay muted></video>
 //       </div>
-//       <div>
-//         <h3>Remote Face</h3>
-//         {/* remoteStream이 존재하면 remoteVideoRef를 사용하여 비디오 렌더링 */}
-//         {remoteStream && (
+//       {isRoomReady && (
+//         <div>
+//           <h3>Remote Face</h3>
 //           <video ref={remoteVideoRef} autoPlay></video>
-//         )}
-//       </div>
+//         </div>
+//       )}
 //     </div>
 //   );
 // };
 
-// export default Test;
+// export default Video;

@@ -103,8 +103,12 @@ const Login_info = () => {
                 // 성공적인 요청인 경우 (status 200)
                 // const result = await response.json();
                 // setData(result);
-                // console.log(result);
-                // console.log(response);
+                const authorizationHeader = response.headers.get("authorization"); // "Bearer eyJhbGciOiJIUzI1NiJ..."
+                if (authorizationHeader) {
+                    const token = authorizationHeader.split(" ")[1]; // 공백으로 분리 후 두 번째 값 선택
+                    localStorage.setItem("userToken", token); // 토큰 저장
+                }
+                console.log("토큰 값 : ", localStorage.getItem("userToken"));
                 setSiteLogin(true);
                 navigate('/')
             } else if (response.status === 401) {

@@ -1,13 +1,8 @@
 import './../css/header.css';
 import React, { useContext } from 'react';
 import { MyContext } from '../../../App';
-import { MdPeople } from "react-icons/md";
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from "react-router-dom";
-import { RiSettings4Fill } from "react-icons/ri";
-import { FaXmark } from "react-icons/fa6";
-import { IoMdPerson } from "react-icons/io";
-import { BsChatDotsFill } from "react-icons/bs";
 import { FaUserCircle } from "react-icons/fa";
 
 const Header = () => {
@@ -23,9 +18,9 @@ const Header = () => {
     let [chatBtn, setChatBtn] = useState(false);
 
     useEffect(() => {
-        console.log("구글 로그인 확인용: ", googleLogin);
-        console.log("카카오톡 로그인 확인용: ", kakaoLogin);
-        console.log("사이트 로그인 확인용: ", siteLogin)
+        // console.log("구글 로그인 확인용: ", googleLogin);
+        // console.log("카카오톡 로그인 확인용: ", kakaoLogin);
+        // console.log("사이트 로그인 확인용: ", siteLogin);
     }, [googleLogin, kakaoLogin, siteLogin])
 
     const handelLogout = () => {

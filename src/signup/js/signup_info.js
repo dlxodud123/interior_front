@@ -47,10 +47,18 @@ const Signup_info = () => {
                 // const result = await response.json();
                 // setEmailAuthenticationData(result);
                 setEmailAuthenticationPart(true);
-            } else if (response.status === 401) {
-                // 인증 실패 등의 상황 (status 401)
-                setEmailAuthenticationError("인증에 실패했습니다. 이메일을 확인하세요.");
-                alert(emailAuthenticationError);
+            } else if (response.status === 409) {
+                // 인증 실패 등의 상황 (status 409)
+                // setEmailAuthenticationError("인증에 실패했습니다. 이메일을 확인하세요.");
+                alert("이미 가입된 이메일입니다.");
+            } else if (response.status === 429) {
+                // 인증 실패 등의 상황 (status 409)
+                // setEmailAuthenticationError("인증에 실패했습니다. 이메일을 확인하세요.");
+                alert("5분 내 요청 횟수가 초과되었습니다.");
+            } else if (response.status === 403) {
+                // 인증 실패 등의 상황 (status 409)
+                // setEmailAuthenticationError("인증에 실패했습니다. 이메일을 확인하세요.");
+                alert("정확한 이메일을 입력해주세요");
             } else {
                 // 그 외의 에러
                 try {
@@ -84,7 +92,7 @@ const Signup_info = () => {
     const fetchCodeAuthentication = async () => {
         // alert("코드 인증이 완료되었습니다.");
         // console.log("코드 : ", codeValue);
-        setCodeAuthenticationPart(true);
+        // setCodeAuthenticationPart(true);
         setCodeAuthenticationLoading(true); // 로딩 시작
         try {
             const response = await fetch(`${api}/register/email/check/verification`, {
@@ -105,13 +113,13 @@ const Signup_info = () => {
             if (response.status === 200) {
                 // 성공적인 요청인 경우 (status 200)
                 alert("코드 인증이 완료되었습니다.");
-                setEmailAuthenticationPart(true);
+                setCodeAuthenticationPart(true);
                 // const result = await response.json();
                 // setCodeAuthenticationData(result);
             } else if (response.status === 401) {
                 // 인증 실패 등의 상황 (status 401)
-                setCodeAuthenticationError("인증에 실패했습니다. 코드번호를 확인하세요.");
-                alert(emailAuthenticationError);
+                // setCodeAuthenticationError("인증코드가 일치하지 않습니다.");
+                alert("인증코드가 일치하지 않습니다.");
             } else {
                 // 그 외의 에러
                 try {
@@ -167,7 +175,7 @@ const Signup_info = () => {
             } else if (response.status === 409) {
                 // 인증 실패 등의 상황 (status 409)
                 setUsernameDuplicationError("유저네임이 중복되었습니다.");
-                alert(usernameDuplicationError);
+                alert("사용중인 닉네임입니다.");
             } else {
                 // 그 외의 에러
                 try {
@@ -260,6 +268,7 @@ const Signup_info = () => {
             } else if (response.status === 409) {
                 // 인증 실패 등의 상황 (status 409)
                 setSignupError("이미 가입되어있는 회원 입니다.");
+                alert("이미 가입되어있는 회원 입니다.")
             } else {
                 // 그 외의 에러
                 throw new Error(`Error: ${response.status} : ${response.statusText}`);

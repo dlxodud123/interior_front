@@ -11,6 +11,9 @@ import Callback from './google_callback/callback';
 import Randomchat_form from './randomchat/js/randomchat_form';
 
 import Test from './test/test';
+import Video from './video_server/video';
+import Front from './front/js/front';
+import Back from './back/js/back';
 
 // Context 생성
 export const MyContext = createContext();
@@ -45,6 +48,10 @@ function App() {
           <Route path='/randomchat' element={<Randomchat_form></Randomchat_form>}></Route>
           
           <Route path='/test' element={<Test></Test>}></Route>
+          <Route path='/video' element={<Video></Video>}></Route>
+
+          <Route path='/front' element={<Front></Front>}></Route>
+          <Route path='/back' element={<Back></Back>}></Route>
         </Routes>
       </div>
     </MyProvider>
