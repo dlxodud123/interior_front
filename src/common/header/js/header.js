@@ -30,6 +30,7 @@ const Header = () => {
             setKakaoLogin(false);
         }else if (siteLogin) {
             setSiteLogin(false);
+            localStorage.removeItem('userToken')
         }
         navigate('/');
     }

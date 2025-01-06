@@ -12,8 +12,8 @@ import Randomchat_form from './randomchat/js/randomchat_form';
 
 import Test from './test/test';
 import Video from './video_server/video';
-import Front from './front/js/front';
-import Back from './back/js/back';
+import Front from './quiz/js/front';
+import Back from './quiz/js/back';
 
 // Context 생성
 export const MyContext = createContext();
