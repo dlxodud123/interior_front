@@ -113,7 +113,8 @@ const Login_info = () => {
                 navigate('/')
             } else if (response.status === 401) {
                 // 인증 실패 등의 상황 (status 401)
-                setError("인증에 실패했습니다. 이메일과 비밀번호를 확인하세요.");
+                setError("이메일과 비밀번호를 확인하세요.");
+                alert("로그인에 실패했습니다. 이메일과 비밀번호를 확인하세요.")
             } else {
                 // 그 외의 에러
                 throw new Error(`Error: ${response.status} : ${response.statusText}`);

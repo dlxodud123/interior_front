@@ -1,6 +1,6 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom'
-import React, { createContext, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import Main_form from './main/js/main_form';
 import Login_form from './login/js/login_form';
 import Signup_form from './signup/js/signup_form';
@@ -9,6 +9,7 @@ import My_profile_form from './my/profile/js/my_profile_form';
 import My_friend_form from './my/friend/js/my_friend_form';
 import Callback from './google_callback/callback';
 import Randomchat_form from './randomchat/js/randomchat_form';
+import Friendchat_from from './friendchat/js/friendchat_form';
 
 import Test from './test/test';
 import Video from './video_server/video';
@@ -24,6 +25,13 @@ const MyProvider = ({ children }) => {
     const [googleLogin, setGoogleLogin] = useState(false);
     const [kakaoLogin, setKakaoLogin] = useState(false);
 
+    useEffect(() => {
+      if (localStorage.getItem('userToken')) {
+        setSiteLogin(true);
+      }else{
+        setSiteLogin(false);
+      }
+    })
     const [siteLogin, setSiteLogin] = useState(false);
 
     return (
@@ -46,7 +54,8 @@ function App() {
           <Route path='/my/friend' element={<My_friend_form></My_friend_form>}></Route>
           <Route path='/callback' element={<Callback></Callback>}></Route>
           <Route path='/randomchat' element={<Randomchat_form></Randomchat_form>}></Route>
-          
+          <Route path='/friendchat' element={<Friendchat_from></Friendchat_from>}></Route>
+
           <Route path='/test' element={<Test></Test>}></Route>
           <Route path='/video' element={<Video></Video>}></Route>
 

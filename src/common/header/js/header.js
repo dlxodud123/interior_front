@@ -15,7 +15,6 @@ const Header = () => {
     let [mainBtn, setMainBtn] = useState(false);
     let [loginBtn, setLoginBtn] = useState(false);
     let [signupBtn, setSignupBtn] = useState(false);
-    let [chatBtn, setChatBtn] = useState(false);
 
     useEffect(() => {
         // console.log("구글 로그인 확인용: ", googleLogin);
@@ -53,11 +52,7 @@ const Header = () => {
             navigate("/");
             setMainBtn(false);
         }
-        if(chatBtn) {
-            navigate("/test");
-            setChatBtn(false)
-        }
-    }, [myBtn, loginBtn, signupBtn, mainBtn, chatBtn, navigate])
+    }, [myBtn, loginBtn, signupBtn, mainBtn, navigate])
 
     const handleCategoryChange = (category) => {
         if (category === "chat") {
@@ -65,7 +60,7 @@ const Header = () => {
             navigate(`/randomchat`, { state: { categoryBtn: category } }); // state에 선택한 카테고리 전달
         }else{
             setCategoryBtn(category);
-            navigate(`/randomvideo`, { state: { categoryBtn: category } }); // state에 선택한 카테고리 전달
+            navigate(`/friendchat`, { state: { categoryBtn: category } }); // state에 선택한 카테고리 전달
         }
     };
 
@@ -84,7 +79,7 @@ const Header = () => {
                     }
                 </div>
                 <div className='header_title'>
-                    <label onClick={() => setMainBtn(true)} style={{cursor:"pointer"}}>Random Chat & Random Video</label>
+                    <label onClick={() => setMainBtn(true)} style={{cursor:"pointer"}}>Random Chat & Friend Chat</label>
                 </div>
                 <div className='header_login-signup_content'>
                     {
@@ -120,7 +115,7 @@ const Header = () => {
                 <div className='header_random_gap'></div>
                 <div onClick={() => handleCategoryChange ("video")}
                     className={`default-btn ${categoryBtn === "video" ? "check-btn" : "none-check-btn"}`}>
-                        Random Video
+                        Friend Chat
                 </div>
             </div>
         </header>

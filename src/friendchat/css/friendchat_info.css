@@ -1,0 +1,9 @@
+.friendchat_info_container{
+    display: flex;
+}
+.friendchat_info_list_container{
+    width: 50%;
+}
+.friendchat_info_msg_container{
+    width: 50%;
+}
