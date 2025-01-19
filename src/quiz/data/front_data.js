@@ -210,6 +210,14 @@ export const frontTechnologyHtmlData = [
         question: "",
         answer: ""
     },
+    {
+        question: "",
+        answer: ""
+    },
+    {
+        question: "",
+        answer: ""
+    },
 ]
 
 export const frontTechnologyCssData = [
