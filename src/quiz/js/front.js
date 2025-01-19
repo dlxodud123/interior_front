@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import '../css/front.css';
-import { frontTechnologyData, frontPortfolioData, frontCompanyData } from '../data/front_data';
+import { frontTechnologyData, frontPortfolioData,  } from '../data/front_data';
 
 const Front = () => {
 
@@ -63,22 +63,22 @@ const Front = () => {
             <div className='front_category_container'>
                 <div className='front_category_content'>
                     <div onClick={() => setCategorySelect(1)} style={{ color: categorySelect === 1 ? '#3578FF' : '', backgroundColor: categorySelect === 1 ? 'white' : '' }} className='front_category'>
-                        기술 (front)
+                        front
                     </div>
                     <div onClick={() => setCategorySelect(2)} style={{ color: categorySelect === 2 ? '#3578FF' : '', backgroundColor: categorySelect === 2 ? 'white' : '' }} className='front_category'>
-                        기술 (html)
+                        html
                     </div>
                     <div onClick={() => setCategorySelect(3)} style={{ color: categorySelect === 3 ? '#3578FF' : '', backgroundColor: categorySelect === 3 ? 'white' : '' }} className='front_category'>
-                        기술 (css)
+                        css
                     </div>
                     <div onClick={() => setCategorySelect(4)} style={{ color: categorySelect === 4 ? '#3578FF' : '', backgroundColor: categorySelect === 4 ? 'white' : '' }} className='front_category'>
-                        기술 (JavaScript)
+                        JavaScript
                     </div>
                     <div onClick={() => setCategorySelect(5)} style={{ color: categorySelect === 5 ? '#3578FF' : '', backgroundColor: categorySelect === 5 ? 'white' : '' }} className='front_category'>
-                        기술 (React)
+                        React
                     </div>
                     <div onClick={() => setCategorySelect(6)} style={{ color: categorySelect === 6 ? '#3578FF' : '', backgroundColor: categorySelect === 6 ? 'white' : '' }} className='front_category'>
-                        기술 (TypeScript)
+                        TypeScript
                     </div>
                     <div onClick={() => setCategorySelect(7)} style={{ color: categorySelect === 7 ? '#3578FF' : '', backgroundColor: categorySelect === 7 ? 'white' : '' }} className='front_category'>
                         포트폴리오

@@ -1,0 +1,74 @@
+.randomvideo_info_container{
+    width: 100%;
+    height: 400px;
+    max-width: 1280px;
+    margin: auto;
+    display: flex;
+}
+
+/* 내 비디오 */
+.randomvideo_info_me_container{
+    width: 47%;
+    height: 100%;
+}
+.randomvideo_info_me{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* call 버튼 */
+.randomvideo_info_call_container{
+    width: 6%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.randomvideo_info_call{
+    width: 100%;
+    height: 35px;
+    background-color: #3578FF;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* 상대 비디오` */
+.randomvideo_info_other_container{
+    width: 47%;
+    height: 100%;
+}
+.randomvideo_info_other{
+    width: 100%;
+    height: 100%;
+}
+.randomvideo_info_other_left{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
+.randomvideo_info_other_wait_content{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.randomvideo_info_other_wait{
+    width: 30%;
+    padding-top: 30%;
+    border: 2px solid white; /* 배경색 */
+    border-top: 2px solid rgba(127, 127, 127, 0.4); /* 회전하는 색 */
+    border-radius: 50%;
+    animation: spin 1s linear infinite; /* spin 애니메이션 */
+}
+/* 회전 애니메이션 */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

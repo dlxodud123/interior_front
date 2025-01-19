@@ -206,23 +206,55 @@ export const frontTechnologyData = [
 ];
 
 export const frontTechnologyHtmlData = [
-    
+    {
+        question: "",
+        answer: ""
+    },
+]
+
+export const frontTechnologyCssData = [
+    {
+        question: "",
+        answer: ""
+    },
+]
+
+export const frontTechnologyJavascriptData = [
+    {
+        question: "",
+        answer: ""
+    },
+]
+
+export const frontTechnologyReactData = [
+    {
+        question: "",
+        answer: ""
+    },
+]
+
+export const frontTechnologyTypescriptData = [
+    {
+        question: "",
+        answer: ""
+    },
 ]
 
 export const frontPortfolioData = [
     {
-        question: "질문1",
-        answer: "답답"
-    },
-    {
-        question: "질문2",
-        answer: "답답"
-    },
-    {
-        question: "질문3",
-        answer: "답답"
+        question: "",
+        answer: ""
     },
 ];
+
+
+
+
+
+
+
+
+
 
 export const frontCompanyData = [
     {

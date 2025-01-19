@@ -9,10 +9,9 @@ import My_profile_form from './my/profile/js/my_profile_form';
 import My_friend_form from './my/friend/js/my_friend_form';
 import Callback from './google_callback/callback';
 import Randomchat_form from './randomchat/js/randomchat_form';
-import Friendchat_from from './friendchat/js/friendchat_form';
+import Randomvideo_form from './randomvideo/js/randomvideo_form'
 
 import Test from './test/test';
-import Video from './video_server/video';
 import Front from './quiz/js/front';
 import Back from './quiz/js/back';
 
@@ -54,10 +53,9 @@ function App() {
           <Route path='/my/friend' element={<My_friend_form></My_friend_form>}></Route>
           <Route path='/callback' element={<Callback></Callback>}></Route>
           <Route path='/randomchat' element={<Randomchat_form></Randomchat_form>}></Route>
-          <Route path='/friendchat' element={<Friendchat_from></Friendchat_from>}></Route>
+          <Route path='/randomvideo' element={<Randomvideo_form></Randomvideo_form>}></Route>
 
           <Route path='/test' element={<Test></Test>}></Route>
-          <Route path='/video' element={<Video></Video>}></Route>
 
           <Route path='/front' element={<Front></Front>}></Route>
           <Route path='/back' element={<Back></Back>}></Route>

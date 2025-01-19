@@ -60,7 +60,7 @@ const Header = () => {
             navigate(`/randomchat`, { state: { categoryBtn: category } }); // state에 선택한 카테고리 전달
         }else{
             setCategoryBtn(category);
-            navigate(`/friendchat`, { state: { categoryBtn: category } }); // state에 선택한 카테고리 전달
+            navigate(`/randomvideo`, { state: { categoryBtn: category } }); // state에 선택한 카테고리 전달
         }
     };
 
@@ -79,7 +79,7 @@ const Header = () => {
                     }
                 </div>
                 <div className='header_title'>
-                    <label onClick={() => setMainBtn(true)} style={{cursor:"pointer"}}>Random Chat & Friend Chat</label>
+                    <label onClick={() => setMainBtn(true)} style={{cursor:"pointer"}}>Random Chat & Random Video</label>
                 </div>
                 <div className='header_login-signup_content'>
                     {
@@ -115,7 +115,7 @@ const Header = () => {
                 <div className='header_random_gap'></div>
                 <div onClick={() => handleCategoryChange ("video")}
                     className={`default-btn ${categoryBtn === "video" ? "check-btn" : "none-check-btn"}`}>
-                        Friend Chat
+                        Random Video
                 </div>
             </div>
         </header>
