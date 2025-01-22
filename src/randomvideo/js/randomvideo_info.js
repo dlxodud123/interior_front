@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
 import io from "socket.io-client";
 
-const socket = io("http://localhost:5000");
+const socket = io("https://video.random-chat.site");
 
 const Randomvideo_info = () => {
     const navigate = useNavigate();
@@ -76,7 +76,14 @@ const Randomvideo_info = () => {
           // console.log("PeerConnection not initialized");
           // console.log("Creating new RTCPeerConnection for:", roomId);
           const pc = new RTCPeerConnection({
-            iceServers: [{ urls: "stun:stun.l.google.com:19302" }],
+            iceServers: [{
+              urls: "stun:stun.l.google.com:19302"}, 
+              // {
+              // urls: "turn:119.195.163.35:3478",
+              // username: "user",
+              // credential: "user",
+              // }
+            ],
           });
     
           // 로컬 스트림의 트랙(미디어 데이터 정보 및 전송 역할)을 peerConnection에 추가
