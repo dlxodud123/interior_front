@@ -207,45 +207,401 @@ export const frontTechnologyData = [
 
 export const frontTechnologyHtmlData = [
     {
-        question: "",
-        answer: ""
+        question: "DOCTYPE의 기능",
+        answer: "HTML의 문서 유형을 선언하는 데 사용하며,\n 렌더링하도록 돕는 역할"
+    },
+    {
+        question: "data- 속성",
+        answer: "HTML에서 데이터를 저장하고,\n JavaScript로 쉽게 접근하기 위한 속성"
+    },
+    {
+        question: "시맨틱 태그의 정의와 예시",
+        answer: "코드의 가독성을 높이는 역할을 한다.\n <header>, <nav>, <article>, <section>, <footer>"
+    },
+    {
+        question: "<script>, <script async>, <script defer>의 차이점",
+        answer: "<script> : HTML 파싱 중단\n<script async> : HTML파싱과 스크립트 다운로드 병렬로 실행, 다운로드 완료 시 HTML파싱을 멈추고 스크립트 실행\n<script defer> : HTML파싱과 스크립트 다운로드 병렬로 실행, HTML파싱이 끝난 후 스크립트 실행"
+    },
+    {
+        question: "HTML에서 빈 요소(empty elements)",
+        answer: "내용이 없는 HTML 태그로, 닫는 태그를 갖지 않는다.\n<img>, <input>, <br>, <hr>, <meta>, <link>"
+    },
+    {
+        question: "프로그레시브 렌더링(Progressive Rendering) 정의",
+        answer: "페이지를 점진적으로 로드하여,\n 사용자에게 더 빠르게 콘텐츠를 제공하고, 로딩 경험을 개선\nex) 이미지 로딩(저해상도 -> 고해상도), \n웹 페이지(텍스트는 먼저 보여주고, 이미지나 큰 사진 같은 건 나중에 점차적으로 로드하면서 페이지가 점점 더 완성)"
+    },
+    {
+        question: "script 태그는 어떤 위치에 와야하나요?",
+        answer: "어떤 위치에나 배치할 수 있지만,\n최적의 위치는 </body>바로전에 배치.\n<head>에 배치할 경우, async나 defer 속성을 사용."
     },
 ]
 
 export const frontTechnologyCssData = [
     {
-        question: "",
+        question: "Margin & Padding 정의",
+        answer: "Margin : 외부 여백\nPadding : 내부 여백"
+    },
+    {
+        question: "CSS 선택자의 우선순위와 동작방식",
+        answer: "1) 인라인 스타일 : <div style=\"color: red;\" />\n2) ID선택자 : #ID명\n3) 클래스 선택자 : .클래스명 \n4) 태그 & 유니버설 선택자 : div & *\n *!important를 사용해서 우선순위를 높일 수 있음"
+    },
+    {
+        question: "z-index와 스택 문맥이 형성되는 방식",
+        answer: "z-index는 스택 문맥 내에서 요소들의 쌓임 순서를 결정\n스택 문맥은 position, opacity, transform 등의 속성으로 형성"
+    },
+    {
+        question: "BFC(Block Formatting Context)와 동작원리",
+        answer: "요소들이 어떻게 배치되고 정렬되는지 결정하는 영역으로,\n외부와 겹치지 않도록 배치한다.\n(자식 요소 배치, 마진 병합, 플로트 요소 처리)"
+    },
+    {
+        question: "브라우저 별 스타일링 문제를 해결하는 방식",
+        answer: "각 부라우저 별 CSS를 해석하고, 렌더링하는 방식이 다르다.\nCSS 리셋(normalize.css or reset.css / 일관된 스타일로 시작)\n벤더 프리픽스(-webkit-, -moz-, -ms- / 호환성 문제 해결)"
+    },
+    {
+        question: "CSS 전처리기를 사용하는 장단점",
+        answer: "코드의 유지보수성과 효율성을 높이는 장점이 있지만,\n빌드 과정이 필요하고 디버깅에 어려움이 있는 단점이 있다."
+    },
+    {
+        question: "브라우저가 CSS 선택자와 일치하는 요소를 어떻게 결정하는가?",
+        answer: "DOM 트리에서 모든 요소를 탐색하여,\n 우선순위에 따라 일치 여부를 결정하고 적용"
+    },
+    {
+        question: "가상 요소(pseudo-elements) 선택자의 정의와 용도",
+        answer: "HTML구조를 변경하지 않고 스타일만으로 구조를 변경 가능\n::before, ::after, ::first-letter, ::first-line"
+    },
+    {
+        question: "효율적인 CSS를 작성하기 위한 주의점",
+        answer: "간결하고, 재사용 가능하며, 성능에 미치는 영향을 최소화"
+    },
+    {
+        question: "박스 모델에 대한 이해",
+        answer: "HTML요소가 페이지에 어떻게 배치되는지 이해하기 위한 개념\nMargin > Border > Padding > Content"
+    },
+    {
+        question: "리셋(resetting)과 정규화(normalizing) CSS의 차이점",
+        answer: "리셋 CSS : 스타일을 완전히 초기화, 제로 상태에서 시작\n정규화 CSS : 기본 스타일을 유지, 브라우저 간의 차이 최소화"
+    },
+    {
+        question: "기능이 제한된 브라우저에 페이지를 제공하는 방식",
+        answer: "최신 브라우저는 고급 기능을 활용하고,\n구버전 브라우저에는 기본적인 콘텐츠를 제공\n(폴리필, 브라우저 감지, 그레이스풀 디그레이데이션)"
+    },
+    {
+        question: "시각적으로 컨텐츠를 숨기는 다양한 방법과 이를 스크린 리더기에서만 사용 가능하게 하는 방법",
+        answer: "visibility: hidden, display: none, position: absolute, clip\n\naria-hidden=\"true\" 또는 sr-only 클래스를 사용"
+    },
+    {
+        question: "스크린 외에 다른 @media 속성의 예시",
+        answer: ""
+    },
+    {
+        question: "id와 class의 차이점",
         answer: ""
     },
 ]
 
 export const frontTechnologyJavascriptData = [
     {
-        question: "",
+        question: "클로저의 정의와 사용방식",
+        answer: ""
+    },
+    {
+        question: "이벤트 위임과 동작방식",
+        answer: ""
+    },
+    {
+        question: "프로토타입 상속",
+        answer: ""
+    },
+    {
+        question: "호이스팅",
+        answer: ""
+    },
+    {
+        question: "이벤트 버블링",
+        answer: ""
+    },
+    {
+        question: "이벤트 캡처링",
+        answer: ""
+    },
+    {
+        question: "JavaScript에서 동일 출처 정책",
+        answer: ""
+    },
+    {
+        question: "동기 및 비동기 함수의 차이",
+        answer: ""
+    },
+    {
+        question: "이벤트 루프",
+        answer: ""
+    },
+    {
+        question: "콜 스택과 태스크 큐의 정의 및 차이점",
+        answer: ""
+    },
+    {
+        question: "실행컨텍스트란?",
+        answer: ""
+    },
+    {
+        question: "this란?",
+        answer: ""
+    },
+    {
+        question: "typescript를 사용한 이유와 사용했을때 장점",
+        answer: ""
+    },
+    {
+        question: "가비지 콜렉터와 동작방식",
+        answer: ""
+    },
+    {
+        question: "Promise의 정의와 사용 예시",
+        answer: ""
+    },
+    {
+        question: "async/awiat란?",
+        answer: ""
+    },
+    {
+        question: "자바스크립트는 어떤 언어이고, 어떠한 특징을 가지는가?",
+        answer: ""
+    },
+    {
+        question: "자바스크립트 엔진이 코드를 실행하는 과정",
+        answer: ""
+    },
+    {
+        question: "원시값과 참조값의 차이점을 메모리 관점에서 설명하라",
+        answer: ""
+    },
+    {
+        question: "e.target와 e.currentTarget의 차이점",
+        answer: ""
+    },
+    {
+        question: "null, undefined, undeclared 변수의 차이점과 각 상태를 확인하는 방법",
+        answer: ""
+    },
+    {
+        question: "let, var, const로 생성된 변수의 차이점",
+        answer: ""
+    },
+    {
+        question: "Array.forEach() 루프와 Array.map() 메서드의 주요한 차이점 및 선택 시점",
+        answer: ""
+    },
+    {
+        question: "Function.call과 Function.apply의 차이점",
+        answer: ""
+    },
+    {
+        question: "Function.prototype.bind 이란?",
+        answer: ""
+    },
+    {
+        question: "JavaScript 코드를 JavaScript로 컴파일하는 언어에서 쓰는 장단점",
+        answer: ""
+    },
+    {
+        question: "IIFE 이란?",
+        answer: ""
+    },
+    {
+        question: "Spread Syntax의 이점과 주의해야할 점은?",
+        answer: ""
+    },
+    {
+        question: "ES6 문법에 추가된 것들은?",
+        answer: ""
+    },
+    {
+        question: "자바스크립트에서 이벤트 바인딩의 정의와 이벤트 바인딩 방법들",
+        answer: ""
+    },
+    {
+        question: "오브젝트 프로퍼티와 배열 항목을 반복할 때",
+        answer: ""
+    },
+    {
+        question: "익명 함수의 사용 사례",
+        answer: ""
+    },
+    {
+        question: "호스트 객체와 네이티브 객체의 차이점",
+        answer: ""
+    },
+    {
+        question: "var person = Person(), var person = new Person()의 차이점",
+        answer: ""
+    },
+    {
+        question: "타입강제 변환의 정의와 타입강제 변환 시 주의할 점",
+        answer: ""
+    },
+    {
+        question: "속성과 프로퍼티의 차이점",
+        answer: ""
+    },
+    {
+        question: "가변 및 불변 객체의 차이점",
+        answer: ""
+    },
+    {
+        question: "JavaScript에서 불변 객체의 예시",
+        answer: ""
+    },
+    {
+        question: "불변성의 장단점",
+        answer: ""
+    },
+    {
+        question: "코드에서 불변성 달성 방법",
+        answer: ""
+    },
+    {
+        question: "고차함수란?",
+        answer: ""
+    },
+    {
+        question: "require과 import의 차이점",
+        answer: ""
+    },
+    {
+        question: "==와 ===의 차이점",
+        answer: ""
+    },
+    {
+        question: "삼항 연산자를 '삼항'이라고 부르는 이유",
+        answer: ""
+    },
+    {
+        question: "엄격 모드의 정의 및 사용의 장단점",
+        answer: ""
+    },
+    {
+        question: "JavaScript 코드를 디버깅하는 데 사용하는 도구 및 기술",
+        answer: ""
+    },
+    {
+        question: "ES6 클래스와 ES5 함수 생성자의 차이점",
         answer: ""
     },
 ]
 
 export const frontTechnologyReactData = [
     {
-        question: "",
+        question: "React의 특징은?",
+        answer: ""
+    },
+    {
+        question: "React는 라이브러리인가 프레임워크인가?",
+        answer: ""
+    },
+    {
+        question: "React에서 가상돔의 정의와 동작방식",
+        answer: ""
+    },
+    {
+        question: "React에서 컴포넌트란?",
+        answer: ""
+    },
+    {
+        question: "클래스형 컴포넌트 VS 함수형 컴포넌트",
+        answer: ""
+    },
+    {
+        question: "컴포넌트 라이프 사이클",
+        answer: ""
+    },
+    {
+        question: "상태관리와 상태관리가 필요한 이유",
+        answer: ""
+    },
+    {
+        question: "React Hook이란?",
+        answer: ""
+    },
+    {
+        question: "props와 state의 정의",
+        answer: ""
+    },
+    {
+        question: "React에서 State의 불변성을 유지해야하는 이유",
+        answer: ""
+    },
+    {
+        question: "React에서의 성능최적화 방법",
+        answer: ""
+    },
+    {
+        question: "바닐라 자바스크립트 대신 React를 사용하는 이유",
+        answer: ""
+    },
+    {
+        question: "useState 정의",
+        answer: ""
+    },
+    {
+        question: "useEffect 정의",
+        answer: ""
+    },
+    {
+        question: "useRef 정의",
+        answer: ""
+    },
+    {
+        question: "useRef와 useState의 차이점",
+        answer: ""
+    },
+    {
+        question: "useMemo와 useCallback이란?",
+        answer: ""
+    },
+    {
+        question: "React Hydration이란?",
+        answer: ""
+    },
+    {
+        question: "컴포넌트 리스트 구현 시 각 컴포넌트에 대한 id 값을 설정해야하는 이유",
+        answer: ""
+    },
+    {
+        question: "Props Drilling의 정의와 이를 해결하는 방법은?",
+        answer: ""
+    },
+    {
+        question: "JSX의 정의",
+        answer: ""
+    },
+    {
+        question: "리액트에서 JSX 를 사용시 장점",
+        answer: ""
+    },
+    {
+        question: "리액트에서는 가상 돔의 변경점을 어떻게 포착할까?",
+        answer: ""
+    },
+    {
+        question: "Context API 를 상태관리 라이브러리처럼 사용할 수 있을까?",
         answer: ""
     },
 ]
 
 export const frontTechnologyTypescriptData = [
     {
-        question: "",
+        question: "타입스크립트란?",
         answer: ""
     },
 ]
 
-export const frontPortfolioData = [
-    {
-        question: "",
-        answer: ""
-    },
-];
+// export const frontPortfolioData = [
+//     {
+//         question: "",
+//         answer: ""
+//     },
+// ];
 
 
 

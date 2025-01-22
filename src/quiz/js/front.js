@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import '../css/front.css';
-import { frontTechnologyData, frontPortfolioData,  } from '../data/front_data';
+import { frontTechnologyData, frontTechnologyHtmlData, frontTechnologyCssData, frontTechnologyJavascriptData, frontTechnologyReactData, frontTechnologyTypescriptData, frontPortfolioData } from '../data/front_data';
 
 const Front = () => {
 
@@ -23,32 +23,32 @@ const Front = () => {
     useEffect(() => {
         if (categorySelect === 1) {
             setQuizInfo((frontTechnologyData));setQuizNum(0);
-            if (easy) { setQuizAnswer(true) } else{ setQuizAnswer(false);}
+            if (easy) { setQuizAnswer(true) } else{ setQuizAnswer(false);setQuizInfo(randomArray(frontTechnologyData));}
         }
         if (categorySelect === 2) {
-            setQuizInfo((frontTechnologyData));setQuizNum(0);
-            if (easy) { setQuizAnswer(true) } else{ setQuizAnswer(false);}
+            setQuizInfo((frontTechnologyHtmlData));setQuizNum(0);
+            if (easy) { setQuizAnswer(true) } else{ setQuizAnswer(false);setQuizInfo(randomArray(frontTechnologyHtmlData));}
         }
         if (categorySelect === 3) {
-            setQuizInfo((frontTechnologyData));setQuizNum(0);
-            if (easy) { setQuizAnswer(true) } else{ setQuizAnswer(false);}
+            setQuizInfo((frontTechnologyCssData));setQuizNum(0);
+            if (easy) { setQuizAnswer(true) } else{ setQuizAnswer(false);setQuizInfo(randomArray(frontTechnologyCssData));}
         }
         if (categorySelect === 4) {
-            setQuizInfo((frontTechnologyData));setQuizNum(0);
-            if (easy) { setQuizAnswer(true) } else{ setQuizAnswer(false);}
+            setQuizInfo((frontTechnologyJavascriptData));setQuizNum(0);
+            if (easy) { setQuizAnswer(true) } else{ setQuizAnswer(false);setQuizInfo(randomArray(frontTechnologyJavascriptData));}
         }
         if (categorySelect === 5) {
-            setQuizInfo((frontTechnologyData));setQuizNum(0);
-            if (easy) { setQuizAnswer(true) } else{ setQuizAnswer(false);}
+            setQuizInfo((frontTechnologyReactData));setQuizNum(0);
+            if (easy) { setQuizAnswer(true) } else{ setQuizAnswer(false);setQuizInfo(randomArray(frontTechnologyReactData));}
         }
         if (categorySelect === 6) {
-            setQuizInfo((frontTechnologyData));setQuizNum(0);
-            if (easy) { setQuizAnswer(true) } else{ setQuizAnswer(false);}
+            setQuizInfo((frontTechnologyTypescriptData));setQuizNum(0);
+            if (easy) { setQuizAnswer(true) } else{ setQuizAnswer(false);setQuizInfo(randomArray(frontTechnologyTypescriptData));}
         }
-        if (categorySelect === 7) {
-            setQuizInfo(randomArray(frontPortfolioData));setQuizNum(0);
-            if (easy) { setQuizAnswer(true) } else{ setQuizAnswer(false); }
-        }
+        // if (categorySelect === 7) {
+        //     setQuizInfo(randomArray(frontPortfolioData));setQuizNum(0);
+        //     if (easy) { setQuizAnswer(true) } else{ setQuizAnswer(false); }
+        // }
         // if (categorySelect === 20) {
         //     setQuizInfo(randomArray(frontCompanyData)); setQuizNum(0);
         //     if (easy) { setQuizAnswer(true) } else{ setQuizAnswer(false); }
@@ -81,7 +81,7 @@ const Front = () => {
                         TypeScript
                     </div>
                     <div onClick={() => setCategorySelect(7)} style={{ color: categorySelect === 7 ? '#3578FF' : '', backgroundColor: categorySelect === 7 ? 'white' : '' }} className='front_category'>
-                        포트폴리오
+                        Portfolio
                     </div>
                     {/* <div onClick={() => setCategorySelect(20)} style={{ color: categorySelect === 3 ? '#3578FF' : '', backgroundColor: categorySelect === 3 ? 'white' : '' }} className='front_category'>
                         기업
@@ -97,21 +97,28 @@ const Front = () => {
             </div>
 
             <div className='front_quiz_info_container'>
+
+                <div className='front_quiz_info_question_title_content'>
+                    질문
+                </div>
+
                 <div className='front_quiz_info_question_container'>
-                    <div className='front_quiz_info_question_title_content'>
-                        질문
-                    </div>
                     {quizInfo.length > 0 ? ( 
                         <div className='front_quiz_info_question'>{quizInfo[quizNum].question}</div> 
                     ) : ( 
                         <></> 
                     )}
                 </div>
-                <div className='front_quiz_info_line' />
-                <div className='front_quiz_info_answer_container'>
-                    <div className='front_quiz_info_question_title_content'>
+
+                <div className='front_quiz_info_line_content'>
+                    <div className='front_quiz_info_line'></div>
+                </div>
+
+                <div className='front_quiz_info_answer_title_content'>
                         답 
-                    </div>
+                </div>
+
+                <div className='front_quiz_info_answer_container'>
                     {quizInfo.length && quizAnswer > 0 ? ( 
                         <div style={{ whiteSpace: "pre-line" }} className='front_quiz_info_answer'>{quizInfo[quizNum].answer}</div> 
                     ) : ( 
@@ -128,13 +135,13 @@ const Front = () => {
                             setQuizAnswer(false);
                         }
                     }}
-                    style={{ color: quizNum === 0 ? 'rgba(0,0,0,0.2)' : '', border: quizNum === 0 ? '2px solid rgba(0,0,0,0.2)' : '', pointerEvents: quizNum === 0 ? 'none' : ""}}
+                    style={{ color: quizNum === 0 ? 'rgba(0,0,0,0.2)' : '', border: quizNum === 0 ? '1.5px solid rgba(0,0,0,0.2)' : '', pointerEvents: quizNum === 0 ? 'none' : ""}}
                 >
                     이전
                 </div>
                 <div className='front_quiz_select_content'
                     onClick={() => setQuizAnswer(true)}
-                    style={{color: quizAnswer ? 'rgba(0,0,0,0.2)' : '', border: quizAnswer ? '2px solid rgba(0,0,0,0.2)' : ''}}
+                    style={{color: quizAnswer ? 'rgba(0,0,0,0.2)' : '', border: quizAnswer ? '1.5px solid rgba(0,0,0,0.2)' : ''}}
                 >
                     답 보기
                 </div>
@@ -145,7 +152,7 @@ const Front = () => {
                             setQuizAnswer(false);
                         }
                     }}
-                    style={{ color: quizNum === quizInfo.length - 1 ? 'rgba(0,0,0,0.2)' : '', border: quizNum ===  quizInfo.length - 1 ? '2px solid rgba(0,0,0,0.2)' : "", pointerEvents: quizNum ===  quizInfo.length - 1 ? 'none' : ""}}
+                    style={{ color: quizNum === quizInfo.length - 1 ? 'rgba(0,0,0,0.2)' : '', border: quizNum ===  quizInfo.length - 1 ? '1.5px solid rgba(0,0,0,0.2)' : "", pointerEvents: quizNum ===  quizInfo.length - 1 ? 'none' : ""}}
                 >
                     다음
                 </div>

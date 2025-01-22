@@ -1,16 +1,20 @@
 .front_container{
     width: 100%;
     height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 /* 제목 */
 .front_title_content{
     width: 100%;
-    height: 50px;
+    height: 5%;
+    line-height: normal;
     margin: auto;
     background-color: #3578FF;
     color: white;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: bold;
     display: flex;
     justify-content: center;
@@ -19,35 +23,38 @@
 
 /* 카테고리 */
 .front_category_container{
+    height: 4%;
+    line-height: normal;
     background-color: #3578FF;
-    height: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .front_category_content{
     width: 80%;
+    height: 70%;
     margin: auto;
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     align-items: center;
 }
 .front_category{
-    height: 30px;
+    height: 60%;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
     font-weight: bold;
     cursor: pointer;
-    border-radius: 20px;
+    border-radius: 10px;
+    font-size: 8px;
 }
 
 
 /* 퀴즈 난이도 */
 .front_quiz_level_content{
-    width: 80%;
-    height: 40px;
+    width: 85%;
+    height: 4%;
     margin: auto;
     display: flex;
     justify-content: center;
@@ -57,6 +64,7 @@
     width: 50%;
     background-color: green;
     padding: 3px;
+    font-size: 12px;
     font-weight: bold;
     color: white;
     text-align: center;
@@ -66,6 +74,7 @@
     width: 50%;
     background-color: red;
     padding: 3px;
+    font-size: 12px;
     font-weight: bold;
     color: white;
     text-align: center;
@@ -76,12 +85,12 @@
 /* 퀴즈 제목 */
 .front_quiz_title_container{
     width: 80%;
-    height: 40px;
+    height: 3%;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: auto;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: bold;
 }
 
@@ -89,25 +98,29 @@
 /* 퀴즈 정보 */
 .front_quiz_info_container{
     width: 100%;
+    /* height: 75%; */
+    height: 60%;
 }
 
-.front_quiz_info_question_container{
-    width: 80%;
-    height: 150px;
-    margin: auto;
-}
+
 .front_quiz_info_question_title_content{
-    height: 30px;
+    height: 4%;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 20px;
+    font-size: 14px;
     font-weight: bold;
     color: #3578FF;
 }
+
+
+.front_quiz_info_question_container{
+    width: 85%;
+    height: 30%;
+    margin: auto;
+}
 .front_quiz_info_question{
-    width: 80%;
-    height: 120px;
+    height: 100%;
     margin: auto;
     display: flex;
     justify-content: center;
@@ -115,27 +128,42 @@
     word-wrap: break-word; 
     overflow-wrap: break-word;
     text-align: center;
-    font-size: 20px;
+    font-size: 14px;
     font-weight: bold;
 }
 
 
+
+.front_quiz_info_line_content{
+    width: 85%;
+    height: 1%;
+    margin: auto;
+    text-align: center;
+}
 .front_quiz_info_line{
-    width: 80%;
-    margin: 5px auto 5px auto;
-    height: 1px;
+    height: 0.5px;
     background-color: #3578FF;
 }
 
 
+.front_quiz_info_answer_title_content{
+    height: 4%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    font-weight: bold;
+    color: #3578FF;
+}
+
+
 .front_quiz_info_answer_container{
-    width: 80%;
-    height: 270px;
+    width: 85%;
+    height: 61%;
     margin: auto;
 }
 .front_quiz_info_answer{
-    width: 80%;
-    height: 240px;
+    height: 100%;
     margin: auto;
     display: flex;
     justify-content: center;
@@ -143,24 +171,24 @@
     word-wrap: break-word; 
     overflow-wrap: break-word;
     text-align: center;
-    font-size: 18px;
+    font-size: 12px;
     font-weight: bold;
 }
 
 /* 퀴즈 선택 */
 .front_quiz_select_container{
-    width: 80%;
-    height: 40px;
+    width: 85%;
+    height: 4%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: auto;
     color: #3578FF;
-    font-size: 17px;
+    font-size: 14px;
     font-weight: bold;
 }
 .front_quiz_select_content{
-    border: 2px solid #3578FF;
+    border: 1.5px solid #3578FF;
     padding: 3px;
     cursor: pointer;
 }

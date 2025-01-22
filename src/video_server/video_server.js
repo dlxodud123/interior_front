@@ -116,8 +116,6 @@ io.on("connection", (socket) => {
 
 
 
-
-
   socket.on("exit-room", (roomId) => {
     console.log(`User ${socket.id} is exiting room ${roomId}`);
   
