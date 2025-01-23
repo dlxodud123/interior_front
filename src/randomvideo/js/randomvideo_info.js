@@ -76,13 +76,14 @@ const Randomvideo_info = () => {
           // console.log("PeerConnection not initialized");
           // console.log("Creating new RTCPeerConnection for:", roomId);
           const pc = new RTCPeerConnection({
-            iceServers: [{
-              urls: "stun:stun.l.google.com:19302"}, 
-              // {
-              // urls: "turn:119.195.163.35:3478",
-              // username: "user",
-              // credential: "user",
-              // }
+            iceTransportPolicy: "relay",
+            iceServers: [
+              // {urls: "stun:stun.l.google.com:19302"}, 
+              {
+              urls: "turn:119.195.163.35:3478",
+              username: "user",
+              credential: "user",
+              }
             ],
           });
     
