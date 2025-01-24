@@ -104,7 +104,7 @@ const Front = () => {
 
                 <div className='front_quiz_info_question_container'>
                     {quizInfo.length > 0 ? ( 
-                        <div className='front_quiz_info_question'>{quizInfo[quizNum].question}</div> 
+                        <div style={{ whiteSpace: "pre-line" }} className='front_quiz_info_question'>{quizInfo[quizNum].question}</div> 
                     ) : ( 
                         <></> 
                     )}
