@@ -324,70 +324,66 @@ export const frontTechnologyJavascriptData = [
     //     question: "var, let, const로 생성된 변수의 차이점",
     //     answer: "var = 재선언 o, 재할당 o \n let = 재선언 x, 재할당 o \n const = 재선언 x, 재할당 x \n(var는 function scope개념 / let, const는 block scope 개념)"
     // },
-    {
-        question: "Array.forEach() 루프와 Array.map() 메서드의 \n주요한 차이점 및 선택 시점",
-        answer: "forEach : 반환값이 없고, 원본 변경 가능, 순수하게 반복 작업\nmap : 반환값이 있고, 원본 변경 불가능, 배열 요소를 반환"
-    },
-    {
-        question: "Function.call과 Function.apply의 차이점",
-        answer: "call : 쉼표로 구분해서 전달\n apply : 배열 형태로 전달"
-    },
-    {
-        question: "Function.prototype.bind 이란?",
-        answer: "this 값을 미리 지정하고, 새로운 함수를 만들어주는 메서드"
-    },
-    {
-        question: "IIFE 정의",
-        answer: "정의하자마자 즉시 실행되는 함수 표현식"
-    },
-    {
-        question: "Spread Syntax의 이점과 주의해야할 점은?",
-        answer: "배열과 객체를 다룰 때 간편하고 효율적이지만,\n얕은 복사와 관련된 주의사항을 고려해야 한다\n\n*얕은 복사 : 첫번째 레벨은 원본 객체에 영향이 없고,\n 두번째 이후 레벨은 원본 객체에 영향을 준다다"
-    },
-    {
-        question: "ES6 문법에 추가된 것들은?",
-        answer: "let, const, 화살표 함수(arrow function),\n모듈(import, export), promise, Async/Await, Map/Set"
-    },
-    {
-        question: "자바스크립트에서 이벤트 바인딩의 정의와\n 이벤트 바인딩의 방법들",
-        answer: "이벤트가 발생했을 때 실행될 동작을 정의하는 과정\n\n1) HTML 속성에 직접 바인딩\n2) addEventListener 메서드를 사용한 바인딩\n3) 이벤트 위임"
-    },
-    {
-        question: "익명 함수의 사용 사례",
-        answer: ""
-    },
-    {
-        question: "호스트 객체와 네이티브 객체의 차이점",
-        answer: ""
-    },
-    {
-        question: "var person = Person(), var person = new Person()의 차이점",
-        answer: ""
-    },
-    {
-        question: "타입강제 변환의 정의와 타입강제 변환 시 주의할 점",
-        answer: ""
-    },
-    {
-        question: "속성과 프로퍼티의 차이점",
-        answer: ""
-    },
-    {
-        question: "가변 및 불변 객체의 차이점",
-        answer: ""
-    },
-    {
-        question: "JavaScript에서 불변 객체의 예시",
-        answer: ""
-    },
-    {
-        question: "불변성의 장단점",
-        answer: ""
-    },
-    {
-        question: "코드에서 불변성 달성 방법",
-        answer: ""
-    },
+    // {
+    //     question: "Array.forEach() 루프와 Array.map() 메서드의 \n주요한 차이점 및 선택 시점",
+    //     answer: "forEach : 반환값이 없고, 원본 변경 가능, 순수하게 반복 작업\nmap : 반환값이 있고, 원본 변경 불가능, 배열 요소를 반환"
+    // },
+    // {
+    //     question: "Function.call과 Function.apply의 차이점",
+    //     answer: "call : 쉼표로 구분해서 전달\n apply : 배열 형태로 전달"
+    // },
+    // {
+    //     question: "Function.prototype.bind 이란?",
+    //     answer: "this 값을 미리 지정하고, 새로운 함수를 만들어주는 메서드"
+    // },
+    // {
+    //     question: "IIFE 정의",
+    //     answer: "정의하자마자 즉시 실행되는 함수 표현식"
+    // },
+    // {
+    //     question: "Spread Syntax의 이점과 주의해야할 점은?",
+    //     answer: "배열과 객체를 다룰 때 간편하고 효율적이지만,\n얕은 복사와 관련된 주의사항을 고려해야 한다\n\n*얕은 복사 : 첫번째 레벨은 원본 객체에 영향이 없고,\n 두번째 이후 레벨은 원본 객체에 영향을 준다다"
+    // },
+    // {
+    //     question: "ES6 문법에 추가된 것들은?",
+    //     answer: "let, const, 화살표 함수(arrow function),\n모듈(import, export), promise, Async/Await, Map/Set"
+    // },
+    // {
+    //     question: "자바스크립트에서 이벤트 바인딩의 정의와\n 이벤트 바인딩의 방법들",
+    //     answer: "이벤트가 발생했을 때 실행될 동작을 정의하는 과정\n\n1) HTML 속성에 직접 바인딩\n2) addEventListener 메서드를 사용한 바인딩\n3) 이벤트 위임"
+    // },
+    // {
+    //     question: "익명 함수의 사용 사례",
+    //     answer: "한 번만 사용될 때 함수 이름을 정의하지 않고 간결하게 작성.\n이벤트 처리, 비동기 작업, 고차 함수, 즉시 실행 함수(IIFE)"
+    // },
+    // {
+    //     question: "호스트 객체와 네이티브 객체의 차이점",
+    //     answer: "호스트 객체 : 자바스크립트 환경에서 제공하는 객체,\n시스템과 상호작용하는 데 사용\n네이티브 객체 : 자바스크립트 자체에서 제공하는 기본 객체,\n든 자바스크립트 환경에서 공통적으로 사용"
+    // },
+    // {
+    //     question: "var test = Test(), var test = new Test()의 차이점",
+    //     answer: "Test() : 일반 함수로, 객체를 반환하지 않거나 에러 발생 가능\nnew Test() : 생성자 함수로, 새로운 객체를 생성"
+    // },
+    // {
+    //     question: "타입강제 변환의 정의와 타입강제 변환 시 주의할 점",
+    //     answer: "자동적으로 변수의 타입을 다른 타입으로 변환\n\n\"==\"를 사용하면, 예상치 못한 결과를 초래할 수 있음"
+    // },
+    // {
+    //     question: "속성과 프로퍼티의 차이점",
+    //     answer: "속성 : 정의된 초기값, getAttribute()를 사용해 접근\n프로퍼티 : JavaScript에서 값 변경, value 속성을 통해 접근"
+    // },
+    // {
+    //     question: "가변 및 불변 객체의 차이점",
+    //     answer: "상태 변경 가능 / 불가능, \n배열, 일반 객체 / 문자열, 숫자, const"
+    // },
+    // {
+    //     question: "JavaScript에서 불변 객체의 예시",
+    //     answer: "Object.freeze, 스프레드 연산자(...)를 사용해 불변 객체 생성"
+    // },
+    // {
+    //     question: "불변성의 장단점",
+    //     answer: "장점 : 예측 가능, 안전성, 동시성\n단점 : 성능 저하, 복잡성"
+    // },
     {
         question: "고차함수란?",
         answer: ""
