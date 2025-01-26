@@ -54,7 +54,7 @@ io.on("connection", (socket) => {
   // 사용자가 send-offer를 보낼 때 처리 (offer = 제안 데이터, roomId = 방 번호)
   socket.on("send-offer", (offer, roomId) => {
     const users = rooms[roomId];
-    console.log("서버에서 offer 프론트한테 보내려함")
+    // console.log("서버에서 offer 프론트한테 보내려함")
 
     if (!users) {
       console.error(`Room ${roomId} does not exist. (send-offer)`);
@@ -63,10 +63,10 @@ io.on("connection", (socket) => {
 
     const [user1, user2] = Array.from(users);
     if (user1 === socket.id) {
-      console.log("서버에서 offer 프론트한테 보내려함");
+      // console.log("서버에서 offer 프론트한테 보내려함");
       io.to(user2).emit("receive-offer", offer);
     } else {
-      console.log("서버에서 offer 프론트한테 보내려함");
+      // console.log("서버에서 offer 프론트한테 보내려함");
       io.to(user1).emit("receive-offer", offer);
     }
   });
@@ -85,10 +85,10 @@ io.on("connection", (socket) => {
 
     // socket.id가 user1이면 user2에게 answer을 보내고, 반대로 user2이면 user1에게 answer을 보냄
     if (socket.id === user1) {
-      console.log("A가 B에게 answer을 보냄");
+      // console.log("A가 B에게 answer을 보냄");
       io.to(user2).emit("receive-answer", answer);
     } else if (socket.id === user2) {
-      console.log("B가 A에게 answer을 보냄");
+      // console.log("B가 A에게 answer을 보냄");
       io.to(user1).emit("receive-answer", answer);
     }
   });
@@ -108,6 +108,7 @@ io.on("connection", (socket) => {
       if (userId !== socket.id) {
         // console.log("ice 후보 정보 받음 : ", candidate, "ice 후보 정보 user : ", userId);
         // 해당 방에 속한 다른 사용자에게 ICE 후보를 전송
+        console.log("ice보내려고")
         io.to(userId).emit("receive-ice-candidate", candidate);
       }
     });

@@ -79,13 +79,29 @@ const Randomvideo_info = () => {
             iceServers: [
               {urls: "stun:stun.l.google.com:19302"}, 
               {
-              urls: "turn:119.195.163.35:3478",
-              username: "user",
-              credential: "user",
+                urls: "turn:119.195.163.35:3478",
+                username: "user",
+                credential: "user",
               }
             ],
           });
-    
+
+          // const pc = new RTCPeerConnection({
+          //   iceServers: [{ urls: "stun:stun.l.google.com:19302" }],
+          // });
+          // const pc = new RTCPeerConnection({
+          //   iceServers: [
+          //     { urls: "stun:stun.l.google.com:19302" },  // STUN 서버
+          //     {
+          //       urls: "turn:119.195.163.35:3478",       // TURN 서버
+          //       username: "user",
+          //       credential: "user",
+          //     },
+          //   ],
+          //   iceTransportPolicy: "all",  // 모든 경로에서 연결 시도 (STUN, TURN 모두 사용)
+          // });
+          
+
           // 로컬 스트림의 트랙(미디어 데이터 정보 및 전송 역할)을 peerConnection에 추가
           localStream.getTracks().forEach((track) => {
             console.log("Adding track to PeerConnection:", track);
@@ -238,7 +254,7 @@ const Randomvideo_info = () => {
         } else {
           const waitForRemoteDescription = setInterval(() => {
             if (peerConnection.remoteDescription) {
-              console.log("remoteDescription is now set. receive-ice-candidate2: ", candidate);
+              console.log("remoteDescription is now set.");
               peerConnection.addIceCandidate(candidate);
               clearInterval(waitForRemoteDescription); // 대기가 완료되면 타이머 종료
             }

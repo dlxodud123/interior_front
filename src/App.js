@@ -35,7 +35,7 @@ const MyProvider = ({ children }) => {
 
     return (
         <MyContext.Provider value={{ api, socket, googleLogin, setGoogleLogin, kakaoLogin, setKakaoLogin, siteLogin, setSiteLogin }}>
-            {children}
+          {children}
         </MyContext.Provider>
     );
 };
