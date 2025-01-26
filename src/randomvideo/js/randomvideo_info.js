@@ -66,19 +66,18 @@ const Randomvideo_info = () => {
       socket.off("join-room");
     
       socket.on("join-room", async (roomId, isFirstUser) => {
-        // console.log("join-room : ", roomId);
+        console.log("join-room : ", roomId);
         setRoomId(roomId);
         setWaiting(false); 
         setIsRoomReady(true); 
     
         // peerConnection이 없을 경우에만 생성 
         if (!peerConnection && localStream) {
-          // console.log("PeerConnection not initialized");
-          // console.log("Creating new RTCPeerConnection for:", roomId);
+          console.log("PeerConnection not initialized");
+          console.log("Creating new RTCPeerConnection for:", roomId);
           const pc = new RTCPeerConnection({
-            iceTransportPolicy: "relay",
             iceServers: [
-              // {urls: "stun:stun.l.google.com:19302"}, 
+              {urls: "stun:stun.l.google.com:19302"}, 
               {
               urls: "turn:119.195.163.35:3478",
               username: "user",
@@ -89,8 +88,8 @@ const Randomvideo_info = () => {
     
           // 로컬 스트림의 트랙(미디어 데이터 정보 및 전송 역할)을 peerConnection에 추가
           localStream.getTracks().forEach((track) => {
-            // console.log("Adding track to PeerConnection:", track);
-            // console.log("localStream : ", localStream.getTracks());
+            console.log("Adding track to PeerConnection:", track);
+            console.log("localStream : ", localStream.getTracks());
             pc.addTrack(track, localStream);
           });
           
@@ -98,10 +97,10 @@ const Randomvideo_info = () => {
           if (isFirstUser) {
             try {
               const offer = await pc.createOffer();
-              // console.log("Offer created:", offer);
+              console.log("Offer created:", offer);
               // offer 확정 및 전송 준비
               await pc.setLocalDescription(offer);
-              // console.log("Local description set:", pc.localDescription);
+              console.log("Local description set:", pc.localDescription);
               socket.emit("send-offer", offer, roomId); // 서버로 Offer 전송
   
             } catch (error) {
@@ -116,8 +115,8 @@ const Randomvideo_info = () => {
     
               // 이미 처리된 후보는 다시 보내지 않음
               if (!processedCandidates.current.has(candidateKey)) {
-                // console.log("ice-candidate : ", candidateKey + ",,, " + roomId);
-                // console.log("ice 후보 정보 : ", event.candidate);
+                console.log("ice-candidate : ", candidateKey + ",,, " + roomId);
+                console.log("ice 후보 정보 : ", event.candidate);
                 // 연결을 위한 가능한 여러 경로들 중 하나, 방 아이디
                 socket.emit("send-ice-candidate", event.candidate, roomId);
                 processedCandidates.current.add(candidateKey);
@@ -132,15 +131,15 @@ const Randomvideo_info = () => {
     
           // 원격 비디오 스트림 처리
           pc.ontrack = (event) => {
-            // console.log("ontrack event triggered:", event);
+            console.log("ontrack event triggered:", event);
             console.log("Track status:", event.track.readyState)
             if (event.streams[0]) {
               if (remoteVideoRef.current) {
                 setRemoteStream(event.streams[0]);
-                // console.log("Remote stream received:",  event.streams[0]);
-                // console.log("Remote stream received 활동:",  event.streams[0].active);
+                console.log("Remote stream received:",  event.streams[0]);
+                console.log("Remote stream received 활동:",  event.streams[0].active);
                 remoteVideoRef.current.srcObject = event.streams[0];
-                // console.log("Remote stream received 결론:", remoteVideoRef.current.srcObject);
+                console.log("Remote stream received 결론:", remoteVideoRef.current.srcObject);
               }
             }
           };
@@ -158,8 +157,8 @@ const Randomvideo_info = () => {
         // peerConnection(webRTC 연결 객체)가 없으면 바로 종료
         if (!peerConnection) return;
   
-        // console.log("상대방의 offer를 받음 : ", offer);
-        // console.log("상대방의 offer를 받음 : ", peerConnection.signalingState);
+        console.log("상대방의 offer를 받음 : ", offer);
+        console.log("상대방의 offer를 받음 : ", peerConnection.signalingState);
   
         try {
           // peerConnection(webRTC 연결 객체)의 연결상태가 stable(안정적) 이라면..
@@ -168,11 +167,11 @@ const Randomvideo_info = () => {
             await peerConnection.setRemoteDescription(offer); 
             // 상대방의 offer에 대해 자신의 네트워크에 맞게 answer을 생성
             const answer = await peerConnection.createAnswer();
-            // console.log("Answer created: ", answer);
+            console.log("Answer created: ", answer);
             // 생성된 answer을 peerConnection(webRTC 연결 객체)에 설정하여, WebRTC연결을 계속 진행할 준비
             await peerConnection.setLocalDescription(answer);
-            // console.log("Local description set: ", peerConnection.localDescription);
-            // console.log("answer 생성 및 방번호 : ", answer + ",,, ", roomId);
+            console.log("Local description set: ", peerConnection.localDescription);
+            console.log("answer 생성 및 방번호 : ", answer + ",,, ", roomId);
             // 서버로 "send-answer" 이벤트를 보내고, answer이랑 roomId 데이터도 함께 보낸다.
             socket.emit("send-answer", answer, roomId);
           }
@@ -197,15 +196,15 @@ const Randomvideo_info = () => {
         // peerConnection(webRTC 연결 객체)가 없으면 바로 종료
         if (!peerConnection) return;
   
-        // console.log("상대방의 answer를 받음 : ", answer);
-        // console.log("상대방의 answer를 받음 : ", peerConnection.signalingState);
+        console.log("상대방의 answer를 받음 : ", answer);
+        console.log("상대방의 answer를 받음 : ", peerConnection.signalingState);
   
         try {
           // peerConnection(webRTC 연결 객체)의 연결상태가 stable(안정적) 이라면..
           await peerConnection.setRemoteDescription(answer);
           if (peerConnection.signalingState === "stable") {
             // 상대방이 보내준 answer을 peerConnection(webRTC 연결 객체)에 설정하여, 연결 준비 마무리
-            // console.log("offer 및 answer 구현 완료 !");
+            console.log("offer 및 answer 구현 완료 !");
           }
         } catch (error) {
           console.error("Error setting remote answer:", error);
@@ -229,17 +228,17 @@ const Randomvideo_info = () => {
         if (!peerConnection) return;
   
         // candidata(ICE 후보)를 받아서 이 ICE 후보(주소)를 통해 연결하자
-        // console.log("receive-ice-candidate1:", candidate);
-        // console.log("peerConnection.remoteDescription : ", peerConnection.remoteDescription);
+        console.log("receive-ice-candidate1:", candidate);
+        console.log("peerConnection.remoteDescription : ", peerConnection.remoteDescription);
         
         // remoteDescription이 설정되지 않은 경우 후보를 대기
         if (peerConnection.remoteDescription) {
-          // console.log("receive-ice-candidate2:", candidate);
+          console.log("receive-ice-candidate2:", candidate);
           peerConnection.addIceCandidate(candidate);
         } else {
           const waitForRemoteDescription = setInterval(() => {
             if (peerConnection.remoteDescription) {
-              // console.log("remoteDescription is now set.");
+              console.log("remoteDescription is now set. receive-ice-candidate2: ", candidate);
               peerConnection.addIceCandidate(candidate);
               clearInterval(waitForRemoteDescription); // 대기가 완료되면 타이머 종료
             }
