@@ -1,35 +1,31 @@
 export const frontTechnologyData = [
     {
         question: "프로그래밍이란?",
-        answer: "컴퓨터에게 특정 작업을 수행하도록 명령하는 과정으로 알고리즘 설계, 코드작성, 디버깅 및 테스트를 포함"
+        answer: "컴퓨터에게 특정 작업을 수행하도록 명령하는 과정으로\n 알고리즘 설계, 코드작성, 디버깅 및 테스트를 포함"
     },
     {
         question: "브라우저의 렌더링 원리",
-        answer: "HTML과 CSS를 해석하여 DOM과 CSSOM을 생성하고, 이를 결합해 렌더 트리를 만들고, 이를 기반으로 화면에 표시"
+        answer: "HTML과 CSS를 해석하여 DOM과 CSSOM을 생성하고,\n 이를 결합해 렌더 트리를 만들고, 이를 기반으로 화면에 표시"
     },
     {
         question: "라이브러리란 개념",
-        answer: "특정 기능을 수행하는 코드 모음으로, 개발자가 필요할 때 호출하여 가능"
+        answer: "특정 기능을 수행하는 코드 모음으로,\n 개발자가 필요할 때 호출하여 가능"
     },
     {
         question: "프레임워크란 개념",
-        answer: "애플리케이션 구조를 제공하여, 특정 규칙을 따르도록 강제하며, 전체 애플리케이션 흐름을 관리"
+        answer: "애플리케이션 구조를 제공하여,\n특정 규칙을 따르도록 강제하며,\n 전체 애플리케이션 흐름을 관리"
     },
     {
         question: "주소창에 google.com을 입력하면 일어나는 일",
-        answer: "DNS 조회를 통해 IP 주소를 찾고, 서버와 통신하여 받은 HTML, CSS, JavaScript 등을 렌더링해 화면에 표시"
-    },
-    {
-        question: "가비지 컬렉터 개념",
-        answer: "더 이상 사용되지 않는 메모리를 자동으로 회수하는 시스템 (메모리 누수 방지)"
+        answer: "DNS 조회를 통해 IP 주소를 찾고, 서버와 통신하여 받은\n HTML, CSS, JavaScript 등을 렌더링해 화면에 표시"
     },
     {
         question: "position(static) 개념",
-        answer: "요소를 일반적인 문서 흐름에 따라 배치, 오프셋(top, right, bottom, left) 적용 불가능"
+        answer: "요소를 일반적인 문서 흐름에 따라 배치,\n 오프셋(top, right, bottom, left) 적용 불가능"
     },
     {
         question: "position(relative) 개념",
-        answer: "static + 자신을 기준으로 오프셋(top, right, bottom, left) 적용"
+        answer: "static + 자신 기준으로 오프셋(top, right, bottom, left) 적용"
     },
     {
         question: "position(fixed) 개념",
@@ -37,15 +33,15 @@ export const frontTechnologyData = [
     },
     {
         question: "position(sticky) 개념",
-        answer: "스크롤을 통해 일정 스크롤구간에서는 relative처럼 동작하다가, 설정된 임계점 이후에는 fixed로 동작합니다."
+        answer: "스크롤을 통해 일정 스크롤구간에서는 relative처럼 동작하다,\n 설정된 임계점 이후에는 fixed로 동작한다."
     },
     {
         question: "position(absolute) 개념",
-        answer: "요소를 일반적인 문서 흐름을 제거, 가장 가까운 부모 요소나 조상 요소 기준으로 정확한 위치 지정"
+        answer: "요소를 일반적인 문서 흐름을 제거,\n가장 가까운 부모 요소나 조상 요소 기준으로 정확한 위치 지정"
     },
     {
         question: "API 개념",
-        answer: "소프트웨어 간의 상호작용을 가능하게 하는 프로토콜로, 다양한 서비스나 기능을 사용할 수 있도록 도와주는 역할"
+        answer: "소프트웨어 간의 상호작용을 가능하게 하는 프로토콜로,\n 다양한 서비스나 기능을 사용할 수 있도록 도와주는 역할"
     },
     {
         question: "Rest API, Restful API 공통점",
@@ -53,35 +49,31 @@ export const frontTechnologyData = [
     },
     {
         question: "Rest API, Restful API 차이점",
-        answer: "Rest API는 REST규칙을 준수하지 않을 수 도 있지만, \n Restful API는 REST규칙을 엄격히 준수해야한다 (Rest API > Restful API)"
+        answer: "Rest API는 REST규칙을 준수하지 않을 수 도 있지만, \n Restful API는 REST규칙을 엄격히 준수해야한다 \n(Rest API > Restful API)"
     },
     {
         question: "REST 규칙",
-        answer: "클라이언트와 서버는 독립적으로 존재, 클라이언트와 서버 간의 상호작용은 일관된 인터페이스를 통해 이루어져야한다"
+        answer: "클라이언트와 서버는 독립적으로 존재, \n상호작용은 일관된 인터페이스를 통해 이루어져야한다"
     },
     {
         question: "AJAX 개념",
-        answer: "자바스크립트를 통해 서버와 클라이언트가 비동기 방식으로 데이터를 교환할 수 있는 통신기능"
+        answer: "자바스크립트를 통해 서버와 클라이언트가 비동기 방식으로\n데이터를 교환할 수 있는 통신기능"
     },
     {
         question: "OAuth 개념",
-        answer: "인터넷 사용자가 비밀번호를 제공하지 않고 웹사이트를 이용할 수 있도록 하는 프로토콜"
+        answer: "인터넷 사용자가 비밀번호를 제공하지 않고,\n 웹사이트를 이용할 수 있도록 하는 프로토콜"
     },
     {
         question: "URI, URL 차이점",
-        answer: "URI = 자원을 식별, URL = 자원의 위치를 나타냄 (URI > URL)"
+        answer: "URI = 자원을 식별(포괄적인 개념)\n URL = 자원의 위치를 나타냄(https://www.naver.com)\n(URI > URL)"
     },
     {
         question: "CORS 개념",
-        answer: "웹 애플리케이션이 다른 출처의 리소스에 안전하게 접근할 수 있도록 돕는 역할"
-    },
-    {
-        question: "DOCTYPE 개념",
-        answer: "HTML 문서의 타입을 정의하여 브라우저가 올바르게 렌더링하도록 돕는 역할"
+        answer: "다른 출처의 리소스에 안전하게 접근할 수 있도록 돕는 역할\n(서버에서 사용)"
     },
     {
         question: "meta 개념 및 종류",
-        answer: "메타 데이터의 줄임말 \n charset(문자 인코딩 정의) => UTF=8 \n name(메타데이터 종류 정의) => description | keyword | author \n viewport(반응형 웹 디자인을 위한 설정) => initial-scale=1.0"
+        answer: "메타 데이터의 줄임말 \n charset(문자 인코딩 정의) => UTF=8 \n name(메타데이터 종류 정의) => description | keyword \n viewport(반응형 웹 디자인을 위한 설정) => initial-scale=1.0"
     },
     {
         question: "PX, EM 정의",
@@ -89,7 +81,7 @@ export const frontTechnologyData = [
     },
     {
         question: "반응형 웹의 3요소",
-        answer: "유연한 레이아웃 = 유연한 단위를 사용하여, 다양한 화면 크기에 자동 조정 되도록 설정 \n 유연한 이미지 = max-width: 100%를 사용하여 이미지가 부모 요소의 크기를 초과하지 않도록 설정 \n 미디어 쿼리 = @media 규칙을 사용하여, 다양한 디바이스에 맞게 스타일을 적용하는 역할"
+        answer: "유연한 레이아웃 = 유연한 단위를 사용하여,\n 다양한 화면 크기에 자동 조정 되도록 설정 \n\n 유연한 이미지 = max-width: 100%를 사용하여,\n 이미지가 부모 요소의 크기를 초과하지 않도록 설정 \n\n 미디어 쿼리 = @media 규칙을 사용하여,\n 다양한 디바이스에 맞게 스타일을 적용하는 역할"
     },
     {
         question: "CSS 적용 우선순위",
@@ -97,43 +89,27 @@ export const frontTechnologyData = [
     },
     {
         question: "브라우저 저장소(LocalStorage, SessionStorage, Cookie)의 차이점",
-        answer: "LocalStorage = 영구적으로 보관 가능(자동 로그인) \n SessionStorage = 세션 종료시 삭제(입력 폼 정보, 비로그인 활동) \n Cookie = 사용자 정보를 저장 및 세션 관리(팝업 창)"
+        answer: "LocalStorage = 영구적으로 보관 가능(자동 로그인) \n\n SessionStorage = 세션 종료시 삭제(비로그인 활동) \n\n Cookie = 사용자 정보를 저장 및 세션 관리(팝업 창)"
     },
     {
         question: "null, undefined, undeclared, NaN 개념",
-        answer: "null = 빈값 \n undefined = 정의(변수에 값을 할당)되지 않음 \n undeclared = 선언(변수를 만드는 것)되지 않음 \n NaN = 표현 불가능한 수치형 결과"
+        answer: "null = 빈값 \n\n undefined = 정의(변수에 값을 할당)되지 않음 \n\n undeclared = 선언(변수를 만드는 것)되지 않음 \n\n NaN = 표현 불가능한 수치형 결과"
     },
     {
         question: "HTML 렌더링 중에 JavaScript가 실행되면 렌더링이 멈추는 이유",
         answer: "JavaScript에게 엔진 제어권을 넘겨서"
     },
     {
-        question: "import, require 차이점",
-        answer: "import = 비동기적으로 모듈을 불러온다. 파일 상단에 위치한다. ES6 (JavaScript의 표준 사양 중 하나) 시스템에서 사용된다 \n require = 동기적으로 모듈을 불러온다. 코드 실행 시점에서 모듈을 가져온다. CommonJS (Node.js에서 사용, JavaScript에 최적화) 시스템에서 사용된다."
-    },
-    {
         question: "scope 개념 및 종류",
-        answer: "프로그램에서 접근 가능한 범위를 정의 \n Global Scope (전역 스코프) = 프로그램 전체에서 접근할 수 있는 범위 \n Function Scope (함수 스코프) = 함수 내에서만 접근 가능한 범위 \n Block Scope (블록 스코프) = {}로 묶인 블록 내에서만 접근 가능한 범위 \n Lexical Scope (어휘적 스코프) = 함수가 선언된 위치에 따라 접근 범위가 정해진다 \n Module Scope (모듈 스코프) = 각 모듈 파일이 독립적으로 범위를 가지도록 설정, 다른 모듈에서는 접근 불가능"
-    },
-    {
-        question: "virtual DOM 개념",
-        answer: "DOM이 변화할때마다 변경된 부분만 찾아서, 해당 부분만 업데이트하게 도와주는 역할"
+        answer: "프로그램에서 접근 가능한 범위를 정의 \n\n Global Scope (전역 스코프) = 프로그램 전체에서 접근 가능 \n\n Function Scope (함수 스코프) = 함수 내에서만 접근 가능 \n\n Block Scope (블록 스코프) = {} 묶인 블록 내에서만 접근 가능 \n\n Lexical Scope (어휘적 스코프) = 함수가 선언된 위치에 따라 접근 범위가 정해진다 \n\n Module Scope (모듈 스코프) = 각 모듈 파일이 독립적으로\n 범위를 가지도록 설정, 다른 모듈에서는 접근 불가능"
     },
     {
         question: "DOM 개념 및 종류",
-        answer: "웹페이지의 구조와 요소를 트리 형태로 표현하는 객체 모델 (JavaScript를 통한 API) \n Real DOM = 실제로 사용자에게 보여지는 DOM / 업데이트 비용이 크고, UI변경이 느림 \n Virtual DOM = 변화가 있을때 효율적으로 처리하기 위한 기술 / 빠른 렌더링, 효율적인 업데이트"
+        answer: "웹페이지의 구조와 요소를 트리 형태로 표현하는 객체 모델\n (JavaScript를 통한 API) \n\n Real DOM = 실제로 사용자에게 보여지는 DOM\n 업데이트 비용이 크고, UI변경이 느림 \n\n Virtual DOM = 변화가 있을때 효율적으로 처리하기 위한 기술 \n 빠른 렌더링, 효율적인 업데이트"
     },
     {
         question: "FLUX 개념",
-        answer: "단방향 데이터 흐름을 통해 상태 관리를 단순화하고 예측가능하게 도와주는 역할"
-    },
-    {
-        question: "Hooks 종류",
-        answer: "useState = 상태 관리를 하기위한 훅으로, 변수와 이를 업데이트하는 함수를 반환, useEffect = 컴포넌트가 마운트(컴포넌트 생성), 언마운트(컴포넌트 제거), 업데이트 될 때 특정 작업을 수행하도록 도와주는 역할, useMemo = 계산 비용이 높은 값을 계산할때, 지정된 값이 변경될때만 실행되도록 하는 역할, useRef = 렌더링에 영향을 주지 않으면서 값을 변경하게 도와주는 역할 (HTML요소에 직접 접근하여 조작하게 도와주는 역할)"
-    },
-    {
-        question: "컴포넌트의 라이프 사이클",
-        answer: "마운팅, 언마운팅, 업데이트 단계로 나뉘며, 각 단계에서 메소드가 호출되어 상태관리와 UI 업데이트를 수행"
+        answer: "단방향 데이터 흐름을 통해 상태 관리를 단순화하고,\n 예측가능하게 도와주는 역할"
     },
     {
         question: "Reflow와 Repaint가 실행되는 시점",
@@ -156,7 +132,7 @@ export const frontTechnologyHtmlData = [
     },
     {
         question: "<script>, <script async>, <script defer>의 차이점",
-        answer: "<script> : HTML 파싱 중단\n<script async> : HTML파싱과 스크립트 다운로드 병렬로 실행, 다운로드 완료 시 HTML파싱을 멈추고 스크립트 실행\n<script defer> : HTML파싱과 스크립트 다운로드 병렬로 실행, HTML파싱이 끝난 후 스크립트 실행"
+        answer: "<script> : HTML 파싱 중단\n\n<script async> : HTML파싱과 스크립트 다운로드 병렬 실행,\n 다운로드 완료 시 HTML파싱을 멈추고 스크립트 실행\n\n<script defer> : HTML파싱과 스크립트 다운로드 병렬 실행,\n HTML파싱이 끝난 후 스크립트 실행"
     },
     {
         question: "HTML에서 빈 요소(empty elements)",
@@ -164,7 +140,7 @@ export const frontTechnologyHtmlData = [
     },
     {
         question: "프로그레시브 렌더링(Progressive Rendering) 정의",
-        answer: "페이지를 점진적으로 로드하여,\n 사용자에게 더 빠르게 콘텐츠를 제공하고, 로딩 경험을 개선\nex) 이미지 로딩(저해상도 -> 고해상도), \n웹 페이지(텍스트는 먼저 보여주고, 이미지나 큰 사진 같은 건 나중에 점차적으로 로드하면서 페이지가 점점 더 완성)"
+        answer: "페이지를 점진적으로 로드하여,\n 사용자에게 더 빠르게 콘텐츠를 제공하고, 로딩 경험을 개선\n\nex) 이미지 로딩(저해상도 -> 고해상도), \n웹 페이지(텍스트는 먼저 보여주고, 이미지나 큰 사진 같은 건\n 나중에 점차적으로 로드하면서 페이지가 점점 더 완성)"
     },
     {
         question: "script 태그는 어떤 위치에 와야하나요?",
@@ -239,211 +215,198 @@ export const frontTechnologyCssData = [
     },
     {
         question: "CSS와 SASS(SCSS) 차이점",
-        answer: "더 복잡한 스타일링을 간단하게 처리할 수 있다. \n 1) 조건문 사용 가능 \n 2) 스타일을 중첩할 수 있다. \n 3) $(달러)표시를 통해 변수 생성 가능 \n 4) @(앳)mixin이라는 기능으로 @include를 통해 재사용 가능 \n 5) 단순 계산 기능 7) @extend를 통해 상속 기능"
+        answer: "더 복잡한 스타일링을 간단하게 처리할 수 있다. \n 1) 조건문 사용 가능 \n 2) 스타일을 중첩할 수 있다. \n 3) $(달러)표시를 통해 변수 생성 가능 \n 4) @(앳)mixin이라는 기능으로 @include를 통해 재사용 가능 \n 5) 단순 계산 기능 \n6) @extend를 통해 상속 기능"
     },
 ]
 
 export const frontTechnologyJavascriptData = [
-    // {
-    //     question: "클로저(Closure) 정의와 사용방식",
-    //     answer: "함수 내부에 저장된 변수를 외부에서 접근할 수 없지만,\n 클로저를 통해 변수에 접근 및 변경할 수 있도록 도와주는 역할\n\n외부 함수 정의 -> 그 안에 내부 함수 작성 -> \n외부 함수가 종료돼도, 내부 함수는 외부 변수의 참조 유지 ->\n외부 함수는 내부 함수를 반환하여, 외부에서 호출 가능"
-    // },
-    // {
-    //     question: "이벤트 위임 정의와와 동작방식",
-    //     answer: "자식 요소가 발생한 이벤트를 부모 요소가 처리\n\n부모 요소에 이벤트 리스너 설정 -> \nevent.target을 통해 자식 요소에서 발생한 이벤트를 확인 -> 부모 요소에서 해당 event를 처리"
-    // },
-    // {
-    //     question: "프로토타입 상속",
-    //     answer: "자식 객체가 부모 객체의 변수와와 메서드를 상속받는 방식"
-    // },
-    // {
-    //     question: "이벤트 버블링 정의",
-    //     answer: "자식 요소에 발생한 이벤트를 부모 요소로 전파하여 처리"
-    // },
-    // {
-    //     question: "이벤트 캡처링 정의",
-    //     answer: "부모 요소에 발생한 이벤트를 자식 요소로 전파하여 처리"
-    // },
-    // {
-    //     question: "JavaScript에서 동일 출처 정책",
-    //     answer: "보안을 위해 다른 출처의 리소스 접근을 제한한다\n프로토콜, 호스트, 포트가 동일한 출처만 허용한다"
-    // },
-    // {
-    //     question: "동기 및 비동기 함수의 차이",
-    //     answer: "동기 : 작업이 순차적으로 실행, 이전 작업이 완료되어야 한다\n비동기 : 작업이 동시에 실행, 이전 작업 여부와 관계없다"
-    // },
-    // {
-    //     question: "이벤트 루프 정의",
-    //     answer: "비동기 작업을 처리하고, 비동기 코드가 실행되는 순서를 관리"
-    // },
-    // {
-    //     question: "콜 스택과 태스크 큐의 정의 및 차이점",
-    //     answer: "콜 스택 : 동기적인 함수들이 실행되는 순서\n태스크 큐 : 비동기 함수는 대기, 콜 스택이 비어있으면 실행"
-    // },
-    // {
-    //     question: "실행컨텍스트 정의",
-    //     answer: "코드 실행 및 함수 생성할 때 생성되고, 실행이 끝나면 제거"
-    // },
-    // {
-    //     question: "this 정의",
-    //     answer: "함수가 호출되는 방식에 따라 동적으로 결정되며,\n주로 현재 실행 중인 객체나 컨텍스트를 참조"
-    // },
-    // {
-    //     question: "가비지 콜렉터 정의의와 동작방식",
-    //     answer: "사용되지 않는 메모리를 자동으로 해제하여, 메모리 누수 방지\n\n마크 앤 스윕(참조되지 않는 객체를 찾아서 제거) 방식"
-    // },
-    // {
-    //     question: "Promise 정의와 사용 예시",
-    //     answer: "비동기 작업의 결과값을 나중에 받을 수 있도록 하는 객체\n\n내부 성공 시 : resolve(), 내부 실패 시 : reject(),\n외부 성공 시 : .then, 외부 실패 시 : .catch"
-    // },
-    // {
-    //     question: "async/awiat란?",
-    //     answer: "async : 함수를 비동기 함수로 만들어 Promise를 반환\nawait : Promise가 해결될 때까지 기다리고, 결과를 반환"
-    // },
-    // {
-    //     question: "Javascript는 어떤 언어이고, 어떤 특징이 있나요?",
-    //     answer: "동적이고 비동기적이며, 객체지향을 지원하는 언어\n동적 동작을 구현하고, 클라이언트-서버 간의 통신을 처리"
-    // },
-    // {
-    //     question: "자바스크립트 엔진이 코드를 실행하는 과정",
-    //     answer: "파싱, 컴파일, 실행 과정을 거쳐 코드를 실행한다.\n파싱 : 코드를 분석하여 추상 구문 트리(AST)로 변환\n컴파일 : AST를 실행 가능한 기계어 코드로 변환\n실행 : 변환된 코드를 실행하며, 실행 컨텍스트와 콜 스택 관리"
-    // },
-    // {
-    //     question: "원시값과 참조값의 차이점을 메모리 관점에서 설명하라",
-    //     answer: "원시값 : 값 자체가 변수에 저장, 값을 복사하면 서로 독립적\n참조값 : 메모리 주소가 변수에 저장, 값을 복사하면 영향 끼침"
-    // },
-    // {
-    //     question: "e.target와 e.currentTarget의 차이점",
-    //     answer: "e.target : 이벤트가 발생한 실제 요소 참조\ne.currentTarget : 이벤트 리스너가 바인딩된 요소 참조"
-    // },
-    // {
-    //     question: "null, undefined, undeclared 변수의 차이점과 각 상태를 확인하는 방법",
-    //     answer: "null : 값이 없다는 의도적인 설정 (a === null)\nundefined: 값이 할당되지 않은 상태 \n(typeof a === \"undefined\")\nundeclared : 아예 선언되지 않은 변수 (ReferenceError 발생)"
-    // },
-    // {
-    //     question: "var, let, const로 생성된 변수의 차이점",
-    //     answer: "var = 재선언 o, 재할당 o \n let = 재선언 x, 재할당 o \n const = 재선언 x, 재할당 x \n(var는 function scope개념 / let, const는 block scope 개념)"
-    // },
-    // {
-    //     question: "Array.forEach() 루프와 Array.map() 메서드의 \n주요한 차이점 및 선택 시점",
-    //     answer: "forEach : 반환값이 없고, 원본 변경 가능, 순수하게 반복 작업\nmap : 반환값이 있고, 원본 변경 불가능, 배열 요소를 반환"
-    // },
-    // {
-    //     question: "Function.call과 Function.apply의 차이점",
-    //     answer: "call : 쉼표로 구분해서 전달\n apply : 배열 형태로 전달"
-    // },
-    // {
-    //     question: "Function.prototype.bind 이란?",
-    //     answer: "this 값을 미리 지정하고, 새로운 함수를 만들어주는 메서드"
-    // },
-    // {
-    //     question: "IIFE 정의",
-    //     answer: "정의하자마자 즉시 실행되는 함수 표현식"
-    // },
-    // {
-    //     question: "Spread Syntax의 이점과 주의해야할 점은?",
-    //     answer: "배열과 객체를 다룰 때 간편하고 효율적이지만,\n얕은 복사와 관련된 주의사항을 고려해야 한다\n\n*얕은 복사 : 첫번째 레벨은 원본 객체에 영향이 없고,\n 두번째 이후 레벨은 원본 객체에 영향을 준다다"
-    // },
-    // {
-    //     question: "ES6 문법에 추가된 것들은?",
-    //     answer: "let, const, 화살표 함수(arrow function),\n모듈(import, export), promise, Async/Await, Map/Set"
-    // },
-    // {
-    //     question: "자바스크립트에서 이벤트 바인딩의 정의와\n 이벤트 바인딩의 방법들",
-    //     answer: "이벤트가 발생했을 때 실행될 동작을 정의하는 과정\n\n1) HTML 속성에 직접 바인딩\n2) addEventListener 메서드를 사용한 바인딩\n3) 이벤트 위임"
-    // },
-    // {
-    //     question: "익명 함수의 사용 사례",
-    //     answer: "한 번만 사용될 때 함수 이름을 정의하지 않고 간결하게 작성.\n이벤트 처리, 비동기 작업, 고차 함수, 즉시 실행 함수(IIFE)"
-    // },
-    // {
-    //     question: "호스트 객체와 네이티브 객체의 차이점",
-    //     answer: "호스트 객체 : 자바스크립트 환경에서 제공하는 객체,\n시스템과 상호작용하는 데 사용\n네이티브 객체 : 자바스크립트 자체에서 제공하는 기본 객체,\n든 자바스크립트 환경에서 공통적으로 사용"
-    // },
-    // {
-    //     question: "var test = Test(), var test = new Test()의 차이점",
-    //     answer: "Test() : 일반 함수로, 객체를 반환하지 않거나 에러 발생 가능\nnew Test() : 생성자 함수로, 새로운 객체를 생성"
-    // },
-    // {
-    //     question: "타입강제 변환의 정의와 타입강제 변환 시 주의할 점",
-    //     answer: "자동적으로 변수의 타입을 다른 타입으로 변환\n\n\"==\"를 사용하면, 예상치 못한 결과를 초래할 수 있음"
-    // },
-    // {
-    //     question: "속성과 프로퍼티의 차이점",
-    //     answer: "속성 : 정의된 초기값, getAttribute()를 사용해 접근\n프로퍼티 : JavaScript에서 값 변경, value 속성을 통해 접근"
-    // },
-    // {
-    //     question: "가변 및 불변 객체의 차이점",
-    //     answer: "상태 변경 가능 / 불가능, \n배열, 일반 객체 / 문자열, 숫자, const"
-    // },
-    // {
-    //     question: "JavaScript에서 불변 객체의 예시",
-    //     answer: "Object.freeze, 스프레드 연산자(...)를 사용해 불변 객체 생성"
-    // },
-    // {
-    //     question: "불변성의 장단점",
-    //     answer: "장점 : 예측 가능, 안전성, 동시성\n단점 : 성능 저하, 복잡성"
-    // },
     {
-        question: "고차함수란?",
-        answer: ""
+        question: "클로저(Closure) 정의와 사용방식",
+        answer: "함수 내부에 저장된 변수를 외부에서 접근할 수 없지만,\n 클로저를 통해 변수에 접근 및 변경할 수 있도록 도와주는 역할\n\n외부 함수 정의 -> 그 안에 내부 함수 작성 -> \n외부 함수가 종료돼도, 내부 함수는 외부 변수의 참조 유지 ->\n외부 함수는 내부 함수를 반환하여, 외부에서 호출 가능"
     },
     {
-        question: "require과 import의 차이점",
-        answer: ""
+        question: "이벤트 위임 정의와 동작방식",
+        answer: "자식 요소가 발생한 이벤트를 부모 요소가 처리\n\n부모 요소에 이벤트 리스너 설정 -> \nevent.target을 통해 자식 요소에서 발생한 이벤트를 확인 -> 부모 요소에서 해당 event를 처리"
+    },
+    {
+        question: "프로토타입 상속",
+        answer: "자식 객체가 부모 객체의 변수와와 메서드를 상속받는 방식"
+    },
+    {
+        question: "이벤트 버블링 정의",
+        answer: "자식 요소에 발생한 이벤트를 부모 요소로 전파하여 처리"
+    },
+    {
+        question: "이벤트 캡처링 정의",
+        answer: "부모 요소에 발생한 이벤트를 자식 요소로 전파하여 처리"
+    },
+    {
+        question: "JavaScript에서 동일 출처 정책",
+        answer: "보안을 위해 다른 출처의 리소스 접근을 제한한다\n프로토콜, 호스트, 포트가 동일한 출처만 허용한다"
+    },
+    {
+        question: "동기 및 비동기 함수의 차이",
+        answer: "동기 : 작업이 순차적으로 실행, 이전 작업이 완료되어야 한다\n비동기 : 작업이 동시에 실행, 이전 작업 여부와 관계없다"
+    },
+    {
+        question: "이벤트 루프 정의",
+        answer: "비동기 작업을 처리하고, 비동기 코드가 실행되는 순서를 관리"
+    },
+    {
+        question: "콜 스택과 태스크 큐의 정의 및 차이점",
+        answer: "콜 스택 : 동기적인 함수들이 실행되는 순서\n태스크 큐 : 비동기 함수는 대기, 콜 스택이 비어있으면 실행"
+    },
+    {
+        question: "실행컨텍스트 정의",
+        answer: "코드 실행 및 함수 생성할 때 생성되고, 실행이 끝나면 제거"
+    },
+    {
+        question: "this 정의",
+        answer: "함수가 호출되는 방식에 따라 동적으로 결정되며,\n주로 현재 실행 중인 객체나 컨텍스트를 참조"
+    },
+    {
+        question: "가비지 콜렉터 정의와 동작방식",
+        answer: "사용되지 않는 메모리를 자동으로 해제하여, 메모리 누수 방지\n\n마크 앤 스윕(참조되지 않는 객체를 찾아서 제거) 방식"
+    },
+    {
+        question: "Promise 정의와 사용 예시",
+        answer: "비동기 작업의 결과값을 나중에 받을 수 있도록 하는 객체\n\n내부 성공 시 : resolve(), 내부 실패 시 : reject(),\n외부 성공 시 : .then, 외부 실패 시 : .catch"
+    },
+    {
+        question: "async/awiat란?",
+        answer: "async : 함수를 비동기 함수로 만들어 Promise를 반환\nawait : Promise가 해결될 때까지 기다리고, 결과를 반환"
+    },
+    {
+        question: "Javascript는 어떤 언어이고, 어떤 특징이 있나요?",
+        answer: "동적이고 비동기적이며, 객체지향을 지원하는 언어\n동적 동작을 구현하고, 클라이언트-서버 간의 통신을 처리"
+    },
+    {
+        question: "자바스크립트 엔진이 코드를 실행하는 과정",
+        answer: "파싱, 컴파일, 실행 과정을 거쳐 코드를 실행한다.\n파싱 : 코드를 분석하여 추상 구문 트리(AST)로 변환\n컴파일 : AST를 실행 가능한 기계어 코드로 변환\n실행 : 변환된 코드를 실행하며, 실행 컨텍스트와 콜 스택 관리"
+    },
+    {
+        question: "원시값과 참조값의 차이점을 메모리 관점에서 설명하라",
+        answer: "원시값 : 값 자체가 변수에 저장, 값을 복사하면 서로 독립적\n참조값 : 메모리 주소가 변수에 저장, 값을 복사하면 영향 끼침"
+    },
+    {
+        question: "e.target와 e.currentTarget의 차이점",
+        answer: "e.target : 이벤트가 발생한 실제 요소 참조\ne.currentTarget : 이벤트 리스너가 바인딩된 요소 참조"
+    },
+    {
+        question: "null, undefined, undeclared 변수의 차이점과 각 상태를 확인하는 방법",
+        answer: "null : 값이 없다는 의도적인 설정 (a === null)\nundefined: 값이 할당되지 않은 상태 \n(typeof a === \"undefined\")\nundeclared : 아예 선언되지 않은 변수 (ReferenceError 발생)"
+    },
+    {
+        question: "var, let, const로 생성된 변수의 차이점",
+        answer: "var = 재선언 o, 재할당 o \n let = 재선언 x, 재할당 o \n const = 재선언 x, 재할당 x \n(var는 function scope개념 / let, const는 block scope 개념)"
+    },
+    {
+        question: "Array.forEach() 루프와 Array.map() 메서드의 \n주요한 차이점 및 선택 시점",
+        answer: "forEach : 반환값이 없고, 원본 변경 가능, 순수하게 반복 작업\nmap : 반환값이 있고, 원본 변경 불가능, 배열 요소를 반환"
+    },
+    {
+        question: "Function.call과 Function.apply의 차이점",
+        answer: "call : 쉼표로 구분해서 전달\n apply : 배열 형태로 전달"
+    },
+    {
+        question: "Function.prototype.bind 이란?",
+        answer: "this 값을 미리 지정하고, 새로운 함수를 만들어주는 메서드"
+    },
+    {
+        question: "IIFE 정의",
+        answer: "정의하자마자 즉시 실행되는 함수 표현식"
+    },
+    {
+        question: "Spread Syntax의 이점과 주의해야할 점은?",
+        answer: "배열과 객체를 다룰 때 간편하고 효율적이지만,\n얕은 복사와 관련된 주의사항을 고려해야 한다\n\n*얕은 복사 : 첫번째 레벨은 원본 객체에 영향이 없고,\n 두번째 이후 레벨은 원본 객체에 영향을 준다다"
+    },
+    {
+        question: "ES6 문법에 추가된 것들은?",
+        answer: "let, const, 화살표 함수(arrow function),\n모듈(import, export), promise, Async/Await, Map/Set"
+    },
+    {
+        question: "자바스크립트에서 이벤트 바인딩의 정의와\n 이벤트 바인딩의 방법들",
+        answer: "이벤트가 발생했을 때 실행될 동작을 정의하는 과정\n\n1) HTML 속성에 직접 바인딩\n2) addEventListener 메서드를 사용한 바인딩\n3) 이벤트 위임"
+    },
+    {
+        question: "익명 함수의 사용 사례",
+        answer: "한 번만 사용될 때 함수 이름을 정의하지 않고 간결하게 작성.\n이벤트 처리, 비동기 작업, 고차 함수, 즉시 실행 함수(IIFE)"
+    },
+    {
+        question: "호스트 객체와 네이티브 객체의 차이점",
+        answer: "호스트 객체 : 자바스크립트 환경에서 제공하는 객체,\n시스템과 상호작용하는 데 사용\n네이티브 객체 : 자바스크립트 자체에서 제공하는 기본 객체,\n든 자바스크립트 환경에서 공통적으로 사용"
+    },
+    {
+        question: "var test = Test(), var test = new Test()의 차이점",
+        answer: "Test() : 일반 함수로, 객체를 반환하지 않거나 에러 발생 가능\nnew Test() : 생성자 함수로, 새로운 객체를 생성"
+    },
+    {
+        question: "타입강제 변환의 정의와 타입강제 변환 시 주의할 점",
+        answer: "자동적으로 변수의 타입을 다른 타입으로 변환\n\n\"==\"를 사용하면, 예상치 못한 결과를 초래할 수 있음"
+    },
+    {
+        question: "속성과 프로퍼티의 차이점",
+        answer: "속성 : 정의된 초기값, getAttribute()를 사용해 접근\n프로퍼티 : JavaScript에서 값 변경, value 속성을 통해 접근"
+    },
+    {
+        question: "가변 및 불변 객체의 차이점",
+        answer: "상태 변경 가능 / 불가능, \n배열, 일반 객체 / 문자열, 숫자, const"
+    },
+    {
+        question: "JavaScript에서 불변 객체의 예시",
+        answer: "Object.freeze, 스프레드 연산자(...)를 사용해 불변 객체 생성"
+    },
+    {
+        question: "불변성의 장단점",
+        answer: "장점 : 예측 가능, 안전성, 동시성\n단점 : 성능 저하, 복잡성"
+    },
+    {
+        question: "고차함수 정의",
+        answer: "다른 함수를 인수로 받거나, 함수를 반환하는 함수"
+    },
+    {
+        question: "import, require 차이점",
+        answer: "import = 비동기로 모듈을 불러오며, 파일 상단에 위치하고, ES6 시스템에서 사용\n\nrequire = 동기로 모듈을 불러오며, 실행 시점에 가져오고, CommonJS 시스템에서 사용"
     },
     {
         question: "==와 ===의 차이점",
-        answer: ""
+        answer: "== : 값만 비교하며, 필요하면 형 변환을 수행\n\n=== : 값과 데이터 타입까지 비교하며, 형 변환을 하지 않는다"
     },
     {
         question: "삼항 연산자를 '삼항'이라고 부르는 이유",
-        answer: ""
-    },
-    {
-        question: "엄격 모드의 정의 및 사용의 장단점",
-        answer: ""
+        answer: "세 개의 피연산자를 사용했기 때문에\n\n1) 조건 2) 조건이 참일 때 3) 조건이 거짓일 때"
     },
     {
         question: "JavaScript 코드를 디버깅하는 데 사용하는 도구 및 기술",
-        answer: ""
-    },
-    {
-        question: "ES6 클래스와 ES5 함수 생성자의 차이점",
-        answer: ""
-    },
-    {
-        question: "ES6 기준 JavaScript의 데이터 타입은?",
-        answer: ""
-    },
-    {
-        question: "호이스팅(hoisting) 개념",
-        answer: "변수 및 함수 선언문이 스코프 내의 최상단으로 끌어올려지는 현상 (변수를 선언하기 전에도 사용할 수 있어 유연성이 올라간다"
-    },
-
-    {
-        question: "forEach와 map의 차이점점",
-        answer: ""
-    },
-    {
-        question: "일급객체란?",
-        answer: ""
-    },
-    {
-        question: "콜백함수란?",
-        answer: ""
+        answer: "도구 : 개발자 도구, IDE 편집기\n\n기술 : console 메서드, debugger 키워드"
     },
     {
         question: "ES5문법과 ES6문법의 가장 큰 차이점은?",
-        answer: ""
+        answer: "ES5 문법 : var사용, function사용\n\nES6 문법 : let과 const 사용, 화살표(=>) 사용"
+    },
+    {
+        question: "ES6 클래스와 ES5 함수 생성자의 차이점",
+        answer: "ES6 클래스 : class와 constructor 사용\nextends와 super을 사용해 상속\n\nES5 함수 : function을 사용하고, prototype 통해 메서드 추가\nprototype과 call()/apply()을 사용해 상속"
+    },
+    {
+        question: "ES6 기준 JavaScript의 데이터 타입은?",
+        answer: "String, Number, Biglnt, Boolean, Symbol, Undefined, Null"
+    },
+    {
+        question: "호이스팅(hoisting) 개념",
+        answer: "변수 및 함수 선언문이 스코프 내의 최상단으로 끌어올려 진다.\n(변수를 선언하기 전에도 사용할 수 있어 유연성이 올라간다)"
+    },
+    {
+        question: "forEach와 map의 차이점",
+        answer: "forEach : 새로운 배열을 만들지 않는다.\n\nmap : 새로운 배열을 만든다."
+    },
+    {
+        question: "콜백함수 정의",
+        answer: "다른 함수에 인자로 전달되어 그 함수 안에서 실행된다."
     },
     {
         question: "Javascript에서 falsy란?",
-        answer: ""
-    },
-    {
-        question: "이벤트위임 이란?",
-        answer: ""
+        answer: "false로 평가되는 값을 의미한다.\n\nfalse, 0, \"\", null, undefined, NaN"
     },
 ]
 
@@ -522,7 +485,7 @@ export const frontTechnologyReactData = [
     },
     {
         question: "Props Drilling의 정의와 이를 해결하는 방법은?",
-        answer: "컴포넌트 사이에서 props로 데이터를 저장하지 않고 계속 전달해야 하는 상황\nContext API로 전역 상태를 관리"
+        answer: "컴포넌트 사이에서 props로 데이터를 저장하지 않고,\n 계속 전달해야 하는 상황\n\nContext API로 전역 상태를 관리"
     },
     {
         question: "JSX의 정의",
@@ -548,17 +511,49 @@ export const frontTechnologyReactData = [
 
 export const frontTechnologyTypescriptData = [
     {
-        question: "타입스크립트란?",
-        answer: ""
+        question: "타입스크립트 정의",
+        answer: "자바스크립트에 정적 타입 검사를 추가한 프로그래밍 언어"
+    },
+    {
+        question: "타입스크립트 사용 이유",
+        answer: "변수의 타입 명시를 강제함으로써, 오류를 사전에 예방"
     },
 ]
 
-// export const frontPortfolioData = [
-//     {
-//         question: "",
-//         answer: ""
-//     },
-// ];
+export const frontPortfolioData = [
+    {
+        question: "",
+        answer: ""
+    },
+    {
+        question: "",
+        answer: ""
+    },
+    {
+        question: "",
+        answer: ""
+    },
+    {
+        question: "",
+        answer: ""
+    },
+    {
+        question: "",
+        answer: ""
+    },
+    {
+        question: "",
+        answer: ""
+    },
+    {
+        question: "",
+        answer: ""
+    },
+    {
+        question: "",
+        answer: ""
+    },
+];
 
 
 

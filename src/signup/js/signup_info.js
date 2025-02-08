@@ -264,7 +264,7 @@ const Signup_info = () => {
                 // const result = await response.json();
                 // setSignupData(result); // 성공시 
                 alert("회원가입이 완료되었습니다!");
-                navigate("/");
+                navigate("/login");
             } else if (response.status === 409) {
                 // 인증 실패 등의 상황 (status 409)
                 setSignupError("이미 가입되어있는 회원 입니다.");

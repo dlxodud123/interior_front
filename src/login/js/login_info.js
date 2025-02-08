@@ -29,20 +29,22 @@ const Login_info = () => {
     const handleKakaoLogin = () => {
         window.Kakao.Auth.login({
             success: function (authObj) {
-            console.log('카카오 로그인 성공', authObj);
+            // console.log('카카오 로그인 성공', authObj);
 
             window.Kakao.API.request({
                 url: '/v2/user/me',
                 success: function (res) {
-                console.log('사용자 정보: ', res);
+                // console.log('사용자 정보: ', res);
                 // 사용자 정보를 상태에 저장하거나 처리
                 const kakaoAccount = res.kakao_account;
 
                 // 이메일 정보 확인 및 콘솔 출력
                 if (kakaoAccount.has_email) {
-                    console.log('사용자 이메일: ', kakaoAccount.email); 
-                    console.log('사용자 이름: ', kakaoAccount.profile.nickname);
+                    // console.log('사용자 이메일: ', kakaoAccount.email); 
+                    // console.log('사용자 이름: ', kakaoAccount.profile.nickname);
                     setKakaoLogin(true); // 카카오톡 로그인 확인
+                    console.log("카톡 토큰 : ", authObj.access_token)
+                    localStorage.setItem("userToken", authObj.access_token); // 토큰 저장
                     navigate("/")
                 } else {
                     console.log('이메일 제공에 동의하지 않음');
@@ -159,7 +161,7 @@ const Login_info = () => {
                 </div>  
                 <div className='login_pwd-forget_container'>
                     <div className='login_forget_content'>
-                        Forgot password
+                        {/* Forgot password */}
                     </div>
                 </div>
                 <div className='login-signup_btn_container'>

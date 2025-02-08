@@ -6,26 +6,66 @@ import { IoMdPerson } from "react-icons/io";
 const My_profile_info = () => {
     const { api } = useContext(MyContext);
 
+    let myInfoDummy =  { unique: '1', image: 'default', email: 'xodud5080@naver.com', introduce:'안녕하세요', username: '이태영', gender: 'male', age: 'twenties', range: 'public' };
+
+    let [myInfo, setMyInfo] = useState({});
+
+    useEffect(() => {
+        setDefaultUsernameInputValue(myInfo.username);
+        setDefaultIntroduceInputValue(myInfo.introduce);
+        setDefaultGender(myInfo.gender);
+        setDefaultAge(myInfo.age);
+        setIsOn(myInfo.range);
+    }, [myInfo])
+
+    useEffect(() => {
+        setMyInfo(myInfoDummy);
+
+        const fetchMyData = async () => {
+            try {
+                const response = await fetch(`${api}/my`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        user: localStorage.getItem('userToken')
+                    })
+                });
+
+                if (response.status === 200) {
+                    setMyInfo(response.data);
+                } else {
+                    console.log("Response status not 200");
+                }
+                
+            } catch (error) {
+                console.log(error);
+            }
+        };
+
+        fetchMyData();
+    }, [])
+
+
+
+
     let [usernameChangeBtn, setUsernameChangeBtn] = useState(false);
     let [introduceChangeBtn, setIntroduceChangeBtn] = useState(false);
 
     // username 부분
-    let [defaultUsernameInputValue, setDefaultUsernameInputValue] = useState('이태영')
+    let [defaultUsernameInputValue, setDefaultUsernameInputValue] = useState('');
     let [usernameInputValue, setUsernameInputValue] = useState(defaultUsernameInputValue);
     let [finalUsernameInputValue, setFinalUsernameInputValue] = useState('');
 
     const handleUsernameChange = (event) => {
         setUsernameInputValue(event.target.value);
-        console.log("username : ", usernameInputValue);
     }
 
     const handleFinalUsernameSaveBtn = () => {
         setFinalUsernameInputValue(usernameInputValue);
+        setDefaultUsernameInputValue(usernameInputValue);
     }
-
-    useEffect(() => {
-        console.log("최종 저장 username : ", finalUsernameInputValue);
-    }, [finalUsernameInputValue]);
 
     // introduce 부분
     let [defaultIntroduceInputValue, setDefaultIntroduceInputValue] = useState('Introduce Yourself')
@@ -34,16 +74,12 @@ const My_profile_info = () => {
 
     const handleIntroduceChange = (event) => {
         setIntroduceInputValue(event.target.value);
-        console.log("introduce : ", introduceInputValue);
     }
 
     const handleFinalIntroduceSaveBtn = () => {
         setFinalIntroduceInputValue(introduceInputValue);
+        setDefaultIntroduceInputValue(introduceInputValue);
     }
-
-    useEffect(() => {
-        console.log("최종 저장 introduce : ", finalIntroduceInputValue);
-    }, [finalIntroduceInputValue]);
 
     // 성별 부분
     let male = 'male'; let female = 'female'; let unselected = 'unselected';
@@ -52,6 +88,7 @@ const My_profile_info = () => {
     let [finalGender, setFinalGender] = useState('');
 
     const handleGenderChange = (e) => {
+        setDefaultGender(e.target.value);
         setGenderValue(e.target.value);
     };
 
@@ -59,28 +96,20 @@ const My_profile_info = () => {
         setFinalGender(genderValue);
     };
 
-    useEffect(() => {
-        console.log("최종 성별 : ", finalGender);
-    }, [finalGender]);
-
     // 나이 부분
-    let teenager = 'teenager'; let twenties = 'twenties'; 
-    let thirties = 'thirties'; let overforty = 'overforty'; 
+    let teenager = 'teenager'; let twenties = 'twenties'; let thirties = 'thirties'; let overforty = 'overforty'; 
     let [defaultAge, setDefaultAge] = useState(unselected);
     let [ageValue, setAgeValue] = useState(defaultAge);
     let [finalAge, setFinalAge] = useState('');
 
     const handleAgeChange = (e) => {
         setAgeValue(e.target.value);
+        setDefaultAge(e.target.value);
     }
 
     const handleAgeSaveBtn = () => {
         setFinalAge(ageValue);
     }
-
-    useEffect(() => {
-        console.log("최종 나이 : ", finalAge);
-    }, [finalAge]);
 
     // 공개범위 부분
     let [isOn, setIsOn] = useState('public');
@@ -94,44 +123,78 @@ const My_profile_info = () => {
         }
     };
 
-    useEffect(() => {
-        console.log("공개범위 : ", isOn)
-    }, [isOn]);
-
-
     // 프로필 사진 부분
     const fileInputRef = useRef(null);
     let [imgURL, setImgURL] = useState(null);
+    let [finalImg, setFinalImg] = useState(null);
 
     const handleImgChangeBtnClick = () => {
         fileInputRef.current.click();
-      };
-    
-      // 파일 선택 후 미리보기 URL 생성 및 파일 정보 콘솔 출력
-      const handleFileChange = (event) => {
+    };
+
+    // 파일 선택 후 미리보기 URL 생성 및 파일 정보 콘솔 출력
+    const handleFileChange = (event) => {
         const file = event.target.files[0];
         if (file) {
-          // 파일 URL 생성
-          const imageURL = URL.createObjectURL(file);
-          setImgURL(imageURL); // 이미지 미리보기 URL 상태로 저장
-    
-          // 파일 정보 콘솔 출력
-          console.log('파일 이름:', file.name);
-          console.log('파일 크기:', (file.size / 1024).toFixed(2), 'KB');
-          console.log('파일 타입:', file.type);
-          console.log('마지막 수정 시간 (타임스탬프):', file.lastModified);
-          console.log('마지막 수정 시간 (Date 객체):', file.lastModifiedDate);
-    
-          // FileReader를 사용하여 파일 내용 읽기
-          const reader = new FileReader();
-    
-          reader.onload = (e) => {
-            console.log('파일 내용:', e.target.result); // 파일 내용을 콘솔에 출력
-          };
-    
-          reader.readAsArrayBuffer(file); // 파일 내용을 ArrayBuffer로 읽기
+            // 파일 URL 생성
+            const imageURL = URL.createObjectURL(file);
+            setImgURL(imageURL); // 이미지 미리보기 URL 상태로 저장
+
+            //   console.log('파일 이름:', file.name);
+            //   console.log('파일 크기:', (file.size / 1024).toFixed(2), 'KB');
+            //   console.log('파일 타입:', file.type);
+            //   console.log('마지막 수정 시간 (타임스탬프):', file.lastModified);
+            //   console.log('마지막 수정 시간 (Date 객체):', file.lastModifiedDate);
+
+            // FileReader를 사용하여 파일 내용 읽기
+            const reader = new FileReader();
+
+            reader.onload = (e) => {
+                const fileInfo = {
+                    name: file.name,           // 파일 이름
+                    size: file.size,           // 파일 크기
+                    type: file.type,           // MIME 타입
+                    content: e.target.result,  // 파일 내용 (ArrayBuffer 또는 Base64 등)
+                };
+                setFinalImg(fileInfo);
+            };
+
+            reader.readAsArrayBuffer(file); // 파일 내용을 ArrayBuffer로 읽기
         }
-      };
+    };
+
+    useEffect(() => {
+        const fetchMyModifyData = async () => {
+            try {
+                const response = await fetch(`${api}/my/modify`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        user: myInfo.unique,
+                        image: finalImg,
+                        username: finalUsernameInputValue,
+                        introduce: finalIntroduceInputValue,
+                        gender: finalGender,
+                        age: finalAge,
+                        range: isOn,
+                    })
+                });
+                if (response.status === 200) {
+                    console.log("status 200");
+                } else {
+                    console.log("Response status not 200");
+                }
+                
+            } catch (error) {
+                console.log(error);
+            }
+        };
+
+        fetchMyModifyData();
+    }, [finalImg, finalUsernameInputValue, finalIntroduceInputValue, finalGender, finalAge, isOn])
+
 
     return(
         <body className='my_profile_info-container'>
@@ -141,10 +204,10 @@ const My_profile_info = () => {
             <div className='my_profile_info_img_content'>
                 {
                     imgURL === null ? (
-                        finalGender === male ? (
+                        defaultGender === male ? (
                             <IoMdPerson className='my_profile_info_profile_default_male_img'/>
                         ) : (
-                            finalGender === female ? (
+                            defaultGender === female ? (
                                 <IoMdPerson className='my_profile_info_profile_default_female_img'/>
                             ) : (
                                 <IoMdPerson className='my_profile_info_profile_default_unselected_img'/>
@@ -169,7 +232,7 @@ const My_profile_info = () => {
                                 style={{ display: 'none' }}
                             />
                         </div>
-                        <div onClick={() => setImgURL(null)} className='my_profile_info_img_delete_content'>
+                        <div onClick={() => {setImgURL(null); setFinalImg(null);}} className='my_profile_info_img_delete_content'>
                             <label className='my_profile_info_img_delete'>Delete</label>
                         </div>
                     </div>
@@ -186,7 +249,7 @@ const My_profile_info = () => {
                             <label className='my_profile_info_detail_username_modify_title'>Username </label>
                         </div>
                         <div className='my_profile_info_detail_username_container'>
-                            <input value={usernameInputValue} onChange={handleUsernameChange} type='text' className='my_profile_info_detail_username_modify_text_container'>
+                            <input placeholder={defaultUsernameInputValue} onChange={handleUsernameChange} type='text' className='my_profile_info_detail_username_modify_text_container'>
                             </input>
                         </div>
                         <div className='my_profile_info_detail_username_modify_container'>
@@ -223,7 +286,7 @@ const My_profile_info = () => {
                             <label className='my_profile_info_detail_introduce_modify_title'>Introduce</label>
                         </div>
                         <div className='my_profile_info_detail_introduce_container'>
-                            <input placeholder={introduceInputValue} onChange={handleIntroduceChange} type='text' className='my_profile_info_detail_introduce_modify_text_container'>
+                            <input placeholder={defaultIntroduceInputValue} onChange={handleIntroduceChange} type='text' className='my_profile_info_detail_introduce_modify_text_container'>
                             </input>
                         </div>
 
@@ -233,7 +296,7 @@ const My_profile_info = () => {
                             </div>
                             <div className='my_profile_info_detail_introduce_modify_blank' />
                             <div onClick={() => {setIntroduceChangeBtn(false); handleFinalIntroduceSaveBtn();}} className='my_profile_info_detail_introduce_modify_save_content'>
-                                <label  className='my_profile_info_detail_introduce_modify_save'>Save</label>
+                                <label className='my_profile_info_detail_introduce_modify_save'>Save</label>
                             </div>
                         </div>
                     </>
@@ -244,7 +307,7 @@ const My_profile_info = () => {
                         </div>
                         <div className='my_profile_info_detail_introduce_container'>
                             <div className='my_profile_info_detail_introduce_content'>
-                                <label className='my_profile_info_detail_introduce'>Introduce Yourself</label>
+                                <label className='my_profile_info_detail_introduce'>{defaultIntroduceInputValue}</label>
                             </div>
                             <div onClick={() => setIntroduceChangeBtn(true)} className='my_profile_info_detail_introduce_change_content'>
                                 <label className='my_profile_info_detail_introduce_change'>Change</label>
@@ -259,7 +322,7 @@ const My_profile_info = () => {
                 </div>
                 <div className='my_profile_info_detail_gender_container'>
                     <div className='my_profile_info_detail_gender_content'>
-                        <label className={`my_profile_info_detail_gender_label ${genderValue === "male" ? "maleSelected" : ""}`}>
+                        <label className={`my_profile_info_detail_gender_label ${defaultGender === "male" ? "maleSelected" : ""}`}>
                             <input
                                 type="radio"
                                 name="gender"
@@ -270,7 +333,7 @@ const My_profile_info = () => {
                             Male
                         </label>
                         <div className='my_profile_info_detail_gender_label_blank'></div>
-                        <label className={`my_profile_info_detail_gender_label ${genderValue === "female" ? "femaleSelected" : ""}`}>
+                        <label className={`my_profile_info_detail_gender_label ${defaultGender === "female" ? "femaleSelected" : ""}`}>
                             <input
                                 type="radio"
                                 name="gender"
@@ -281,7 +344,7 @@ const My_profile_info = () => {
                             Female
                         </label>
                         <div className='my_profile_info_detail_gender_label_blank'></div>
-                        <label className={`my_profile_info_detail_gender_label ${genderValue === "unselected" ? "unselectedSelected" : ""}`}>
+                        <label className={`my_profile_info_detail_gender_label ${defaultGender === "unselected" ? "unselectedSelected" : ""}`}>
                             <input
                                 type="radio"
                                 name="gender"
@@ -303,7 +366,7 @@ const My_profile_info = () => {
                 </div>
                 <div className='my_profile_info_detail_age_container'>
                     <div className='my_profile_info_detail_age_content'>
-                        <label className={`my_profile_info_detail_age_label ${ageValue === "teenager" ? "selected" : ""}`}>
+                        <label className={`my_profile_info_detail_age_label ${defaultAge === "teenager" ? "selected" : ""}`}>
                             <input
                                 type="radio"
                                 name="age"
@@ -314,7 +377,7 @@ const My_profile_info = () => {
                             Teenager
                         </label>
                         <div className='my_profile_info_detail_age_label_blank'></div>
-                        <label className={`my_profile_info_detail_age_label ${ageValue === "twenties" ? "selected" : ""}`}>
+                        <label className={`my_profile_info_detail_age_label ${defaultAge === "twenties" ? "selected" : ""}`}>
                             <input
                                 type="radio"
                                 name="age"
@@ -325,7 +388,7 @@ const My_profile_info = () => {
                             Twenties
                         </label>
                         <div className='my_profile_info_detail_age_label_blank'></div>
-                        <label className={`my_profile_info_detail_age_label ${ageValue === "thirties" ? "selected" : ""}`}>
+                        <label className={`my_profile_info_detail_age_label ${defaultAge === "thirties" ? "selected" : ""}`}>
                             <input
                                 type="radio"
                                 name="age"
@@ -336,7 +399,7 @@ const My_profile_info = () => {
                             Thirties
                         </label>
                         <div className='my_profile_info_detail_age_label_blank'></div>
-                        <label className={`my_profile_info_detail_age_label ${ageValue === "overforty" ? "selected" : ""}`}>
+                        <label className={`my_profile_info_detail_age_label ${defaultAge === "overforty" ? "selected" : ""}`}>
                             <input
                                 type="radio"
                                 name="age"
@@ -347,7 +410,7 @@ const My_profile_info = () => {
                             Over forty
                         </label>
                         <div className='my_profile_info_detail_age_label_blank'></div>
-                        <label className={`my_profile_info_detail_age_label ${ageValue === "unselected" ? "selected" : ""}`}>
+                        <label className={`my_profile_info_detail_age_label ${defaultAge === "unselected" ? "selected" : ""}`}>
                             <input
                                 type="radio"
                                 name="age"

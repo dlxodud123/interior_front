@@ -12,24 +12,44 @@ const My_info = () => {
     let [profileSettingBtn, setProfileSettingBtn] = useState(false);
     let [friendSettingBtn, setFriendSettingBtn] = useState(false);
     
-    let [myInfo, setMyInfo] = useState(
-        { unique: '1', image: '사진', email: 'xodud5080@naver.com', introduce:'안녕하세요', username: '이태영', gender: 'male', age: 'twenties', range: 'public' },
-    );
-    let [myFriendsInfo, setMyFriendsInfo] = useState([
-        { unique: '1', image: '사진', username: '이태영', gender: 'male', age: 'twenties', range: 'public' },
-        { unique: '2', image: 'default', username: '전영호', gender: 'male', age: 'thirties', range: 'public' },
-        { unique: '3', image: 'default', username: '김하영', gender: 'female', age: 'twenties', range: 'private' },
-        { unique: '4', image: '사진', username: '박민수', gender: 'unselected', age: 'twenties', range: 'public' },
-        { unique: '5', image: 'default', username: '이준영', gender: 'unselected', age: 'twenties', range: 'private' },
-        { unique: '6', image: 'default', username: '최은지', gender: 'female', age: 'thirties', range: 'public' },
-        { unique: '7', image: '사진', username: '정지훈', gender: 'male', age: 'twenties', range: 'public' },
-        { unique: '8', image: 'default', username: '오지혜', gender: 'female', age: 'twenties', range: 'private' },
-        { unique: '9', image: 'default', username: '김우빈', gender: 'male', age: 'thirties', range: 'public' },
-        { unique: '10', image: 'default', username: '한소희', gender: 'unselected', age: 'twenties', range: 'public' },
-        { unique: '11', image: 'default', username: '신예은', gender: 'female', age: 'twenties', range: 'public' }
-    ]);
+    let myInfoDummy =  { unique: '1', image: 'default', email: 'xodud5080@naver.com', introduce:'안녕하세요', username: '이태영', gender: 'male', age: 'twenties', range: 'public' };
+
+    let [myInfo, setMyInfo] = useState({});
+
+    useEffect(() => {
+        setMyInfo(myInfoDummy);
+
+        const fetchMyData = async () => {
+            try {
+                const response = await fetch(`${api}/my`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        user: localStorage.getItem('userToken')
+                    })
+                });
+
+                if (response.status === 200) {
+                    setMyInfo(response.data);
+                } else {
+                    console.log("Response status not 200");
+                }
+                
+            } catch (error) {
+                console.log(error);
+            }
+        };
+
+        fetchMyData();
+    }, [])
+
 
     function securityEmail(email) {
+        if (!email) {
+            return "Unknown"; // 또는 기본값을 반환
+        }
         const [localPart, domain] = email.split('@');
         const maskedLocalPart = localPart.slice(0, 2) + '*'.repeat(localPart.length - 2);
         return `${maskedLocalPart}@${domain}`;
@@ -85,9 +105,9 @@ const My_info = () => {
                 </div>
             </div>
             <div className='my_info_detail_friend_container'>
-                <My_info_detail my={myInfo}></My_info_detail>
+                <My_info_detail></My_info_detail>
                 <div className='my_info_gap'></div>
-                <My_info_friend friends={myFriendsInfo}></My_info_friend>
+                <My_info_friend></My_info_friend>
             </div>
         </body>
     )

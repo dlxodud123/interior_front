@@ -1,15 +1,42 @@
 import './../css/my_info_detail.css';
 import { MyContext } from '../../../App';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 const My_info_detail = (props) => {
     const { api } = useContext(MyContext);
 
-    // let [myInfo, setMyInfo] = useState(
-    //     { unique: '1', image: '사진', email: 'xodud5080@naver.com', introduce:'안녕하세요', username: '이태영', gender: 'male', age: 'twenties', range: 'public' },
-    // );
+    let myInfoDummy =  { unique: '1', image: '사진', email: 'xodud5080@naver.com', introduce:'안녕하세요', username: '이태영', gender: 'male', age: 'twenties', range: 'public' };
     
-    let [myInfo, setMyInfo] = useState(props.my);
+    let [myInfo, setMyInfo] = useState({});
+
+    useEffect(() => {
+        setMyInfo(myInfoDummy);
+
+        const fetchMyData = async () => {
+            try {
+                const response = await fetch(`${api}/my`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        user: localStorage.getItem('userToken')
+                    })
+                });
+
+                if (response.status === 200) {
+                    setMyInfo(response.data);
+                } else {
+                    console.log("Response status not 200");
+                }
+                
+            } catch (error) {
+                console.log(error);
+            }
+        };
+
+        fetchMyData();
+    }, [])
 
     return(
         <div className='my_info_content'>

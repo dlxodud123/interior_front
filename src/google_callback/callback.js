@@ -30,9 +30,11 @@ const Callback = () => {
         return response.json(); // JSON 형태로 응답 변환
         })
         .then((userInfo) => {
-        console.log('사용자 정보: ', userInfo);
-        console.log('사용자 이메일: ', userInfo.email);
-        console.log('사용자 이름: ', userInfo.name)
+        // console.log('사용자 정보: ', userInfo);
+        // console.log('사용자 이메일: ', userInfo.email);
+        // console.log('사용자 이름: ', userInfo.name)
+        console.log("구글 토큰 : ", userInfo.sub)
+        localStorage.setItem("userToken", userInfo.sub)
         // 사용자 정보를 상태에 저장하거나 처리
         })
         .catch((error) => {

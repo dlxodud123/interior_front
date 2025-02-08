@@ -4,17 +4,18 @@ import { useEffect, useRef, useState } from 'react';
 import io from "socket.io-client";
 
 const socket = io("https://video.random-chat.site");
+// const socket = io("http://localhost:20000");
 
 const Randomvideo_info = () => {
     const navigate = useNavigate();
     const hasAlerted = useRef(false);
-    // useEffect(() => {
-    //     if (!hasAlerted.current && !localStorage.getItem('userToken')) {
-    //         hasAlerted.current = true;
-    //         alert("로그인 후 이용해주세요.");
-    //         navigate('/login')
-    //     }
-    // }, [])
+    useEffect(() => {
+        if (!hasAlerted.current && !localStorage.getItem('userToken')) {
+            hasAlerted.current = true;
+            alert("로그인 후 이용해주세요.");
+            navigate('/login')
+        }
+    }, [])
 
     const localVideoRef = useRef(null); // 자신의 비디오
     const remoteVideoRef = useRef(null); // 상대방의 비디오

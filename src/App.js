@@ -13,14 +13,13 @@ import Randomvideo_form from './randomvideo/js/randomvideo_form'
 
 import Test from './test/test';
 import Front from './quiz/js/front';
-import Back from './quiz/js/back';
 
 // Context 생성
 export const MyContext = createContext();
 
 const MyProvider = ({ children }) => {
     const [api] = useState('https://api.random-chat.site');
-    const [socket] = useState('wss://api.random-chat.site')
+    const [socket] = useState('wss://api.random-chat.site');
     const [googleLogin, setGoogleLogin] = useState(false);
     const [kakaoLogin, setKakaoLogin] = useState(false);
 
@@ -58,7 +57,6 @@ function App() {
           <Route path='/test' element={<Test></Test>}></Route>
 
           <Route path='/front' element={<Front></Front>}></Route>
-          <Route path='/back' element={<Back></Back>}></Route>
         </Routes>
       </div>
     </MyProvider>

@@ -10,19 +10,51 @@ import { IoMdPersonAdd } from "react-icons/io";
 const My_friend_info = () => {
     const { api } = useContext(MyContext);
 
-    let [friendsInfo, setFriendsInfo] = useState([
-        { unique: '1', image: '사진', username: '이태영', gender: 'male', age: 'twenties', range: 'public' },
+    let myFriendDummy = [
+        { unique: '1', image: 'default', username: '이태영', gender: 'male', age: 'twenties', range: 'public' },
         { unique: '2', image: 'default', username: '전영호', gender: 'male', age: 'thirties', range: 'public' },
         { unique: '3', image: 'default', username: '김하영', gender: 'female', age: 'twenties', range: 'private' },
-        { unique: '4', image: '사진', username: '박민수', gender: 'unselected', age: 'twenties', range: 'public' },
-        { unique: '5', image: 'default', username: '이준영', gender: 'male', age: 'twenties', range: 'private' },
+        { unique: '4', image: 'default', username: '박민수', gender: 'female', age: 'twenties', range: 'public' },
+        { unique: '5', image: '사진', username: '이준영', gender: 'unselected', age: 'twenties', range: 'public' },
         { unique: '6', image: 'default', username: '최은지', gender: 'female', age: 'thirties', range: 'public' },
         { unique: '7', image: '사진', username: '정지훈', gender: 'male', age: 'twenties', range: 'public' },
         { unique: '8', image: 'default', username: '오지혜', gender: 'female', age: 'twenties', range: 'private' },
         { unique: '9', image: 'default', username: '김우빈', gender: 'male', age: 'thirties', range: 'public' },
         { unique: '10', image: 'default', username: '한소희', gender: 'unselected', age: 'twenties', range: 'public' },
         { unique: '11', image: 'default', username: '신예은', gender: 'female', age: 'twenties', range: 'public' }
-    ]);
+    ];
+
+    let [myFriendsInfo, setMyFriendsInfo] = useState([]);
+
+    useEffect(() => {
+        setMyFriendsInfo(myFriendDummy);
+
+        const fetchMyFriendData = async () => {
+            try {
+                const response = await fetch(`${api}/friend`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        user: localStorage.getItem('userToken')
+                    })
+                });
+
+                if (response.status === 200) {
+                    setMyFriendsInfo(response.data);
+                } else {
+                    console.log("Response status not 200");
+                }
+                
+            } catch (error) {
+                console.log(error);
+            }
+        };
+
+        fetchMyFriendData();
+    }, [])
+
     
     // searchTerm 상태를 추가하여 검색어를 관리
     const [searchTerm, setSearchTerm] = useState("");
@@ -30,7 +62,7 @@ const My_friend_info = () => {
     const friendsPerPage = 5; // 페이지당 친구 수
     
     // 검색된 친구 목록 필터링
-    const filteredFriends = friendsInfo.filter(friend =>
+    const filteredFriends = myFriendsInfo.filter(friend =>
         friend.username.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
@@ -51,9 +83,28 @@ const My_friend_info = () => {
         setCurrentPage(1); // 검색어가 변경될 때 페이지를 첫 페이지로 초기화
     };
 
-    useEffect(() => {
-        console.log("페이지 수 : ", friendPage);
-    }, [friendPage]);
+    const fetchFriendDelete = async (unique) => {
+        try {
+            const response = await fetch(`${api}/friend/delete`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    user: unique,
+                })
+            });
+
+            if (response.status === 200) {
+                console.log("Response status 200");
+            } else {
+                console.log("Response status not 200");
+            }
+            
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     return(
         <body className='my_friend_info-container'>
@@ -98,7 +149,7 @@ const My_friend_info = () => {
                     </div>
                 </div>
                 {
-                    friendsInfo.length === 0 ? (
+                    myFriendsInfo.length === 0 ? (
                         <div className='my_friend_info_detail_none_friend_content'>
                             <IoMdPersonAdd className='my_friend_info_detail_none_friend' />
                             <div className='my_friend_info_detail_none_friend_gap'></div>
@@ -121,7 +172,7 @@ const My_friend_info = () => {
                                             </div>
                                             <div className='my_friend_info_detail_delete_container'>
                                                 <div className='my_friend_info_detail_delete_content'>
-                                                    <label className='my_friend_info_detail_delete'>Delete</label>
+                                                    <label onClick={() => {fetchFriendDelete(friend.unique);}} className='my_friend_info_detail_delete'>Delete</label>
                                                 </div>
                                             </div>
                                         </>
@@ -155,7 +206,7 @@ const My_friend_info = () => {
                                             </div>
                                             <div className='my_friend_info_detail_delete_container'>
                                                 <div className='my_friend_info_detail_delete_content'>
-                                                    <label className='my_friend_info_detail_delete'>Delete</label>
+                                                    <label onClick={() => {fetchFriendDelete(friend.unique);}} className='my_friend_info_detail_delete'>Delete</label>
                                                 </div>
                                             </div>
                                         </>

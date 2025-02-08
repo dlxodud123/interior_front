@@ -16,17 +16,13 @@ const Header = () => {
     let [loginBtn, setLoginBtn] = useState(false);
     let [signupBtn, setSignupBtn] = useState(false);
 
-    useEffect(() => {
-        // console.log("구글 로그인 확인용: ", googleLogin);
-        // console.log("카카오톡 로그인 확인용: ", kakaoLogin);
-        // console.log("사이트 로그인 확인용: ", siteLogin);
-    }, [googleLogin, kakaoLogin, siteLogin])
-
     const handelLogout = () => {
         if (googleLogin) {
             setGoogleLogin(false);
+            localStorage.removeItem('userToken')
         }else if (kakaoLogin) {
             setKakaoLogin(false);
+            localStorage.removeItem('userToken')
         }else if (siteLogin) {
             setSiteLogin(false);
             localStorage.removeItem('userToken')
@@ -69,7 +65,7 @@ const Header = () => {
             <div className='header_top'>
                 <div className='header_my'>
                     {
-                        googleLogin || kakaoLogin || siteLogin ? 
+                        googleLogin || kakaoLogin || siteLogin ?
                         <div className='header_my_container'>
                             <FaUserCircle onClick={() => setMyBtn(true)} className='header_my_content'/>
                         </div>
@@ -89,8 +85,6 @@ const Header = () => {
                                 Logout
                             </div>
                             <div className='header_chat_gap'></div>
-                            {/* <div className='header_chat_content'></div> */}
-                            {/* <BsChatDotsFill onClick={() => setChatBtn(true)} className='header_chat'/> */}
                         </>
                         :
                         <>
@@ -102,7 +96,6 @@ const Header = () => {
                                 SignUp
                             </div>
                             <div className='header_chat_gap'></div>
-                            {/* <div className='header_chat_content'></div> */}
                         </>
                     }
                 </div>

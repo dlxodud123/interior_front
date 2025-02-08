@@ -45,14 +45,10 @@ const Front = () => {
             setQuizInfo((frontTechnologyTypescriptData));setQuizNum(0);
             if (easy) { setQuizAnswer(true) } else{ setQuizAnswer(false);setQuizInfo(randomArray(frontTechnologyTypescriptData));}
         }
-        // if (categorySelect === 7) {
-        //     setQuizInfo(randomArray(frontPortfolioData));setQuizNum(0);
-        //     if (easy) { setQuizAnswer(true) } else{ setQuizAnswer(false); }
-        // }
-        // if (categorySelect === 20) {
-        //     setQuizInfo(randomArray(frontCompanyData)); setQuizNum(0);
-        //     if (easy) { setQuizAnswer(true) } else{ setQuizAnswer(false); }
-        // }
+        if (categorySelect === 7) {
+            setQuizInfo(randomArray(frontPortfolioData));setQuizNum(0);
+            if (easy) { setQuizAnswer(true) } else{ setQuizAnswer(false); }
+        }
     }, [categorySelect, easy])
 
     return(
@@ -83,9 +79,6 @@ const Front = () => {
                     <div onClick={() => setCategorySelect(7)} style={{ color: categorySelect === 7 ? '#3578FF' : '', backgroundColor: categorySelect === 7 ? 'white' : '' }} className='front_category'>
                         Portfolio
                     </div>
-                    {/* <div onClick={() => setCategorySelect(20)} style={{ color: categorySelect === 3 ? '#3578FF' : '', backgroundColor: categorySelect === 3 ? 'white' : '' }} className='front_category'>
-                        기업
-                    </div> */}
                 </div>
             </div>
             <div className='front_quiz_level_content'>
