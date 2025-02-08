@@ -76,9 +76,7 @@ const Randomvideo_info = () => {
         if (!peerConnection && localStream) {
           console.log("PeerConnection not initialized");
           console.log("Creating new RTCPeerConnection for:", roomId);
-
           const pc = new RTCPeerConnection({
-            // iceTransportPolicy: "relay",
             iceServers: [
               {urls: "stun:stun.l.google.com:19302"}, 
               {
